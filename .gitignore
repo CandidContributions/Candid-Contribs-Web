@@ -24,3 +24,72 @@
 
 # Ignore the Models Builder models out of date flag
 **/App_Data/Models/ood.flag
+
+**.vs/*
+**/.vs/**
+build/tools/**
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+
+*.map
+*.orig
+*.rej
+
+# Build results
+
+[Dd]ebug/
+[Rr]elease/
+x64/
+[Oo]bj/
+
+packages/
+
+# =========================
+# Windows detritus
+# =========================
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Mac desktop service store files
+.DS_Store
+
+# =========================
+# Files in bin folders
+# =========================
+**/[Bb]in/*
+!**/[Bb]in/*.lic
+
+# =========================
+# Umbraco
+# =========================
+**/Umbraco/*
+!**/Umbraco/Config/Create/UI.xml
+
+**/Umbraco_Client/*
+**/Import/*
+**/App_Data/umbraco.config
+**/App_Data/preview/*.config
+**/App_Data/TEMP/*
+**/App_Data/Logs/*
+**/App_Data/umbraco.licensing.log.txt
+**/aspnet_client/
+**/App_Data/*.udt
+**/App_Data/NuGetBackup/*
+
+# =========================
+# Umbraco media
+# =========================
+**/media/*
+**/media/web.config
+
