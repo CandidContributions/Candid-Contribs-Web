@@ -93,3 +93,10 @@ $RECYCLE.BIN/
 **/media/*
 **/media/web.config
 
+# =========================
+# Grunt, Sass & Bower
+# =========================
+**/node_modules
+**/node_modules/*
+**/.sass-cache
+**/.sass-cache/*
