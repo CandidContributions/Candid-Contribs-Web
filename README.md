@@ -1,4 +1,4 @@
-# Candid-Contribs-Web
+# Candid Contributions Website
 
 ## Front-End Notes
 
