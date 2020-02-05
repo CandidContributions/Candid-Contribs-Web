@@ -322,6 +322,7 @@
     <Content Include="Views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
     <Content Include="Views\_Master.cshtml" />
     <Content Include="Views\Home.cshtml" />
+    <None Include="Web.ConnectionStrings.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -355,6 +356,10 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Target Name="BeforeBuild">
+    <!-- Create website Web.ConnectionStrings.config file from the template if it doesn't exist -->
+    <Copy SourceFiles="$(ProjectDir)..\templates\Web.ConnectionStrings.Template.config" DestinationFiles="$(ProjectDir)Web.ConnectionStrings.config" OverwriteReadOnlyFiles="true" SkipUnchangedFiles="false" Condition="!Exists('$(ProjectDir)Web.Connectionstrings.config')" />
+  </Target>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
@@ -368,8 +373,6 @@
   <Import Project="..\packages\UmbracoCms.8.5.3\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.8.5.3\build\UmbracoCms.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
   <Target Name="AfterBuild">
   </Target>
   -->
