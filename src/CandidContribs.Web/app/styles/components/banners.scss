@@ -1,5 +1,5 @@
 .home-banner {
-  background: url("../../images/bgs/main_banner.png") no-repeat top left;
+  background: url("../../images/bgs/main_banner.png") no-repeat top center;
   height: auto;
   padding: 30px 0;
 
@@ -15,6 +15,42 @@
 }
 
 .codepatch {
-  //background: url("../../images/codepatch_banner_1920x456.png") no-repeat top left;
-  height: auto;
+  background: url("../../images/codepatch_banner_1920x456.png") no-repeat top center;
+  padding-bottom: 30rem;
+
+  img {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .home-banner  {
+    &--subtitle {
+      width: 100%;
+    }
+  }
+
+  .codepatch {
+    background: none;
+    padding-bottom: 0;
+
+    img {
+      display: inline-block;
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    padding-bottom: 20px;
+  }
+
+  .home-banner  {
+    &--subtitle {
+      padding-bottom: 20px;
+      font-size: $base-size;
+    }
+  }
 }

@@ -4,8 +4,6 @@ header {
 }
 
 .header-layout {
-  margin: auto;
-  width: 60%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,7 +25,7 @@ header {
     }
     li {
       display: inline-block;
-      padding-right: 20px;
+      padding-left: 20px;
 
       a {
         color: $white;
@@ -38,6 +36,14 @@ header {
           color: $athens;
         }
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header-layout {
+    &--title {
+      display: none;
     }
   }
 }

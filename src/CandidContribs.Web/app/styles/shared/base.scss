@@ -9,14 +9,25 @@
     &--padded {
         padding: 40px 0;
     }
+
+    &--padded-bottom {
+        padding: 0;
+        padding-bottom: 40px;
+    }
 }
 
 .align--center {
     text-align: center;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1366px) {
     .main-content {
         width: 80%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .main-content {
+        width: 90%;
     }
 }

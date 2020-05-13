@@ -301,6 +301,7 @@
     <Content Include="images\bgs\main_banner.png" />
     <Content Include="images\codepatch_banner_1920x456.png" />
     <Content Include="images\codepatch_carrot_300x300.png" />
+    <Content Include="images\codepatch_logo_600x300.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo_white.png" />
     <Content Include="images\team.png" />
@@ -367,7 +368,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51175</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51175/</IISUrl>
+          <IISUrl>http://localhost:51375/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
