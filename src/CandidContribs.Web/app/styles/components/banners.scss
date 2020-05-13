@@ -18,7 +18,7 @@
   background: url("../../images/codepatch_banner_1920x456.png") no-repeat top center;
   padding-bottom: 30rem;
 
-  img {
+  .mobile-deets img {
     display: none;
   }
 }
@@ -34,7 +34,7 @@
     background: none;
     padding-bottom: 0;
 
-    img {
+    .mobile-deets img {
       display: inline-block;
       width: 100%;
       max-width: 400px;
