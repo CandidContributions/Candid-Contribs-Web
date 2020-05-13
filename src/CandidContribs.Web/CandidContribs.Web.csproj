@@ -299,6 +299,7 @@
     <Content Include="Global.asax" />
     <Content Include="images\bgs\footer_banner.png" />
     <Content Include="images\bgs\main_banner.png" />
+    <Content Include="images\ccbrand_1200x630.png" />
     <Content Include="images\codepatch_banner_1920x456.png" />
     <Content Include="images\codepatch_carrot_300x300.png" />
     <Content Include="images\codepatch_logo_600x300.png" />
@@ -344,6 +345,7 @@
     <Content Include="Views\Partials\_Footer.cshtml" />
     <Content Include="Views\Partials\Forms\_Mailchimp_CodePatchSignUp.cshtml" />
     <Content Include="Views\Partials\_HomepageBanner.cshtml" />
+    <Content Include="Views\Partials\_MetaTags.cshtml" />
     <None Include="Web.ConnectionStrings.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
