@@ -1,0 +1,42 @@
+.btn {
+  padding: 5px 10px;
+  border: 2px solid $mineshaft;
+  border-radius: 4px; 
+  font-weight: 400;
+  display: inline-block;
+  text-transform: uppercase;
+
+  &--link, &--input {
+    &:hover {
+      color: $black;
+    }
+  }
+
+  &--link {
+    display: flex;
+    align-items: center;
+    text-decoration: none; 
+    color: $mineshaft;
+    padding-right: 10px;
+  }
+
+  &--input {
+    padding: 8px 20px;
+  }
+
+  &:hover {
+    border: 2px solid $black;
+  }
+
+  &--dark-green {
+    border: 2px solid $parsley;
+    &--link {
+      color: $parsley;
+    }
+  }
+
+  i {
+    padding-right: 20px;
+  }
+
+}

@@ -62,7 +62,9 @@ module.exports = {
                         // Interprets CSS
                         loader: 'css-loader',
                         options: {
-                            importLoaders: 2
+                            importLoaders: 2,
+                            url: false,
+                            sourceMap: true
                         }
                     },
                     {

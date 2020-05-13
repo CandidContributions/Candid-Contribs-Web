@@ -1,0 +1,21 @@
+#mc_embed_signup {
+  background: $basegrey;
+  clear: left;
+
+  form {
+    padding: 0;
+  }
+
+  input#mc-embedded-subscribe { 
+    margin: 0;
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid $mineshaft;
+    border-radius: 4px;
+
+    &:hover {
+      border: 2px solid $black;
+    }
+  }
+}
+

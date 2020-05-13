@@ -5,7 +5,8 @@ $visual-grid-color: grey;
 $visual-grid-index: front;
 $visual-grid-opacity: 0;
 
-//$fg-gutter: 10px;
+// font sizes
+$base-size: 16px;
 
 // Change the grid settings
 $max-width: 1230px;
@@ -27,31 +28,23 @@ $black: black;
 $primary: black;
 
 $offblack: #323232;
+$basegrey: #ededed;
 
 // obtained via http://chir.ag/projects/name-that-color/
 
-//$sapphire: #1825aa;
-$sapphire: rgba(24, 37, 170, 1);
-$sapphire-opacity: rgba(24, 37, 170, 0.8);
-$white-two: #fafafa;
-$white-three: #e7e7e7;
-$white-three-opacity: rgba(231, 231, 231, 0.25);
-$white-four: #f3f3f3;
-$pale-teal: #85c598;
-$light-teal: rgba(133, 197, 152, 0.4);
-$dark-blue: #0e1880;
-$alto: #d9d9d9;
-$red: #ff0000;
-$mariner: #3366cc;
-$gallery: #efefef;
-$boulder: #757575;
-$azure: #00a9e6;
-$gold: #b79b5f;
-$darkgold: #8f7c52;
-$grey: #626262;
-$lightgrey: #ccc;
-$gold-slightly-darker: #AF914F;
-$gold-darker: #8D733D;
+$parsley: #196127;
+$forest: #239A3B;
+$mantis: #7BC96F;
+$yellowGreen: #C6E48B;
+
+$laura: #91244D;
+$lotte: #2861A8;
+$carole: #1F1646;
+$emma: #FFC365;
+
+$finlandia: #596056;
+$mineshaft: #333333;
+$athens: #EBEDF0;
 
 $porcelain: #f3f4fb;
 $subnav-bg: $porcelain;

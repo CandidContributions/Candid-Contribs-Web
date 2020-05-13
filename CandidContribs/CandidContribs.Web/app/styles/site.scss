@@ -1,9 +1,16 @@
-@import "shared/reset.scss";
-
-@import "variables/breakpoints.scss";
 @import "variables/settings.scss";
+@import "variables/breakpoints.scss";
 
-@import "shared/base.scss";
+@import "shared/reset.scss";
 @import "shared/typography.scss";
+@import "shared/base.scss";
+@import "shared/links.scss";
+@import "shared/button.scss";
 
 @import "pages/home.scss";
+
+@import "forms/mailchimp/mailchimp.scss";
+
+@import "components/header.scss";
+@import "components/footer.scss";
+@import "components/banners.scss";

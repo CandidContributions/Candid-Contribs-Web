@@ -297,7 +297,13 @@
     <Content Include="content\js\css.js" />
     <Content Include="content\js\site.js" />
     <Content Include="Global.asax" />
-    <Content Include="images\mw1920_candid_contribs_logo.png" />
+    <Content Include="images\bgs\footer_banner.png" />
+    <Content Include="images\bgs\main_banner.png" />
+    <Content Include="images\codepatch_banner_1920x456.png" />
+    <Content Include="images\codepatch_carrot_300x300.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo_white.png" />
+    <Content Include="images\team.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -319,6 +325,8 @@
     <Content Include="content\js\css.js.map" />
     <Content Include="content\js\site.js.map" />
     <Content Include="App_Plugins\RobotsTxtEditor\package.manifest" />
+    <Content Include="content\fonts\lauramidweight-webfont.woff" />
+    <Content Include="content\fonts\lauramidweight-webfont.woff2" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
@@ -331,6 +339,10 @@
     <Content Include="Views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
     <Content Include="Views\_Master.cshtml" />
     <Content Include="Views\Home.cshtml" />
+    <Content Include="Views\Partials\_Header.cshtml" />
+    <Content Include="Views\Partials\_Footer.cshtml" />
+    <Content Include="Views\Partials\Forms\_Mailchimp_CodePatchSignUp.cshtml" />
+    <Content Include="Views\Partials\_HomepageBanner.cshtml" />
     <None Include="Web.ConnectionStrings.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

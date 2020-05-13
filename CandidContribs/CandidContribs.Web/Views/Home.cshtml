@@ -1,23 +1,23 @@
 ﻿@{
-	Layout = "_Master.cshtml";
+    Layout = "_Master.cshtml";
 }
 
-<div class="logo">
-    <img src="../images/mw1920_candid_contribs_logo.png" alt="Candid Contributions" />
+@Html.Partial("_HomepageBanner")
+
+<div class="main-content main-content--padded">
+
+    <h2 class="intro-text cancon-hand">Hello, and <b>welcome</b> to Candid Contributions!</h2>
+    <p class="intro-text">This is the home of the aptly named podcast where four experienced developers talk all things open source: from code contributions to conference attendance; we aim to cover all aspects of life as an active member of an open-source community.</p>
+
+    <div class="align--center">
+        <p>Search for "Candid Contributions" in your podcast app, or <a href="https://www.spreaker.com/show/candidcontributions">listen online</a></p>
+
+        <img src="/images/team.png" alt="candid contribs team" />
+    </div>
 </div>
 
-<p class="intro-text">
-    Hello, and welcome to Candid contributions - the somewhat aptly named podcast where four experienced developers talk all things open source.
-    From code contributions to conference attendance; we aim to cover all aspects of life as an active member of an open-source community.
-</p>
+<h2 class="section-header cancon-hand align--center">Upcoming events</h2>
 
-<p style="text-align: center;">Search for "Candid Contributions" in your podcast app, or <a href="https://www.spreaker.com/show/candidcontributions">listen online</a></p>
-
-<br/>
-
-<p class="intro-text">** VIRTUAL HACKATHON - APRIL 10-11 **</p>
-
-<p style="text-align: center;">
-    Visit <a href="https://attending.io/events/candid-contributions-hackathon">our event page on Attending.io</a>
-    to read more about our plans and to sign up.
-</p>
+<div class="codepatch">
+    <img src="/images/codepatch_banner_1920x456.png" alt="codepatch banner"/>
+</div>

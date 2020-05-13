@@ -1,3 +1,26 @@
-.title {
-    font-size: 2rem;
+@font-face {
+    font-family: 'lauramidweightmedium';
+    src: url('../../../content/fonts/lauramidweight-webfont.woff2') format('woff2'),
+         url('../../../content/fonts/lauramidweight-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, input {
+    font-family: source-sans-pro, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: $mineshaft;
+    font-size: $base-size;
+}
+    
+.cancon-hand {
+    font-family: 'lauramidweightmedium', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.section-header {
+    margin: 30px 0;
+    font-size: 2*$base-size;
 }

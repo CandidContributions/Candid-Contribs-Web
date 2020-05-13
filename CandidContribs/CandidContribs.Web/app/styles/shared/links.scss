@@ -1,0 +1,13 @@
+.link {
+
+  &--icon {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 5px 0;
+
+    i, img {
+      padding-right: 10px;
+    }
+  }
+}

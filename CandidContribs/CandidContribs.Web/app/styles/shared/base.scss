@@ -1,6 +1,18 @@
+.title {
+    font-size: 2rem;
+}
+
 .main-content {
     margin:auto;
     width: 60%;
+
+    &--padded {
+        padding: 40px 0;
+    }
+}
+
+.align--center {
+    text-align: center;
 }
 
 @media only screen and (max-width: 767px) {
