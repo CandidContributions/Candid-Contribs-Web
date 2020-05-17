@@ -1,0 +1,63 @@
+﻿<section class="component schedule has-background">
+    <h2 class="center">Schedule</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 filters">
+                <div>
+                    <label>Timezone</label>
+                    <select>
+                        <option value="1">+1:00 BST</option>
+                        <option value="0">+0:00 GMT</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Days</label>
+                    <div>
+                        <input type="checkbox" id="Friday" /> <label for="Friday">Friday</label>
+                        <input type="checkbox" id="Saturday" /> <label for="Saturday">Saturday</label>
+                    </div>
+                </div>
+
+                <div>
+                    <label>Activities</label>
+                    <div>
+                        <input type="checkbox" id="Hackathon" /> <label for="Hackathon">Hackathon</label>
+                        <input type="checkbox" id="LightningTalks" /> <label for="LightningTalks">Lightning talks</label>
+                        <input type="checkbox" id="GuidedConversations" /> <label for="GuidedConversations">Guided conversations</label>
+                        <input type="checkbox" id="CommunityHours" /> <label for="CommunityHours">Community hours</label>
+                        <input type="checkbox" id="FirstTimerSessions" /> <label for="FirstTimerSessions">First timer sessions</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 slots">
+                <div class="day">
+                    <p class="day--title">Friday</p>
+                    <ul class="day--slots">
+                        <li class="slot">
+                            <p class="slot--time">15:00 - 16:00</p>
+                            <p class="slot--title">Welcome and catch-ups</p>
+                            <ul class="slot--tags">
+                                <li>Community hours</li>
+                                <li>First timers</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="day">
+                    <p class="day--title">Saturday</p>
+                    <ul class="day--slots">
+                        <li class="slot">
+                            <p class="slot--time">11:00 - 11:30</p>
+                            <p class="slot--title">Lightning talk by Joe Bloggs: "Lorem ipsum"</p>
+                            <ul class="slot--tags">
+                                <li>Lightning talks</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

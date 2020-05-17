@@ -1,3 +1,5 @@
+@import "external/simple-grid.scss";
+
 @import "variables/settings.scss";
 @import "variables/breakpoints.scss";
 
@@ -14,3 +16,4 @@
 @import "components/header.scss";
 @import "components/footer.scss";
 @import "components/banners.scss";
+@import "components/component.scss";

@@ -328,11 +328,23 @@
     <Content Include="images\bgs\main_banner.png" />
     <Content Include="images\ccbrand_1200x630.png" />
     <Content Include="images\codepatch_banner_1920x456.png" />
+    <Content Include="images\codepatch_bg_1920x304.png" />
     <Content Include="images\codepatch_carrot_300x300.png" />
     <Content Include="images\codepatch_logo_600x300.png" />
+    <Content Include="images\high-five.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo_white.png" />
+    <Content Include="images\people\carole_round.png" />
+    <Content Include="images\people\emma_round.png" />
+    <Content Include="images\people\laura_round.png" />
+    <Content Include="images\people\lotte_round.png" />
     <Content Include="images\team.png" />
+    <Content Include="images\tools\Discord-Logo-Color.svg" />
+    <Content Include="images\tools\GitHub-Mark-120px-plus.png" />
+    <Content Include="images\tools\trello-mark-circle.png" />
+    <Content Include="images\tools\visualstudio_logo2.png" />
+    <Content Include="images\tools\youtube_logo2.png" />
+    <Content Include="images\tools\zoom.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -377,6 +389,12 @@
     <Content Include="Views\Partials\_HomepageBanner.cshtml" />
     <Content Include="Views\Partials\_MetaTags.cshtml" />
     <Content Include="Views\EventsPage.cshtml" />
+    <Content Include="Views\Partials\_EventsPageBanner.cshtml" />
+    <Content Include="Views\Partials\Components\_ImageText.cshtml" />
+    <Content Include="Views\Partials\Components\_Speakers.cshtml" />
+    <Content Include="Views\Partials\Components\_Schedule.cshtml" />
+    <Content Include="Views\Partials\Components\_Tools.cshtml" />
+    <Content Include="Views\Partials\Components\_EventSignUp.cshtml" />
     <None Include="Web.ConnectionStrings.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

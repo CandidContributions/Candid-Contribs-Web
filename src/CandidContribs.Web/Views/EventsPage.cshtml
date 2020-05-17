@@ -1,3 +1,45 @@
 ﻿@{
     Layout = "_Master.cshtml";
 }
+
+@Html.Partial("_EventsPageBanner")
+
+<nav class="container">
+    <ul class="row">
+        <li>
+            <a href="#about">
+                <i class="material-icons">emoji_food_beverage</i> About
+            </a>
+        </li>
+        <li>
+            <a href="#about">
+                <i class="material-icons">people</i> Speakers
+            </a>
+        </li>
+        <li>
+            <a href="#about">
+                <i class="material-icons">calendar_today</i> Schedule
+            </a>
+        </li>
+        <li>
+            <a href="#about">
+                <i class="material-icons">emoji_objects</i> Tools
+            </a>
+        </li>
+        <li>
+            <a href="#about">
+                <i class="material-icons">check_box</i> Sign up
+            </a>
+        </li>
+    </ul>
+</nav>
+
+@Html.Partial("Components/_ImageText")
+
+@Html.Partial("Components/_Speakers")
+
+@Html.Partial("Components/_Schedule")
+
+@Html.Partial("Components/_Tools")
+
+@Html.Partial("Components/_EventSignUp")
