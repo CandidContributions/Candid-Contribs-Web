@@ -1,5 +1,7 @@
-.title {
-    font-size: 2rem;
+.main-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .main-content {
@@ -18,6 +20,10 @@
 
 .align--center {
     text-align: center;
+}
+
+.title {
+    font-size: 2rem;
 }
 
 @media only screen and (max-width: 1366px) {
