@@ -3,14 +3,14 @@
     <div class="row">
         <div class="col-6 filters">
             <div>
-                <label>Timezone</label>
+                <label class="title">Timezone</label>
                 <select id="tzSelect">
                     <option each={ tz in state.timezoneFilters } value={ tz.alias } selected={ tz.selected }>{ tz.text }</option>
                 </select>
             </div>
 
             <div>
-                <label>Days</label>
+                <label class="title">Days</label>
                 <div each={ (dayFilter, dayIdx) in state.dayFilters } key={ dayIdx }>
                     <label for="{ dayFilter.value }">
                       <input type="checkbox" id="{ dayFilter.value }" checked={ dayFilter.checked } onclick={ () => toggleChecked(dayFilter) } /> { momentConvertDate(dayFilter.text) } (Pt { dayIdx + 1 })
@@ -19,7 +19,7 @@
             </div>
 
             <div>
-                <label>Activities</label>
+                <label class="title">Activities</label>
                 <div each={ (activity, actIdx) in state.activityFilters } key={ actIdx }>
                   <label for="{ activity.text }">
                     <input type="checkbox" id="{ activity.text }" checked={ activity.checked } onclick={ () => toggleChecked(activity) } /> { activity.text }
