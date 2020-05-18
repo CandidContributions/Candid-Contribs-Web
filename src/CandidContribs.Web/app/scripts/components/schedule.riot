@@ -94,7 +94,6 @@
             this.update({
               dayFilters: dayData
             })
-            console.table(dayData)
           })
         //get activity filters
         fetch('/umbraco/api/ScheduleApi/GetActivities')
@@ -118,7 +117,7 @@
         tzSelect.addEventListener('change', (event) => this.tzChanged(event));
       },
       onUpdated() {
-        console.log("hello")
+        // updated
       },
       momentConvertDate(dt) {
         return moment.tz(dt, this.state.currentTimezone).format("dddd Do MMM")

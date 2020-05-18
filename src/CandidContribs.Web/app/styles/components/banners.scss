@@ -14,6 +14,49 @@
   }
 }
 
+.events-banner {
+  display: block;
+  height: 304px;
+  background: url("../../images/codepatch_bg_1920x304.png") no-repeat top center;
+
+  img {
+    //width: 70%;
+    max-width: 100%
+  }
+
+  &--icon {
+    display: flex;
+    padding-top: 16px;
+
+    .type-image {
+      display: inline-block;
+      height: 75px;
+      width: 75px;
+      background-color: $mineralgreen;
+      color: $pearlbush;
+      text-align: center;
+      vertical-align: middle;
+
+      i {
+        font-size: 4rem;
+        padding: 7px;
+      }
+    }
+    .type-details {
+      &--label {
+        text-transform: uppercase;
+        color: $mineralgreen;
+        font-size: $base-size;
+        margin: 0 0 0 10px;
+        display: inline-block;
+      }
+      p {
+      margin: 5px 0 5px 10px;
+      }
+    }
+  }
+}
+
 .codepatch {
   background: url("../../images/codepatch_banner_1920x456.png") no-repeat top center;
   padding-bottom: 30rem;

@@ -1,0 +1,23 @@
+.events-nav {
+  ul {
+    display: flex;
+    justify-content: center;
+    li {
+      margin: 0 20px;
+
+      a {
+        text-decoration: none;
+        display: flex;
+        color: $donjuan;
+
+        &:hover {
+          color: darken( $donjuan, 20% )
+        }
+
+        span {
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+}
