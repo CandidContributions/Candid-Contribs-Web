@@ -33,6 +33,16 @@ module.exports = {
         // will be created
         rules: [
             {
+                test: /\.riot$/,
+                exclude: /node_modules/,
+                use: [{
+                    loader: '@riotjs/webpack-loader',
+                    options: {
+                        hot: true
+                    }
+                }]
+            },
+            {
                 // Look for JavaScript files and process them according to the
                 // rules specified in the different loaders
                 test: /\.(js)$/,

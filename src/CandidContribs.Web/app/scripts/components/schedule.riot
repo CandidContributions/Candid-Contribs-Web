@@ -1,0 +1,148 @@
+<schedule>
+  <div class="container">
+    <div class="row">
+        <div class="col-6 filters">
+            <div>
+                <label>Timezone</label>
+                <select id="tzSelect">
+                    <option each={ tz in state.timezoneFilters } value={ tz.alias } selected={ tz.selected }>{ tz.text }</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Days</label>
+                <div each={ (dayFilter, dayIdx) in state.dayFilters } key={ dayIdx }>
+                    <label for="{ dayFilter.value }">
+                      <input type="checkbox" id="{ dayFilter.value }" checked={ dayFilter.checked } onclick={ () => toggleChecked(dayFilter) } /> { momentConvertDate(dayFilter.text) } (Pt { dayIdx + 1 })
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <label>Activities</label>
+                <div each={ (activity, actIdx) in state.activityFilters } key={ actIdx }>
+                  <label for="{ activity.text }">
+                    <input type="checkbox" id="{ activity.text }" checked={ activity.checked } onclick={ () => toggleChecked(activity) } /> { activity.text }
+                  </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6 slots">
+            <div class="day" each={ (day, dayIdx) in state.scheduleData } key={ day.dayTitle } if={ checkForMatchingDayOpt(day.dayTitle) }>
+                <p class="day--title">{ momentConvertDate(day.eventStart) } (Pt { dayIdx + 1 })</p>
+                <ul class="day--slots">
+                    <li class="slot" each={ (slot, idx) in day.entries } key={ idx } if={ checkForMatchingTags(slot.tags) }>
+                        <p class="slot--time">{ momentConvertTime(slot.start) } - { momentConvertTime(slot.end) }</p>
+                        <p class="slot--title">{ slot.title }</p>
+                        <ul class="slot--tags">
+                            <li each={ (tag, tagIdx) in slot.tags } key={ tagIdx }>{ tag }</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  <script>
+    var moment = require('moment');
+    var moment = require('moment-timezone');
+    
+    export default {
+      state: {
+        scheduleData: [],
+        dayFilters: [],
+        activityFilters: [],
+        currentTimezone: "Europe/London",
+        timezoneFilters: [
+          {"alias": "Pacific/Samoa", "text": "Samoa", "selected": false},
+          {"alias": "Pacific/Honolulu", "text": "Honolulu", "selected": false},
+          {"alias": "America/Los_Angeles", "text": "Los Angeles", "selected": false},
+          {"alias": "America/Denver", "text": "Denver", "selected": false},
+          {"alias": "America/Chicago", "text": "Chicago", "selected": false},
+          {"alias": "America/New_York", "text": "New York", "selected": false},
+          {"alias": "America/Halifax", "text": "Halifax", "selected": false},
+          {"alias": "America/St_Johns", "text": "Newfoundland", "selected": false},
+          {"alias": "America/Godthab", "text": "Greenland", "selected": false},
+          {"alias": "Atlantic/Reykjavik", "text": "Reykjavik", "selected": false},
+          {"alias": "Europe/London", "text": "London", "selected": true},
+          {"alias": "Europe/Brussels", "text": "Brussels", "selected": false},
+          {"alias": "Europe/Copenhagen", "text": "Copenhagen", "selected": false},
+          {"alias": "Europe/Warsaw", "text": "Warsaw", "selected": false},
+          {"alias": "Europe/Athens", "text": "Athens", "selected": false},
+          {"alias": "Asia/Istanbul", "text": "Istanbul", "selected": false},
+          {"alias": "Europe/Moscow", "text": "Moscow", "selected": false},
+          {"alias": "Asia/Dubai", "text": "Dubai", "selected": false},
+          {"alias": "Asia/Tehran", "text": "Tehran", "selected": false},
+          {"alias": "Asia/Kabul", "text": "Kabul", "selected": false},
+          {"alias": "Asia/Kolkata", "text": "Kolkata", "selected": false},
+          {"alias": "Asia/Bangkok", "text": "Bangkok", "selected": false},
+          {"alias": "Asia/Hong_Kong", "text": "Hong Kong", "selected": false},
+          {"alias": "Australia/Perth", "text": "Perth", "selected": false},
+          {"alias": "Asia/Seoul", "text": "Seoul", "selected": false},
+          {"alias": "Australia/Brisbane", "text": "Brisbane", "selected": false},
+          {"alias": "Australia/Sydney", "text": "Sydney", "selected": false},
+          {"alias": "Pacific/Auckland", "text": "Auckland", "selected": false}
+        ]
+      },
+      onBeforeMount() {
+        //get day filters
+        fetch('/umbraco/api/ScheduleApi/GetDays')
+          .then(dayResponse => dayResponse.json())
+          .then(dayData => {
+            this.update({
+              dayFilters: dayData
+            })
+            console.table(dayData)
+          })
+        //get activity filters
+        fetch('/umbraco/api/ScheduleApi/GetActivities')
+          .then(response => response.json())
+          .then(actData => {
+            this.update({
+              activityFilters: actData
+            })
+          })
+        //get schedule
+        fetch('/umbraco/api/ScheduleApi/GetSchedule')
+          .then(response => response.json())
+          .then(data => {
+            this.update({
+              scheduleData: data
+            })
+          })
+      },
+      onMounted() {
+        const tzSelect = document.querySelector('#tzSelect');
+        tzSelect.addEventListener('change', (event) => this.tzChanged(event));
+      },
+      onUpdated() {
+        console.log("hello")
+      },
+      momentConvertDate(dt) {
+        return moment.tz(dt, this.state.currentTimezone).format("dddd Do MMM")
+      },
+      momentConvertTime(dt) {
+        return moment.tz(dt, this.state.currentTimezone).format("HH:mm")
+      },
+      toggleChecked(item) {
+        item.checked = !item.checked
+        this.update()
+      },
+      checkForMatchingTags(tags) {
+        var matchingTags = tags.filter(tag => {
+          return this.state.activityFilters.find(x => x.text === tag && x.checked)
+        })
+        return matchingTags.length > 0
+      },
+      checkForMatchingDayOpt(day) {
+        return this.state.dayFilters.find(x => x.value === day && x.checked)
+      },
+      tzChanged(event) {
+        this.state.currentTimezone = event.target.value
+        this.update()
+      }
+    }
+  </script>
+</schedule>

@@ -348,6 +348,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Api\ScheduleApiController.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Models\Enum\ScheduleEntryTags.cs" />
+    <Compile Include="Models\Api\DaySchedule.cs" />
+    <Compile Include="Models\Api\DayScheduleEntry.cs" />
+    <Compile Include="Models\Shared\CheckBoxViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
