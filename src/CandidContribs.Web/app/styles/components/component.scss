@@ -8,4 +8,44 @@
   img {
     max-width: 100%;
   }
+
+  &.tools {
+    a {
+      text-decoration: none;
+        color: $donjuan;
+
+        &:hover {
+          color: darken( $donjuan, 20% )
+        }
+    }
+
+    ul {
+      li a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 290px;
+        justify-content: flex-end;
+
+        img {
+          
+        }
+      }
+    }
+  }
+
+  &.event-sign-up {
+    a {
+      text-decoration: none;
+      color: $pearlbush;
+
+      &:hover {
+        color: darken( $pearlbush, 20% );
+      }
+    }
+
+    #mc_embed_signup {
+      background: $donjuan;
+    }
+  }
 }
