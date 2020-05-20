@@ -2,39 +2,39 @@
   <div class="container">
     <div class="row">
         <div class="col-6 filters">
-            <div>
+            <div class="filter">
                 <label class="title">Timezone</label>
                 <select id="tzSelect">
                     <option each={ tz in state.timezoneFilters } value={ tz.alias } selected={ tz.selected }>{ tz.text }</option>
                 </select>
             </div>
 
-            <div>
+            <div class="filter">
                 <label class="title">Days</label>
-                <div each={ (dayFilter, dayIdx) in state.dayFilters } key={ dayIdx }>
-                    <label for="{ dayFilter.value }">
-                      <input type="checkbox" id="{ dayFilter.value }" checked={ dayFilter.checked } onclick={ () => toggleChecked(dayFilter) } /> { momentConvertDate(dayFilter.text) } (Pt { dayIdx + 1 })
-                    </label>
+                <div each={ (dayFilter, dayIdx) in state.dayFilters } key={ dayIdx } class="filter--opts">
+                    <input type="checkbox" id={ dayFilter.value } />
+                    <label for={ dayFilter.value } onclick={ () => toggleChecked(dayFilter) }> { momentConvertDate(dayFilter.text) } (Pt { dayIdx + 1 })</label>
                 </div>
             </div>
 
-            <div>
+            <div class="filter">
                 <label class="title">Activities</label>
-                <div each={ (activity, actIdx) in state.activityFilters } key={ actIdx }>
-                  <label for="{ activity.text }">
-                    <input type="checkbox" id="{ activity.text }" checked={ activity.checked } onclick={ () => toggleChecked(activity) } /> { activity.text }
-                  </label>
+                <div each={ (activity, actIdx) in state.activityFilters } key={ actIdx } class="filter--opts">
+                  <input type="checkbox" id="{ activity.text }" />
+                  <label for="{ activity.text }" onclick={ () => toggleChecked(activity) }>{ activity.text }</label>
                 </div>
             </div>
         </div>
 
         <div class="col-6 slots">
             <div class="day" each={ (day, dayIdx) in state.scheduleData } key={ day.dayTitle } if={ checkForMatchingDayOpt(day.dayTitle) }>
-                <p class="day--title">{ momentConvertDate(day.eventStart) } (Pt { dayIdx + 1 })</p>
+                <p class="title day--title">{ momentConvertDate(day.eventStart) } (Pt { dayIdx + 1 })</p>
                 <ul class="day--slots">
                     <li class="slot" each={ (slot, idx) in day.entries } key={ idx } if={ checkForMatchingTags(slot.tags) }>
-                        <p class="slot--time">{ momentConvertTime(slot.start) } - { momentConvertTime(slot.end) }</p>
-                        <p class="slot--title">{ slot.title }</p>
+                        <div class="slot--details">
+                          <p class="slot--time">{ momentConvertTime(slot.start) } - { momentConvertTime(slot.end) }</p>
+                          <p class="slot--title">{ slot.title }</p>
+                        </div>
                         <ul class="slot--tags">
                             <li each={ (tag, tagIdx) in slot.tags } key={ tagIdx }>{ tag }</li>
                         </ul>
@@ -133,10 +133,22 @@
         var matchingTags = tags.filter(tag => {
           return this.state.activityFilters.find(x => x.text === tag && x.checked)
         })
-        return matchingTags.length > 0
+        var activitiesSelected = this.state.activityFilters.find(x => x.checked)
+        return matchingTags.length > 0 || !activitiesSelected
       },
       checkForMatchingDayOpt(day) {
-        return this.state.dayFilters.find(x => x.value === day && x.checked)
+        var matchingDay = this.state.dayFilters.find(x => x.value === day && x.checked)
+        if (matchingDay) return true
+
+        var daysSelected = this.state.dayFilters.find(x => x.checked)
+
+        return !daysSelected
+      },
+      noDaysOrNoActivitiesSelected() {
+        var daysSelected = this.state.dayFilters.find(x => x.checked)
+        var activitiesSelected = this.state.activityFilters.find(x => x.checked)
+        console.log(daysSelected, activitiesSelected, !daysSelected || !activitiesSelected)
+        return !daysSelected || !activitiesSelected
       },
       tzChanged(event) {
         this.state.currentTimezone = event.target.value

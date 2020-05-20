@@ -6,8 +6,11 @@
     font-style: normal;
 }
 
+$source: source-sans-pro, sans-serif;
+$laura: 'lauramidweightmedium', sans-serif;
+
 body, input {
-    font-family: source-sans-pro, sans-serif;
+    font-family: $source;
     font-weight: 300;
     font-style: normal;
     color: $mineshaft;
@@ -15,7 +18,7 @@ body, input {
 }
     
 .cancon-hand {
-    font-family: 'lauramidweightmedium', sans-serif;
+    font-family: $laura;
     margin: 0;
     padding: 0;
 }

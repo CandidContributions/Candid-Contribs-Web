@@ -99,13 +99,13 @@ namespace CandidContribs.Web.Controllers.Api
         public IEnumerable<CheckBoxViewModel> GetDays()
         {
             return _codePatchSchedule.Select(
-                s => new CheckBoxViewModel {Text = s.EventStart.ToString("O"), Value = s.DayTitle, Checked = true});
+                s => new CheckBoxViewModel {Text = s.EventStart.ToString("O"), Value = s.DayTitle, Checked = false});
         }
 
         public IEnumerable<CheckBoxViewModel> GetActivities()
         {
             var activities = EnumExtensions<ScheduleEntryTags>.GetDisplayNames(ScheduleEntryTags.Hackathon);
-            return activities.Select(x => new CheckBoxViewModel { Text = x, Value = x, Checked = true });
+            return activities.Select(x => new CheckBoxViewModel { Text = x, Value = x, Checked = false });
         }
 
         public IEnumerable<DaySchedule> GetSchedule()

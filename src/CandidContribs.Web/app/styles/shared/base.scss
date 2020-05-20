@@ -26,6 +26,10 @@
     font-size: 2rem;
 }
 
+.hidden {
+    display: none;
+}
+
 @media only screen and (max-width: 1366px) {
     .main-content {
         width: 80%;

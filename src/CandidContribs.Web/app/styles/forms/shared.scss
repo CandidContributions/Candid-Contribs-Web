@@ -1,0 +1,101 @@
+input[type="text"], select {
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  color: $mineralgreen;
+  font-family: $source;
+  background-color: $athens;
+  font-weight: 300;
+  border: none;
+
+  &:focus {
+    border: none;
+  }
+}
+
+select {
+  option {
+    color: $mineralgreen;
+    font-family: $source;
+    font-weight: 300;  
+  }
+}
+
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.35em;
+  height: 1.35em;
+  background: $donjuan;
+  opacity: 0.4;
+  border-radius: 4px;
+  font-family: $source;
+}
+
+[type="checkbox"]:checked + label:before {
+  opacity: 1;
+}
+
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '\2713\0020';
+  position: absolute;
+  top: .28em;
+  left: .28em;
+  font-size: 1em;
+  font-weight: 900;
+  line-height: 0.8;
+  color: $bayleaf;
+  transition: all .2s;
+  font-family: $source;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+/* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+}
+[type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+[type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+/* accessibility */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+  border: none;
+}
+
+/* hover style just for information */
+label:hover:before {
+  border: 1px solid $bayleaf!important;
+  opacity: 0.4;
+}

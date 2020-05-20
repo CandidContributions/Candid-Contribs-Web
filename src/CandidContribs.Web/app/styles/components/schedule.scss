@@ -1,5 +1,99 @@
 .filters {
-  label.title {
-    display: block;
+  padding: 20px 0;
+  
+  .filter {
+    margin-bottom: 20px;
+
+    .title {
+      display: block;
+      font-family: $laura;
+      margin-bottom: 10px;
+    }
+
+    &--opts {
+      margin-bottom: 5px;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.slots {
+  margin: 0;
+  display: block;
+  position: relative;
+  padding: 20px;
+  border-radius: 4px;
+  z-index: 5;
+
+  .day {
+    color: $mineshaft;
+
+    &:not(:last-child) {
+      padding-bottom: 10px;
+      border-bottom: 1px solid $mineralgreen;
+      margin-bottom: 20px;
+    }
+
+    &--title {
+      color: $donjuan;
+      font-family: $laura;
+      font-weight: 900;
+      line-height: 2.8rem;
+      margin: 0
+    }
+
+    &--slots {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .slot {
+    &--details {
+      display: flex;
+    }
+
+    &--time {
+      flex-basis: 7rem;
+      margin-bottom: 0;
+      font-weight: normal;
+    }
+
+    &--title {
+      margin-left: 20px;
+      flex-basis: 84%;
+      margin-bottom: 0;
+      font-weight: normal;
+    }
+
+    &--tags {
+      margin: 0;
+      padding: 0;
+      text-align: right;
+      margin: 5px 0 16px 10px;
+
+      li {
+        display: inline-block;
+        border-radius: 16px;
+        background-color: $donjuan;
+        color: $athens;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        padding: 5px 10px;
+      }
+    }
+  }
+
+  &::after {
+    content: "";
+    background-color: $pearlbush;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    border-radius: 10px;
+    z-index: -1;
   }
 }
