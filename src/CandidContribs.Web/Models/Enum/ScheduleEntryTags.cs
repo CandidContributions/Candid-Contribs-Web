@@ -6,8 +6,8 @@ namespace CandidContribs.Web.Models.Enum
     {
         [Display(Name = "Hackathon")]
         Hackathon,
-        [Display(Name = "Lightning talks")]
-        LightningTalks,
+        [Display(Name = "Lightning talk")]
+        LightningTalk,
         [Display(Name = "Guided conversation")]
         GuidedConversation,
         [Display(Name = "Community time")]

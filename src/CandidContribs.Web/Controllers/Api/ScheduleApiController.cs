@@ -65,7 +65,7 @@ namespace CandidContribs.Web.Controllers.Api
                         {
                             Title = "Welcome and catch-ups",
                             Tags = new List<string>
-                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.CommunityTime)}
+                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.CommunityTime), EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.FirstTimerSession)}
                         },
                         new DayScheduleEntry(
                             new DateTime(2020, 5, 30, 9, 00, 0, DateTimeKind.Utc),
@@ -87,10 +87,10 @@ namespace CandidContribs.Web.Controllers.Api
                             new DateTime(2020, 5, 30, 10, 30, 0, DateTimeKind.Utc),
                             new DateTime(2020, 5, 30, 11, 00, 0, DateTimeKind.Utc))
                         {
-                            Title = "Talk: 'Lorem Ipsum dolor sit amet est acquiem era est ipsum or et adminutum'",
+                            Title = "Lorem Ipsum dolor sit amet est acquiem era est ipsum or et adminutum",
                             Speaker = "Jessica Smith",
                             Tags = new List<string>
-                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.LightningTalks)}
+                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.LightningTalk)}
                         }
                     }
                 }

@@ -59,20 +59,28 @@
       font-weight: normal;
     }
 
-    &--title {
+    &--info {
       margin-left: 20px;
-      flex-basis: 84%;
-      margin-bottom: 0;
+      flex-basis: 84%;     
+    }
+
+    &--title {    
       font-weight: normal;
+      margin-bottom: 0;
+    }
+
+    &--speaker {
+      margin-bottom: 0;
+      margin-top: 5px;
     }
 
     &--tags {
       margin: 0;
       padding: 0;
       text-align: right;
-      margin: 5px 0 16px 10px;
 
       li {
+        margin: 5px 0 16px 10px;
         display: inline-block;
         border-radius: 16px;
         background-color: $donjuan;

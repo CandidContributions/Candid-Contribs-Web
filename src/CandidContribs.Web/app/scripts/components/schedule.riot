@@ -33,7 +33,10 @@
                     <li class="slot" each={ (slot, idx) in day.entries } key={ idx } if={ checkForMatchingTags(slot.tags) }>
                         <div class="slot--details">
                           <p class="slot--time">{ momentConvertTime(slot.start) } - { momentConvertTime(slot.end) }</p>
-                          <p class="slot--title">{ slot.title }</p>
+                          <div class="slot--info">
+                            <p class="slot--title">{ slot.title }</p>
+                            <p class="slot--speaker" if={ slot.speaker }>By { slot.speaker }</p>
+                          </div>
                         </div>
                         <ul class="slot--tags">
                             <li each={ (tag, tagIdx) in slot.tags } key={ tagIdx }>{ tag }</li>
