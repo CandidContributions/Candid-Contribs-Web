@@ -172,7 +172,7 @@ namespace CandidContribs.Web.Controllers.Api
                         },
                         new DayScheduleEntry(
                             new DateTime(2020, 5, 30, 18, 0, 0, DateTimeKind.Utc),
-                            new DateTime(2020, 5, 30, 19, 0, 0, DateTimeKind.Utc))
+                            new DateTime(2020, 5, 30, 20, 0, 0, DateTimeKind.Utc))
                         {
                             Title = "BetaPatch: show off your packages!",
                             //Speaker = "Callum Whyte",
@@ -180,10 +180,10 @@ namespace CandidContribs.Web.Controllers.Api
                                 {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.CommunityTime)}
                         },
                         new DayScheduleEntry(
-                            new DateTime(2020, 5, 30, 19, 0, 0, DateTimeKind.Utc),
+                            new DateTime(2020, 5, 30, 20, 0, 0, DateTimeKind.Utc),
                             new DateTime(2020, 5, 30, 22, 0, 0, DateTimeKind.Utc))
                         {
-                            Title = "Hack time / party time ... til bed time",
+                            Title = "Hack time / party time ... til bed time!",
                             Tags = new List<string>
                                 {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.Hackathon)}
                         },
