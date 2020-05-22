@@ -28,6 +28,10 @@
         height: 290px;
         justify-content: start;
 
+        @media only screen and (max-width: $breakpoint-med) {
+          height: 190px;
+        }
+
         img {
           height: 120px;
         }
