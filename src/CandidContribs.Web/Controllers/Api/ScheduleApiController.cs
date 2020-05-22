@@ -25,33 +25,61 @@ namespace CandidContribs.Web.Controllers.Api
                             new DateTime(2020, 5, 29, 14, 0, 0, DateTimeKind.Utc),
                             new DateTime(2020, 5, 29, 15, 0, 0, DateTimeKind.Utc))
                         {
-                            Title = "Welcome and introductions",
+                            Title = "A Level 5 Welcome!",
                             Tags = new List<string>
                                 {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.CommunityTime)}
                         },
                         new DayScheduleEntry(
                             new DateTime(2020, 5, 29, 15, 0, 0, DateTimeKind.Utc),
+                            new DateTime(2020, 5, 29, 16, 0, 0, DateTimeKind.Utc))
+                        {
+                            Title = "First timers session / What to hack",
+                            Tags = new List<string>
+                            {
+                                EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.FirstTimerSession),
+                                EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.Hackathon)
+                            }
+                        },
+                        new DayScheduleEntry(
+                            new DateTime(2020, 5, 29, 16, 0, 0, DateTimeKind.Utc),
+                            new DateTime(2020, 5, 29, 17, 0, 0, DateTimeKind.Utc))
+                        {
+                            Title = "Guided conversation: Community",
+                            //Speaker = "Carole Logan",
+                            Tags = new List<string>
+                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.GuidedConversation)}
+                        },
+                        new DayScheduleEntry(
+                            new DateTime(2020, 5, 29, 17, 0, 0, DateTimeKind.Utc),
                             new DateTime(2020, 5, 29, 18, 0, 0, DateTimeKind.Utc))
                         {
-                            Title = "Friday bar",
+                            Title = "Hack time / chat time",
+                            Tags = new List<string>
+                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.Hackathon)}
+                        },
+                        new DayScheduleEntry(
+                            new DateTime(2020, 5, 29, 18, 0, 0, DateTimeKind.Utc),
+                            new DateTime(2020, 5, 29, 19, 0, 0, DateTimeKind.Utc))
+                        {
+                            Title = "Community catch-ups",
                             Tags = new List<string>
                                 {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.CommunityTime)}
                         },
                         new DayScheduleEntry(
-                            new DateTime(2020, 5, 29, 18, 0, 0, DateTimeKind.Utc),
-                            new DateTime(2020, 5, 29, 18, 30, 0, DateTimeKind.Utc))
+                            new DateTime(2020, 5, 29, 19, 0, 0, DateTimeKind.Utc),
+                            new DateTime(2020, 5, 29, 20, 0, 0, DateTimeKind.Utc))
                         {
-                            Title = "Guided conversation: e.g. Open source",
+                            Title = "Hack time / chat time",
                             Tags = new List<string>
-                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.GuidedConversation)}
+                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.Hackathon)}
                         },
                         new DayScheduleEntry(
-                            new DateTime(2020, 5, 29, 18, 30, 0, DateTimeKind.Utc),
-                            new DateTime(2020, 5, 29, 19, 00, 0, DateTimeKind.Utc))
+                            new DateTime(2020, 5, 29, 20, 0, 0, DateTimeKind.Utc),
+                            new DateTime(2020, 5, 29, 22, 0, 0, DateTimeKind.Utc))
                         {
-                            Title = "Guided conversation: e.g. Imposter syndrome",
+                            Title = "Games night (or just keep coding!)",
                             Tags = new List<string>
-                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.GuidedConversation)}
+                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.Hackathon)}
                         }
                     }
                 },
@@ -60,26 +88,21 @@ namespace CandidContribs.Web.Controllers.Api
                     Entries = new List<DayScheduleEntry>
                     {
                         new DayScheduleEntry(
-                            new DateTime(2020, 5, 30, 8, 0, 0, DateTimeKind.Utc),
-                            new DateTime(2020, 5, 30, 9, 00, 0, DateTimeKind.Utc))
+                            new DateTime(2020, 5, 30, 08, 0, 0, DateTimeKind.Utc),
+                            new DateTime(2020, 5, 30, 09, 0, 0, DateTimeKind.Utc))
                         {
-                            Title = "Welcome and catch-ups",
+                            Title = "First timers session / What to hack",
                             Tags = new List<string>
-                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.CommunityTime), EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.FirstTimerSession)}
+                            {
+                                EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.FirstTimerSession),
+                                EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.Hackathon)
+                            }
                         },
                         new DayScheduleEntry(
-                            new DateTime(2020, 5, 30, 9, 00, 0, DateTimeKind.Utc),
-                            new DateTime(2020, 5, 30, 9, 30, 0, DateTimeKind.Utc))
+                            new DateTime(2020, 5, 30, 09, 0, 0, DateTimeKind.Utc),
+                            new DateTime(2020, 5, 30, 10, 0, 0, DateTimeKind.Utc))
                         {
-                            Title = "First-timer session",
-                            Tags = new List<string>
-                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.FirstTimerSession)}
-                        },
-                        new DayScheduleEntry(
-                            new DateTime(2020, 5, 30, 9, 30, 0, DateTimeKind.Utc),
-                            new DateTime(2020, 5, 30, 10, 30, 0, DateTimeKind.Utc))
-                        {
-                            Title = "Hackathon",
+                            Title = "Hack time / chat time",
                             Tags = new List<string>
                                 {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.Hackathon)}
                         },
@@ -87,11 +110,83 @@ namespace CandidContribs.Web.Controllers.Api
                             new DateTime(2020, 5, 30, 10, 30, 0, DateTimeKind.Utc),
                             new DateTime(2020, 5, 30, 11, 00, 0, DateTimeKind.Utc))
                         {
-                            Title = "Lorem Ipsum dolor sit amet est acquiem era est ipsum or et adminutum",
-                            Speaker = "Jessica Smith",
+                            Title = "Lightning talks - to be announced",
                             Tags = new List<string>
                                 {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.LightningTalk)}
-                        }
+                        },
+                        new DayScheduleEntry(
+                            new DateTime(2020, 5, 30, 11, 0, 0, DateTimeKind.Utc),
+                            new DateTime(2020, 5, 30, 12, 0, 0, DateTimeKind.Utc))
+                        {
+                            Title = "Hack time / chat time",
+                            Tags = new List<string>
+                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.Hackathon)}
+                        },
+                        new DayScheduleEntry(
+                        new DateTime(2020, 5, 30, 12, 0, 0, DateTimeKind.Utc),
+                        new DateTime(2020, 5, 30, 13, 0, 0, DateTimeKind.Utc))
+                        {
+                        Title = "Community catch-ups",
+                        Tags = new List<string>
+                            {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.CommunityTime)}
+                        },
+                        new DayScheduleEntry(
+                            new DateTime(2020, 5, 30, 13, 0, 0, DateTimeKind.Utc),
+                            new DateTime(2020, 5, 30, 14, 0, 0, DateTimeKind.Utc))
+                        {
+                            Title = "Hack time / chat time",
+                            Tags = new List<string>
+                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.Hackathon)}
+                        },
+                        new DayScheduleEntry(
+                            new DateTime(2020, 5, 30, 14, 0, 0, DateTimeKind.Utc),
+                            new DateTime(2020, 5, 30, 15, 0, 0, DateTimeKind.Utc))
+                        {
+                            Title = "Lightning talks - to be announced",
+                            Tags = new List<string>
+                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.LightningTalk)}
+                        },
+                        new DayScheduleEntry(
+                            new DateTime(2020, 5, 30, 15, 0, 0, DateTimeKind.Utc),
+                            new DateTime(2020, 5, 30, 16, 0, 0, DateTimeKind.Utc))
+                        {
+                            Title = "Hack time / chat time",
+                            Tags = new List<string>
+                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.Hackathon)}
+                        },
+                        new DayScheduleEntry(
+                            new DateTime(2020, 5, 30, 16, 0, 0, DateTimeKind.Utc),
+                            new DateTime(2020, 5, 30, 17, 0, 0, DateTimeKind.Utc))
+                        {
+                            Title = "Live recording of Candid Contributions episode 12: you're all the guests!",
+                            Tags = new List<string>
+                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.GuidedConversation)}
+                        },
+                        new DayScheduleEntry(
+                            new DateTime(2020, 5, 30, 17, 0, 0, DateTimeKind.Utc),
+                            new DateTime(2020, 5, 30, 18, 0, 0, DateTimeKind.Utc))
+                        {
+                            Title = "Hack time / chat time",
+                            Tags = new List<string>
+                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.Hackathon)}
+                        },
+                        new DayScheduleEntry(
+                            new DateTime(2020, 5, 30, 18, 0, 0, DateTimeKind.Utc),
+                            new DateTime(2020, 5, 30, 19, 0, 0, DateTimeKind.Utc))
+                        {
+                            Title = "BetaPatch: show off your packages!",
+                            //Speaker = "Callum Whyte",
+                            Tags = new List<string>
+                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.CommunityTime)}
+                        },
+                        new DayScheduleEntry(
+                            new DateTime(2020, 5, 30, 19, 0, 0, DateTimeKind.Utc),
+                            new DateTime(2020, 5, 30, 22, 0, 0, DateTimeKind.Utc))
+                        {
+                            Title = "Hack time / party time ... til bed time",
+                            Tags = new List<string>
+                                {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.Hackathon)}
+                        },
                     }
                 }
             };
