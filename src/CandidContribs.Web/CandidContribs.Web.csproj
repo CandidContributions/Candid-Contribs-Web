@@ -323,6 +323,7 @@
     <Content Include="content\css\site.min.css" />
     <Content Include="content\js\css.js" />
     <Content Include="content\js\site.js" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="images\bgs\footer_banner.png" />
     <Content Include="images\bgs\main_banner.png" />
@@ -377,6 +378,7 @@
     <Content Include="config\uSync8.config" />
     <Content Include="App_Plugins\uSync8\package.manifest" />
     <Content Include="App_Plugins\uSync8\addons.json" />
+    <Content Include="CandidContributions-CodeOfConduct.pdf" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
