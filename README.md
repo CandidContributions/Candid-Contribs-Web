@@ -2,7 +2,7 @@
 
 ![GitHub](https://img.shields.io/github/license/candidcontributions/Candid-Contribs-Web)
 
-The source of candidcontributions.com.
+The source of https://candidcontributions.com.
 
 ## Database Restore
 
