@@ -107,8 +107,8 @@ namespace CandidContribs.Web.Controllers.Api
                                 {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.Hackathon)}
                         },
                         new DayScheduleEntry(
-                            new DateTime(2020, 5, 30, 10, 30, 0, DateTimeKind.Utc),
-                            new DateTime(2020, 5, 30, 11, 00, 0, DateTimeKind.Utc))
+                            new DateTime(2020, 5, 30, 10, 0, 0, DateTimeKind.Utc),
+                            new DateTime(2020, 5, 30, 11, 0, 0, DateTimeKind.Utc))
                         {
                             Title = "Lightning talks - to be announced",
                             Tags = new List<string>
