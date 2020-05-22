@@ -61,7 +61,11 @@
 
     &--info {
       margin-left: 20px;
-      flex-basis: 84%;     
+      flex-basis: 84%;
+
+      @media only screen and (max-width: $breakpoint-med) {
+        flex-basis: 70%;
+      }  
     }
 
     &--title {    
