@@ -12,12 +12,15 @@
 }
 
 .events-nav {
+  clear: both;
+
   ul {
     display: flex;
     justify-content: center;
+
     li {
       margin: 0 20px;
-
+      
       a {
         text-decoration: none;
         font-size: $base-size*1.5;
@@ -32,6 +35,18 @@
         span {
           padding-left: 10px;
         }
+      }
+    }
+
+    @media only screen and (max-width: $breakpoint-large) {
+      display: block;
+      padding: 0;
+      border-top: 1px solid $donjuan;
+      padding-top: 20px;
+      margin: 20px 0;
+
+      li {
+        margin: 0;
       }
     }
   }
