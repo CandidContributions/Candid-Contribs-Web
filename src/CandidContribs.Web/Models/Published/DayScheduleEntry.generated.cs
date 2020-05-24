@@ -45,6 +45,13 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
+		/// Abstract
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("abstract")]
+		public global::System.Web.IHtmlString Abstract => this.Value<global::System.Web.IHtmlString>("abstract");
+
+		///<summary>
 		/// Duration (mins)
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
@@ -57,13 +64,6 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("hidden")]
 		public bool Hidden => this.Value<bool>("hidden");
-
-		///<summary>
-		/// Nickname: internal use only
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("nickname")]
-		public string Nickname => this.Value<string>("nickname");
 
 		///<summary>
 		/// Speakers
