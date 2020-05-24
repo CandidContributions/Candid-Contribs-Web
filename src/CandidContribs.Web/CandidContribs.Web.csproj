@@ -361,6 +361,7 @@
     <Compile Include="Models\Published\Image.generated.cs" />
     <Compile Include="Models\Published\Member.generated.cs" />
     <Compile Include="Models\Shared\CheckBoxViewModel.cs" />
+    <Compile Include="Models\Shared\EventSignUpViewModel.cs" />
     <Compile Include="Models\Shared\ImageTextViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

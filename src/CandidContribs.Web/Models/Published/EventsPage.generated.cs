@@ -45,10 +45,17 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// About Content: appears alongside the image in 'about' section (image currently hard-coded)
+		/// About content: appears alongside the image in 'about' section (image currently hard-coded)
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("aboutContent")]
 		public global::System.Web.IHtmlString AboutContent => this.Value<global::System.Web.IHtmlString>("aboutContent");
+
+		///<summary>
+		/// Sign up content: appears above the email input in 'Sign Up' section
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("signUpContent")]
+		public global::System.Web.IHtmlString SignUpContent => this.Value<global::System.Web.IHtmlString>("signUpContent");
 	}
 }
