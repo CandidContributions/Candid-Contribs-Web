@@ -19,72 +19,51 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace Umbraco.Web.PublishedModels
 {
-	/// <summary>Events page</summary>
-	[PublishedModel("eventsPage")]
-	public partial class EventsPage : PublishedContentModel
+	/// <summary>Day Schedule Entry</summary>
+	[PublishedModel("dayScheduleEntry")]
+	public partial class DayScheduleEntry : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		public new const string ModelTypeAlias = "eventsPage";
+		public new const string ModelTypeAlias = "dayScheduleEntry";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<EventsPage, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<DayScheduleEntry, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public EventsPage(IPublishedContent content)
+		public DayScheduleEntry(IPublishedElement content)
 			: base(content)
 		{ }
 
 		// properties
 
 		///<summary>
-		/// About content: appears alongside the image in 'about' section (image currently hard-coded)
+		/// Duration (mins)
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("aboutContent")]
-		public global::System.Web.IHtmlString AboutContent => this.Value<global::System.Web.IHtmlString>("aboutContent");
+		[ImplementPropertyType("durationMins")]
+		public decimal DurationMins => this.Value<decimal>("durationMins");
 
 		///<summary>
-		/// Entries
+		/// Hidden?: tick if you want to hide this entry
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("part1Entries")]
-		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.DayScheduleEntry> Part1Entries => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.DayScheduleEntry>>("part1Entries");
+		[ImplementPropertyType("hidden")]
+		public bool Hidden => this.Value<bool>("hidden");
 
 		///<summary>
-		/// Start date
+		/// Nickname: internal use only
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("part1StartDate")]
-		public global::System.DateTime Part1StartDate => this.Value<global::System.DateTime>("part1StartDate");
-
-		///<summary>
-		/// Entries
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("part2Entries")]
-		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.DayScheduleEntry> Part2Entries => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.DayScheduleEntry>>("part2Entries");
-
-		///<summary>
-		/// Start date
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("part2StartDate")]
-		public global::System.DateTime Part2StartDate => this.Value<global::System.DateTime>("part2StartDate");
-
-		///<summary>
-		/// Sign up content: appears above the email input in 'Sign Up' section
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("signUpContent")]
-		public global::System.Web.IHtmlString SignUpContent => this.Value<global::System.Web.IHtmlString>("signUpContent");
+		[ImplementPropertyType("nickname")]
+		public string Nickname => this.Value<string>("nickname");
 
 		///<summary>
 		/// Speakers
@@ -92,5 +71,26 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("speakers")]
 		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.PublishedContent.IPublishedContent> Speakers => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>>("speakers");
+
+		///<summary>
+		/// Start time (UTC): 24h clock UTC, e.g. 0900 or 1430
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("startTimeUTC")]
+		public string StartTimeUtc => this.Value<string>("startTimeUTC");
+
+		///<summary>
+		/// Tags
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("tags")]
+		public global::System.Collections.Generic.IEnumerable<string> Tags => this.Value<global::System.Collections.Generic.IEnumerable<string>>("tags");
+
+		///<summary>
+		/// Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("title")]
+		public string Title => this.Value<string>("title");
 	}
 }
