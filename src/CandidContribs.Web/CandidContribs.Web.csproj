@@ -354,6 +354,7 @@
     <Compile Include="Models\Enum\ScheduleEntryTags.cs" />
     <Compile Include="Models\Api\DaySchedule.cs" />
     <Compile Include="Models\Api\DayScheduleEntry.cs" />
+    <Compile Include="Models\Published\DayScheduleEntry.generated.cs" />
     <Compile Include="Models\Published\EventsPage.generated.cs" />
     <Compile Include="Models\Published\File.generated.cs" />
     <Compile Include="Models\Published\Folder.generated.cs" />
