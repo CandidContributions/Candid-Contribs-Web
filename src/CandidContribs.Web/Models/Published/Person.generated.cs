@@ -19,50 +19,57 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace Umbraco.Web.PublishedModels
 {
-	/// <summary>Events page</summary>
-	[PublishedModel("eventsPage")]
-	public partial class EventsPage : PublishedContentModel
+	/// <summary>Person</summary>
+	[PublishedModel("person")]
+	public partial class Person : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		public new const string ModelTypeAlias = "eventsPage";
+		public new const string ModelTypeAlias = "person";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<EventsPage, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Person, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public EventsPage(IPublishedContent content)
+		public Person(IPublishedContent content)
 			: base(content)
 		{ }
 
 		// properties
 
 		///<summary>
-		/// About content: appears alongside the image in 'about' section (image currently hard-coded)
+		/// Description: e.g. Candid Contribution Host, Microsoft MVP, that sort of thing 😉
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("aboutContent")]
-		public global::System.Web.IHtmlString AboutContent => this.Value<global::System.Web.IHtmlString>("aboutContent");
+		[ImplementPropertyType("description")]
+		public string Description => this.Value<string>("description");
 
 		///<summary>
-		/// Sign up content: appears above the email input in 'Sign Up' section
+		/// Full name: 'full name' cos of course an alias of 'name' is not allowed
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("signUpContent")]
-		public global::System.Web.IHtmlString SignUpContent => this.Value<global::System.Web.IHtmlString>("signUpContent");
+		[ImplementPropertyType("fullName")]
+		public string FullName => this.Value<string>("fullName");
 
 		///<summary>
-		/// Speakers
+		/// Image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("speakers")]
-		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.PublishedContent.IPublishedContent> Speakers => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>>("speakers");
+		[ImplementPropertyType("image")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("image");
+
+		///<summary>
+		/// Twitter handle
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("twitterHandle")]
+		public string TwitterHandle => this.Value<string>("twitterHandle");
 	}
 }
