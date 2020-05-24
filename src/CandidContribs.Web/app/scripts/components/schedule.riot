@@ -50,7 +50,7 @@
 
   <div id="slotModal" class="modal">
     <div class="modal-content modal-schedule">
-      <span class="close-modal">&times;</span>
+      <span class="close-modal" onclick={() => hideModal()}>&times;</span>
       <div if={state.slotDialog}>
         <div class="modal-header">
           <h2>Session details: { state.slotDialog.title }</h2>
@@ -152,13 +152,8 @@
         const tzSelect = document.querySelector('#tzSelect');
         tzSelect.addEventListener('change', (event) => this.tzChanged(event));
 
-        const span = document.getElementsByClassName("close-modal")[0];
-        const modal = document.querySelector('#slotModal');
-        span.onclick = function() {
-          modal.style.display = "none";
-        }
-
         // When the user clicks anywhere outside of the modal, close it
+        const modal = document.querySelector('#slotModal');
         window.onclick = function(event) {
           if (event.target == modal) {
             modal.style.display = "none";
@@ -170,7 +165,6 @@
       },
       showModal(evt, details) {
         evt.preventDefault();
-        console.log(details);
 
         this.state.slotDialog = details;
         this.update();
@@ -183,8 +177,9 @@
         const modal = document.querySelector('#slotModal');
         modal.style.display = "block";
       },
-      hideModal() {
-
+      hideModal () {
+        const modal = document.querySelector('#slotModal');
+        modal.style.display = "none";
       },
       momentConvertDate(dt) {
         return moment.tz(dt, this.state.currentTimezone).format("dddd Do MMM")
