@@ -26,6 +26,12 @@ namespace CandidContribs.Web.Controllers.Api
                             new DateTime(2020, 5, 29, 15, 0, 0, DateTimeKind.Utc))
                         {
                             Title = "A Level 5 Welcome!",
+                            Speaker = "Candid Contributions",
+                            SpeakerImage = "http://localhost:51375/media/hx4jcrst/emma_round.png",
+                            SpeakerAbout = "Some interesting information about the Candid Contribs podcast",
+                            Abstract = "<p>This session is all about discovering and expressing your creative coding side!</p>" +
+                                       "<p>I believe creating software is an incredibly creative process. Although it may not feel like this when your day job is to code 'Yet Another Timesheet Application'. By doing some creative coding such as programming graphics, music or a small game you'll get a very rewarding feeling because you usually discover something new and others can enjoy your creation.</p>" +
+                                       "<p>Let's break away from our regular work and explore 3 fun creative programming tools to create retro games, visual arts, and music: PICO-8, Processing, and Sonic Pi. I'll give a brief demo of each of these tools to show what you can achieve with them. By the end of the talk, I hope I've inspired you to take your creative coding skills to the next level!</p>",
                             Tags = new List<string>
                                 {EnumExtensions<ScheduleEntryTags>.GetDisplayName(ScheduleEntryTags.CommunityTime)}
                         },

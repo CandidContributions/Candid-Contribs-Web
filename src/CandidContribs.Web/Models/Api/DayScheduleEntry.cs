@@ -35,8 +35,14 @@ namespace CandidContribs.Web.Models.Api
 
         [JsonProperty("title")]
         public string Title { get; set; }
+        [JsonProperty("abstract")]
+        public string Abstract { get; set; }
         [JsonProperty("speaker")]
         public string Speaker { get; set; }
+        [JsonProperty("speakerImage")]
+        public string SpeakerImage { get; set; }
+        [JsonProperty("speakerAbout")]
+        public string SpeakerAbout { get; set; }
 
         [JsonProperty("tags")]
         public IEnumerable<string> Tags { get; set; }
