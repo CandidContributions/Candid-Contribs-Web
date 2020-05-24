@@ -1,6 +1,21 @@
 .component {
   padding: 40px 0;
 
+  &.has-background, &.has-background-gradient {
+    color: $athens;
+
+    a {
+      color: $pearlbush;
+      text-decoration: none;
+      border-bottom: 1px dashed $pearlbush;
+
+      &:hover {
+        color: darken($pearlbush, 10%);
+        border-bottom: 1px dashed darken($pearlbush, 10%);
+      }
+    }
+  }
+
   h2 {
     font-family: $laura;
   }

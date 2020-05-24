@@ -1,52 +1,84 @@
 <schedule>
   <div class="container">
     <div class="row">
-        <div class="col-6 filters">
-            <div class="filter">
-                <label class="title">Timezone</label>
-                <select id="tzSelect">
-                    <option each={ tz in state.timezoneFilters } value={ tz.alias } selected={ tz.selected }>{ tz.text }</option>
-                </select>
-            </div>
+      <div class="col-6 filters">
+          <div class="filter">
+              <label class="title">Timezone</label>
+              <select id="tzSelect">
+                  <option each={ tz in state.timezoneFilters } value={ tz.alias } selected={ tz.selected }>{ tz.text }</option>
+              </select>
+          </div>
 
-            <div class="filter">
-                <label class="title">Days</label>
-                <div each={ (dayFilter, dayIdx) in state.dayFilters } key={ dayIdx } class="filter--opts">
-                    <input type="checkbox" id={ dayFilter.value } />
-                    <label for={ dayFilter.value } onclick={ () => toggleChecked(dayFilter) }> { momentConvertDate(dayFilter.text) } (Pt { dayIdx + 1 })</label>
-                </div>
-            </div>
+          <div class="filter">
+              <label class="title">Days</label>
+              <div each={ (dayFilter, dayIdx) in state.dayFilters } key={ dayIdx } class="filter--opts">
+                  <input type="checkbox" id={ dayFilter.value } />
+                  <label for={ dayFilter.value } onclick={ () => toggleChecked(dayFilter) }> { momentConvertDate(dayFilter.text) } (Pt { dayIdx + 1 })</label>
+              </div>
+          </div>
 
-            <div class="filter">
-                <label class="title">Activities</label>
-                <div each={ (activity, actIdx) in state.activityFilters } key={ actIdx } class="filter--opts">
-                  <input type="checkbox" id="{ activity.text }" />
-                  <label for="{ activity.text }" onclick={ () => toggleChecked(activity) }>{ activity.text }</label>
-                </div>
-            </div>
-        </div>
+          <div class="filter">
+              <label class="title">Activities</label>
+              <div each={ (activity, actIdx) in state.activityFilters } key={ actIdx } class="filter--opts">
+                <input type="checkbox" id="{ activity.text }" />
+                <label for="{ activity.text }" onclick={ () => toggleChecked(activity) }>{ activity.text }</label>
+              </div>
+          </div>
+      </div>
 
-        <div class="col-6 slots">
-            <div class="day" each={ (day, dayIdx) in state.scheduleData } key={ day.dayTitle } if={ checkForMatchingDayOpt(day.dayTitle) }>
-                <p class="title day--title">{ momentConvertDate(day.eventStart) } (Pt { dayIdx + 1 })</p>
-                <ul class="day--slots">
-                    <li class="slot" each={ (slot, idx) in day.entries } key={ idx } if={ checkForMatchingTags(slot.tags) }>
-                        <div class="slot--details">
-                          <p class="slot--time">{ momentConvertTime(slot.start) } - { momentConvertTime(slot.end) }</p>
-                          <div class="slot--info">
-                            <p class="slot--title">{ slot.title }</p>
-                            <p class="slot--speaker" if={ slot.speaker }>From { slot.speaker }</p>
-                          </div>
+      <div class="col-6 slots">
+          <div class="day" each={ (day, dayIdx) in state.scheduleData } key={ day.dayTitle } if={ checkForMatchingDayOpt(day.dayTitle) }>
+              <p class="title day--title">{ momentConvertDate(day.eventStart) } (Pt { dayIdx + 1 })</p>
+              <ul class="day--slots">
+                  <li class="slot" each={ (slot, idx) in day.entries } key={ idx } if={ checkForMatchingTags(slot.tags) }>
+                      <div class="slot--details">
+                        <p class="slot--time">{ momentConvertTime(slot.start) } - { momentConvertTime(slot.end) }</p>
+                        <div class="slot--info">
+                          <a class="slot--title" href="#" onclick={(e) => showModal(e, slot)}>{ slot.title }</a>
+                          <p class="slot--speaker" if={ slot.speaker }>From { slot.speaker }</p>
                         </div>
-                        <ul class="slot--tags">
-                            <li each={ (tag, tagIdx) in slot.tags } key={ tagIdx }>{ tag }</li>
-                        </ul>
-                    </li>
-                </ul>
+                      </div>
+                      <ul class="slot--tags">
+                          <li each={ (tag, tagIdx) in slot.tags } key={ tagIdx }>{ tag }</li>
+                      </ul>
+                  </li>
+              </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="slotModal" class="modal">
+    <div class="modal-content modal-schedule">
+      <span class="close-modal">&times;</span>
+      <div if={state.slotDialog}>
+        <div class="modal-header">
+          <h2>Session details: { state.slotDialog.title }</h2>
+        </div>
+        <div class="modal-body">
+          <div class="modal-schedule--details">
+            <div class="modal-schedule--details-abstract" if={ state.slotDialog.abstract }>
+              <h3>About</h3>
+              <p id="abstract"></p>
             </div>
+            <div class="modal-schedule--details-time">
+              <h3>Time</h3>
+              <p>{ momentConvertTime(state.slotDialog.start) } - { momentConvertTime(state.slotDialog.end) } ({ state.currentTimezone })</p>
+              <h3>Duration</h3>
+              <p>{ state.slotDialog.duration }</p>
+            </div>
+          </div>
+          <div class="modal-schedule--speaker" if={state.slotDialog.speaker}>
+            <img src={state.slotDialog.speakerImage} alt="speaker" />
+            <div class="modal-schedule--speaker-details">
+              <h3>{state.slotDialog.speaker}</h3>
+              <p>{state.slotDialog.speakerAbout}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 
   <script>
     var moment = require('moment');
@@ -55,6 +87,7 @@
     export default {
       state: {
         scheduleData: [],
+        slotDialog: {},
         dayFilters: [],
         activityFilters: [],
         currentTimezone: "Europe/London",
@@ -118,9 +151,40 @@
       onMounted() {
         const tzSelect = document.querySelector('#tzSelect');
         tzSelect.addEventListener('change', (event) => this.tzChanged(event));
+
+        const span = document.getElementsByClassName("close-modal")[0];
+        const modal = document.querySelector('#slotModal');
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
       },
       onUpdated() {
         // updated
+      },
+      showModal(evt, details) {
+        evt.preventDefault();
+        console.log(details);
+
+        this.state.slotDialog = details;
+        this.update();
+        if (this.state.slotDialog.abstract) {
+          const abstract = document.querySelector('#abstract');
+          abstract.innerHTML = this.state.slotDialog.abstract;
+        }
+        this.update();
+
+        const modal = document.querySelector('#slotModal');
+        modal.style.display = "block";
+      },
+      hideModal() {
+
       },
       momentConvertDate(dt) {
         return moment.tz(dt, this.state.currentTimezone).format("dddd Do MMM")
