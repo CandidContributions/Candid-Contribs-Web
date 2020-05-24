@@ -1,47 +1,34 @@
-﻿<section class="component speakers" id="speakers">
+﻿@model IEnumerable<IPublishedContent>
+<section class="component speakers" id="speakers">
     <h2 class="center">Who's involved?</h2>
     <div class="container">
         <div class="row speakers--list">
-            <div class="col-4 speaker">
-                <div class="speaker--image">
-                    <img src="~/images/people/carole_round.png" alt="Carole" />
-                </div>
-                <div class="speaker--details">
-                    <h3>Carole Logan</h3>
-                    <h4><a href="https://twitter.com/crgrieve" target="_blank">@@crgrieve</a></h4>
-                    <p>Candid Contribution Host</p>
-                </div>
-            </div>
-            <div class="col-4 speaker">
-                <div class="speaker--image">
-                    <img src="~/images/people/emma_round.png" alt="Emma" />
-                </div>
-                <div class="speaker--details">
-                    <h3>Emma Burstow</h3>
-                    <h4><a href="https://twitter.com/emaburst" target="_blank">@@emaburst</a></h4>
-                    <p>Candid Contribution Host</p>
-                </div>
-            </div>
-            <div class="col-4 speaker">
-                <div class="speaker--image">
-                    <img src="~/images/people/laura_round.png" alt="Laura" />
-                </div>
-                <div class="speaker--details">
-                    <h3>Laura Weatherhead</h3>
-                    <h4><a href="https://twitter.com/lssweatherhead" target="_blank">@@lssweatherhead</a></h4>
-                    <p>Candid Contribution Host</p>
-                </div>
-            </div>
-            <div class="col-4 speaker">
-                <div class="speaker--image">
-                    <img src="~/images/people/lotte_round.png" alt="Lotte" />
-                </div>
-                <div class="speaker--details">
-                    <h3>Lotte Pitcher</h3>
-                    <h4><a href="https://twitter.com/lottepitcher" target="_blank">@@lottepitcher</a></h4>
-                    <p>Candid Contribution Host</p>
-                </div>
-            </div>
+            @foreach (var item in Model)
+            {
+                if (item is Person person)
+                {
+                    <div class="col-4 speaker">
+                        <div class="speaker--image">
+                            @if (person.Image != null)
+                            {
+                                /* speaker images shouldn't need manipulation before displaying */
+                                <img src="@person.Image.Url" alt="@person.FullName" />
+                            }
+                        </div>
+                        <div class="speaker--details">
+                            <h3>@person.FullName</h3>
+                            @if (!string.IsNullOrEmpty(person.TwitterHandle))
+                            {
+                                <h4><a href="https://twitter.com/@person.TwitterHandle" target="_blank">@@@person.TwitterHandle</a></h4>
+                            }
+                            @if (!string.IsNullOrEmpty(person.Description))
+                            {
+                                <p>@person.Description</p>
+                            }
+                        </div>
+                    </div>
+                }
+            }
         </div>
     </div>
 </section>

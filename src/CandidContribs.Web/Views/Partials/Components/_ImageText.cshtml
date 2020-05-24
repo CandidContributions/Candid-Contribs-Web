@@ -1,30 +1,12 @@
-﻿<section class="component image-text has-background full-width" id="about">
+﻿@model CandidContribs.Web.Models.Shared.ImageTextViewModel
+<section class="component image-text has-background full-width" id="about">
     <div class="container">
         <div class="row">
             <div class="col-6 image">
                 <img src="~/images/high-five.png" alt="high-five" />
             </div>
             <div class="col-6 text">
-                <h2>What's happening?</h2>
-                <p>
-                    We’re sad that we won’t be meeting our friends, old and new, in Odense for Codegarden 2020.
-                    So we thought we’d bring a little corner of Codegarden to those who will miss what was, for many, the highlight of the Umbraco calendar.
-                </p>
-                <p>
-                    Welcome to CodePatch!
-                    A hackathon and virtual celebration of the Umbraco community, with a sprinkling of Codegarden dust.
-                </p>
-                <p>
-                    We promise to create a space for people to get to know each other; a safe environment for people to share ideas,
-                    listen to lightning talks, catch up on community goings on and, of course, hack away while listening to cheesy 90s music on Discord.
-                </p>
-                <p>
-                    Check the schedule below to see what we've got lined up for you (so far, the planning isn't finished yet) then sign up!
-                </p>
-                <p>
-                    Candid Contribution events are for everyone. Please read our 
-                    <a style="color: white;" href="/CandidContributions-CodeOfConduct.pdf" target="_blank">Code of Conduct</a>.
-                </p>
+                @Model.Text
             </div>
         </div>
     </div>

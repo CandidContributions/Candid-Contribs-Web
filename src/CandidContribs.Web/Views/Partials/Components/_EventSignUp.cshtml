@@ -1,14 +1,9 @@
-﻿<div class="component event-sign-up has-background" id="signup">
-    <h2 class="center">Sign Up!</h2>
+﻿@model CandidContribs.Web.Models.Shared.EventSignUpViewModel
+<div class="component event-sign-up has-background" id="signup">
     <div class="container">
         <div class="row">
-            <p>
-                Sign up below if you would like to receive updates about CodePatch, including when registration is open.
-                If you registered for the first Candid Contributions hackathon you will already be on our mailing list so you don't need to sign up again!
-            </p>
-            <p>
-                If you are interested in doing a lightning talk or have a question to ask, feel free to Tweet or DM us at <a href="https://twitter.com/candidcontribs" target="_blank">@@CandidContribs</a>
-            </p>
+
+            @Model.Text
 
             <div id="mc_embed_signup">
                 <form action="https://candidcontributions.us19.list-manage.com/subscribe/post?u=c133eb6d02a80b9606452f45d&amp;id=d26bcc60d8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
