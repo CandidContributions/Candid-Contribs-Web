@@ -21,8 +21,8 @@ To build Front-End (webpack / scss)
 
 * Navigate into `app`
 * CMD > `npm install`
-* To watch files run `npm run-script watch`
-* To build files run `npm run-script build`
+* To watch files run `npm run watch`
+* To build files run `npm run build`
 
 ## View Website
 
