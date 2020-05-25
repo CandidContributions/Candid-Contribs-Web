@@ -24,6 +24,6 @@ namespace CandidContribs.Web.Models.Api
         public decimal DurationInHours { get; set; }
 
         [JsonProperty("entries")]
-        public IEnumerable<DayScheduleEntry> Entries { get; set; } 
+        public List<DayScheduleEntry> Entries { get; set; } 
     }
 }

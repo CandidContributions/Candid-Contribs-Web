@@ -1,4 +1,6 @@
-﻿@{
+﻿@using CandidContribs.Web.Models.Shared
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<EventsPage>
+@{
     Layout = "_Master.cshtml";
 }
 
@@ -35,15 +37,15 @@
             </li>
         </ul>
     </nav>
+    
+    @Html.Partial("Components/_ImageText", new ImageTextViewModel { Text = Model.AboutContent })
 
-    @Html.Partial("Components/_ImageText")
-
-    @Html.Partial("Components/_Speakers")
+    @Html.Partial("Components/_Speakers", Model.Speakers)
 
     @Html.Partial("Components/_Schedule")
 
     @Html.Partial("Components/_Tools")
 
-    @Html.Partial("Components/_EventSignUp")
+    @Html.Partial("Components/_EventSignUp", new EventSignUpViewModel() { Text = Model.SignUpContent })
 
 </div>

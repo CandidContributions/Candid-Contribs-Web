@@ -354,7 +354,20 @@
     <Compile Include="Models\Enum\ScheduleEntryTags.cs" />
     <Compile Include="Models\Api\DaySchedule.cs" />
     <Compile Include="Models\Api\DayScheduleEntry.cs" />
+    <Compile Include="Models\Published\DayScheduleEntry.generated.cs" />
+    <Compile Include="Models\Published\EventsPage.generated.cs" />
+    <Compile Include="Models\Published\File.generated.cs" />
+    <Compile Include="Models\Published\Folder.generated.cs" />
+    <Compile Include="Models\Published\Home.generated.cs" />
+    <Compile Include="Models\Published\Image.generated.cs" />
+    <Compile Include="Models\Published\LibraryRoot.generated.cs" />
+    <Compile Include="Models\Published\Member.generated.cs" />
+    <Compile Include="Models\Published\MetaTags.generated.cs" />
+    <Compile Include="Models\Published\PeopleFolder.generated.cs" />
+    <Compile Include="Models\Published\Person.generated.cs" />
     <Compile Include="Models\Shared\CheckBoxViewModel.cs" />
+    <Compile Include="Models\Shared\EventSignUpViewModel.cs" />
+    <Compile Include="Models\Shared\ImageTextViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
