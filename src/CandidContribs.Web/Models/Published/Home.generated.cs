@@ -21,7 +21,7 @@ namespace Umbraco.Web.PublishedModels
 {
 	/// <summary>Home</summary>
 	[PublishedModel("home")]
-	public partial class Home : PublishedContentModel
+	public partial class Home : PublishedContentModel, IMetaTags
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -43,5 +43,33 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Description: meta and OG description,  has default value
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("metaDescription")]
+		public string MetaDescription => global::Umbraco.Web.PublishedModels.MetaTags.GetMetaDescription(this);
+
+		///<summary>
+		/// Keywords: meta keywords, has default value
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("metaKeywords")]
+		public string MetaKeywords => global::Umbraco.Web.PublishedModels.MetaTags.GetMetaKeywords(this);
+
+		///<summary>
+		/// Title: browser and OG title, defaults to node name
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("metaTitle")]
+		public string MetaTitle => global::Umbraco.Web.PublishedModels.MetaTags.GetMetaTitle(this);
+
+		///<summary>
+		/// Open Graph image: Leave blank to use the default image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("openGraphImage")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent OpenGraphImage => global::Umbraco.Web.PublishedModels.MetaTags.GetOpenGraphImage(this);
 	}
 }

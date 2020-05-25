@@ -362,6 +362,7 @@
     <Compile Include="Models\Published\Image.generated.cs" />
     <Compile Include="Models\Published\LibraryRoot.generated.cs" />
     <Compile Include="Models\Published\Member.generated.cs" />
+    <Compile Include="Models\Published\MetaTags.generated.cs" />
     <Compile Include="Models\Published\PeopleFolder.generated.cs" />
     <Compile Include="Models\Published\Person.generated.cs" />
     <Compile Include="Models\Shared\CheckBoxViewModel.cs" />
