@@ -1,18 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Globalization;
 using Newtonsoft.Json;
-using Umbraco.Core.Models;
 
 namespace CandidContribs.Web.Models.Api
 {
     public class DayScheduleEntry
     {
-        public DayScheduleEntry(DateTime start, DateTime end)
+        public DayScheduleEntry(DateTime startUtc, DateTime endUtc)
         {
-            Start = start;
-            End = end;
+            Start = startUtc;
+            End = endUtc;
+            Tags = new List<string>();
+        }
+
+        public DayScheduleEntry(DateTime day, string startUtcString, decimal durationMins)
+        {
+            // start will e.g. "09:00" or "14:30" in UTC
+            var startTime = TimeSpan.ParseExact(startUtcString, "h\\:mm", CultureInfo.InvariantCulture);
+
+            Start = new DateTime(day.Year, day.Month, day.Day, startTime.Hours, startTime.Minutes, 0, DateTimeKind.Utc);
+            End = Start.AddMinutes(Convert.ToInt16(durationMins));
+
             Tags = new List<string>();
         }
 

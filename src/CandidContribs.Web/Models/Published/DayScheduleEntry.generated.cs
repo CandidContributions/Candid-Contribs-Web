@@ -66,14 +66,14 @@ namespace Umbraco.Web.PublishedModels
 		public bool Hidden => this.Value<bool>("hidden");
 
 		///<summary>
-		/// Speakers
+		/// Speaker: if multiple speakers create a 'group' Person (as can only have one photo)
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("speakers")]
-		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.PublishedContent.IPublishedContent> Speakers => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>>("speakers");
+		[ImplementPropertyType("speaker")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Speaker => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("speaker");
 
 		///<summary>
-		/// Start time (UTC): 24h clock UTC, e.g. 0900 or 1430
+		/// Start time (UTC): 24h clock, e.g. 09:00 or 14:30
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("startTimeUTC")]

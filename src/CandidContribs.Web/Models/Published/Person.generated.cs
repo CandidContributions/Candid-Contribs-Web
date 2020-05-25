@@ -45,6 +45,13 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
+		/// About: Paragraph for schedule popup
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("about")]
+		public string About => this.Value<string>("about");
+
+		///<summary>
 		/// Description: e.g. Candid Contribution Host, Microsoft MVP, that sort of thing 😉
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
@@ -59,7 +66,7 @@ namespace Umbraco.Web.PublishedModels
 		public string FullName => this.Value<string>("fullName");
 
 		///<summary>
-		/// Image
+		/// Image: 136px x 136px 'rounded' image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("image")]
