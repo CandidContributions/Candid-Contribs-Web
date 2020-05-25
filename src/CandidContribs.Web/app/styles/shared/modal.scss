@@ -93,6 +93,10 @@
     padding-top: 20px;
     margin-top: 20px 0;
     border-top: 1px dashed $bayleaf;
+
+    img {
+      height: 100%;
+    }
   }
 
   @media only screen and (min-width: $breakpoint-med) {
@@ -107,6 +111,7 @@
 
     &--speaker {
       display: flex;
+      align-items: center;
       text-align: left;
 
       &-details {
