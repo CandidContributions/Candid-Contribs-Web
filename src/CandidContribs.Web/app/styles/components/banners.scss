@@ -2,6 +2,10 @@
   background: url("../../images/bgs/main_banner.png") no-repeat top center;
   height: auto;
   padding: 30px 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 
   h1 {
     padding-bottom: 20px;
@@ -17,7 +21,7 @@
 .events-banner {
   display: block;
   height: 304px;
-  background: url("../../images/codepatch_bg_1920x304.png") no-repeat top center;
+  background: url("../../images/codepatch_bg_1920x304.png") repeat top center;
 
   @media only screen and (max-width: $breakpoint-large) {
     height: auto;
