@@ -45,21 +45,35 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Link
+		/// Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("description")]
+		public string Description => this.Value<string>("description");
+
+		///<summary>
+		/// Link: This is fed automatically from API
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("link")]
 		public string Link => this.Value<string>("link");
 
 		///<summary>
-		/// Spreaker Id
+		/// PublishedDate
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("publishedDate")]
+		public global::System.DateTime PublishedDate => this.Value<global::System.DateTime>("publishedDate");
+
+		///<summary>
+		/// Spreaker Id: This is fed automatically from API
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("spreakerId")]
 		public int SpreakerId => this.Value<int>("spreakerId");
 
 		///<summary>
-		/// Title
+		/// Title: This is fed automatically from API
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("title")]

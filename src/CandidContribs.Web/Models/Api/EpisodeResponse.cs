@@ -12,6 +12,8 @@ namespace CandidContribs.Web.Models.Api
         [JsonProperty("items")]
         public List<EpisodeModel> Items { get; set; }
 
-        
+        [JsonProperty("episode")]
+        public EpisodeModel Episode { get; set; }
+
     }
 }

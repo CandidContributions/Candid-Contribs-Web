@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using Umbraco.Core;
 using Umbraco.Core.Composing;
 using Umbraco.Core.Logging;
@@ -90,8 +91,8 @@ namespace CandidContribs.Web.ScheduledTasks
                 if (response.IsSuccessStatusCode)
                 {
                     //get API response
-                    var episodeString = response.Content.ReadAsStringAsync().Result;
-                    var convertedEps = JsonConvert.DeserializeObject<APIResponse>(episodeString);
+                    var episodesString = response.Content.ReadAsStringAsync().Result;
+                    var convertedEps = JsonConvert.DeserializeObject<APIResponse>(episodesString);
                     episodes = convertedEps.Response.Items;
 
                     //get episodes folder
@@ -107,14 +108,24 @@ namespace CandidContribs.Web.ScheduledTasks
                             var exists = currentEpisodes.SearchChildren(ep.Id.ToString()).Count() > 0;
                             if (!exists)
                             {
+                                var episodePath = $"https://api.spreaker.com/v2/episodes/{ep.Id}";
+                                HttpResponseMessage episodeResponse = client.GetAsync(episodePath).Result; 
+                                if (episodeResponse.IsSuccessStatusCode)
+                                {
+                                    var episodeString = episodeResponse.Content.ReadAsStringAsync().Result;
+                                    var convertedEp = JsonConvert.DeserializeObject<APIResponse>(episodeString);
 
-                                var newPage = _contentService.Create(ep.Title, currentEpisodes.Id, "episode", -1);
-                                newPage.SetValue("title", ep.Title);
-                                newPage.SetValue("link", ep.PlaybackUrl);
-                                newPage.SetValue("spreakerId", ep.Id);
-                                _contentService.SaveAndPublish(newPage);
+                                    var newPage = _contentService.Create(ep.Title, currentEpisodes.Id, "episode", -1);
+                                    newPage.SetValue("title", convertedEp.Response.Episode.Title);
+                                    newPage.SetValue("link", convertedEp.Response.Episode.PlaybackUrl);
+                                    newPage.SetValue("spreakerId", convertedEp.Response.Episode.Id);
+                                    newPage.SetValue("description", convertedEp.Response.Episode.Descrption);
+                                    newPage.SetValue("publishedDate", convertedEp.Response.Episode.PublisedDate);
+                                    newPage.SetValue("playsCount", convertedEp.Response.Episode.PlaysCount);
+                                    _contentService.SaveAndPublish(newPage);
 
-                                _logger.Info<SpreakerFeed>("New Episode added: {Title}", ep.Title);
+                                    _logger.Info<SpreakerFeed>("New Episode added: {Title}", convertedEp.Response.Episode.Title);
+                                }
                             }
                         }
                     }

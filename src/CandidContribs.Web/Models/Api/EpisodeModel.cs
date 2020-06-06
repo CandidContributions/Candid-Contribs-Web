@@ -19,6 +19,16 @@ namespace CandidContribs.Web.Models.Api
         [JsonProperty("episode_id")]
         public Int32 Id { get; set; }
 
+        [JsonProperty("description")]
+        public String Descrption { get; set; }
+
+        [JsonProperty("published_at")]
+        public DateTime PublisedDate { get; set; }
+
+        [JsonProperty("plays_count")]
+        public int PlaysCount { get; set; }
+
+
 
 
 

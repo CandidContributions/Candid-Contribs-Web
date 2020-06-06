@@ -351,6 +351,7 @@
   <ItemGroup>
     <Compile Include="Controllers\Api\PodcastApiController.cs" />
     <Compile Include="Controllers\Api\ScheduleApiController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Models\Api\APIResponse.cs" />
     <Compile Include="Models\Api\EpisodeResponse.cs" />
@@ -358,6 +359,7 @@
     <Compile Include="Models\Enum\ScheduleEntryTags.cs" />
     <Compile Include="Models\Api\DaySchedule.cs" />
     <Compile Include="Models\Api\DayScheduleEntry.cs" />
+    <Compile Include="Models\Pages\HomePageModel.cs" />
     <Compile Include="Models\Published\DayScheduleEntry.generated.cs" />
     <Compile Include="Models\Published\Episode.generated.cs" />
     <Compile Include="Models\Published\EpisodesFolder.generated.cs" />

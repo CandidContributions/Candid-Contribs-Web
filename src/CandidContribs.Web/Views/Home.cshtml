@@ -1,8 +1,10 @@
-﻿@{
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<HomePageModel>
+@using CandidContribs.Web.Models.Pages;
+@{
     Layout = "_Master.cshtml";
 }
 
-@Html.Partial("_HomepageBanner")
+@Html.Partial("_HomepageBanner", Model.LatestEpisode)
 
 <div class="main-content main-content--padded">
 

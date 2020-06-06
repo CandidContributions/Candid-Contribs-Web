@@ -1,9 +1,11 @@
-﻿<div class="home-banner">
+﻿@model Umbraco.Web.PublishedModels.Episode
+
+<div class="home-banner">
     <div class="main-content">
-        <h1 class="cancon-hand">Most recent episode: "Share"</h1>
-        <h3 class="home-banner--subtitle">We discuss how we can share knowledge and the courage this can often take, particularly in open source contribution.</h3>
+        <h1 class="cancon-hand">Most recent episode: @Model.Title</h1>
+        <h3 class="home-banner--subtitle">@Model.Description.Substring(0,200) ...</h3>
         <div class="btn">
-            <a class="btn--link" href="https://www.spreaker.com/user/11917219/episode-11-share" target="_blank">
+            <a class="btn--link" href="@Model.Link" target="_blank">
                 <i class="material-icons">play_arrow</i> Play episode
             </a>
         </div>
