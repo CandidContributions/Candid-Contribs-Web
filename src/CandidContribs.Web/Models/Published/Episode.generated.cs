@@ -59,6 +59,13 @@ namespace Umbraco.Web.PublishedModels
 		public string Link => this.Value<string>("link");
 
 		///<summary>
+		/// PlaysCount
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("playsCount")]
+		public decimal PlaysCount => this.Value<decimal>("playsCount");
+
+		///<summary>
 		/// PublishedDate
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]

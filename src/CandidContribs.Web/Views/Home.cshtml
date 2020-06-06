@@ -8,14 +8,14 @@
 
 <div class="main-content main-content--padded">
 
-    <h2 class="intro-text cancon-hand">Hello, and <b>welcome</b> to Candid Contributions!</h2>
-    <p class="intro-text">This is the home of the aptly named podcast where four experienced developers talk all things open source: from code contributions to conference attendance; we aim to cover all aspects of life as an active member of an open-source community.</p>
+    <h2 class="intro-text cancon-hand">@Html.Raw(@Model.AboutUsTitle)</h2>
+    <p class="intro-text">@Model.AboutUsDescription</p>
 
     <div class="align--center">
-        <p>Search for "Candid Contributions" in your podcast app, or <a href="https://www.spreaker.com/show/candidcontributions" target="_blank">listen online</a></p>
+        <p>@Model.AboutUsLinkText</p>
 
         <div>
-            <img class="contribs-team" src="/images/team.png" alt="candid contribs team" />
+            <img class="contribs-team" src="@Model.AboutUsImage.MediaUrl()" alt="candid contribs team" />
         </div>
     </div>
 </div>

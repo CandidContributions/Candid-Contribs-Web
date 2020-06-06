@@ -90,12 +90,12 @@ namespace CandidContribs.Web.ScheduledTasks
                 HttpResponseMessage response = client.GetAsync(path).Result;
                 if (response.IsSuccessStatusCode)
                 {
-                    //get API response
+                    //get API response for all our episodes
                     var episodesString = response.Content.ReadAsStringAsync().Result;
                     var convertedEps = JsonConvert.DeserializeObject<APIResponse>(episodesString);
                     episodes = convertedEps.Response.Items;
 
-                    //get episodes folder
+                    //get episodes folder to add episodes to
                     var cache = cref.UmbracoContext.Content;
                     var currentEpisodes = (EpisodesFolder)cache.GetByXPath("//episodesFolder").FirstOrDefault();
 
@@ -108,6 +108,8 @@ namespace CandidContribs.Web.ScheduledTasks
                             var exists = currentEpisodes.SearchChildren(ep.Id.ToString()).Count() > 0;
                             if (!exists)
                             {
+                                //only make the specific episode API call if it isn't already in CMS.
+
                                 var episodePath = $"https://api.spreaker.com/v2/episodes/{ep.Id}";
                                 HttpResponseMessage episodeResponse = client.GetAsync(episodePath).Result; 
                                 if (episodeResponse.IsSuccessStatusCode)

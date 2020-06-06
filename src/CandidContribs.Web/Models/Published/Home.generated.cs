@@ -45,6 +45,34 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
+		/// About Us Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("aboutUsDescription")]
+		public string AboutUsDescription => this.Value<string>("aboutUsDescription");
+
+		///<summary>
+		/// About Us Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("aboutUsImage")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent AboutUsImage => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("aboutUsImage");
+
+		///<summary>
+		/// About Us Link Text
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("aboutUsLinkText")]
+		public global::System.Web.IHtmlString AboutUsLinkText => this.Value<global::System.Web.IHtmlString>("aboutUsLinkText");
+
+		///<summary>
+		/// About Us Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("aboutUsTitle")]
+		public string AboutUsTitle => this.Value<string>("aboutUsTitle");
+
+		///<summary>
 		/// Description: meta and OG description,  has default value
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
