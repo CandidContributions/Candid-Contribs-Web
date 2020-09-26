@@ -17,12 +17,17 @@ namespace CandidContribs.Web.Controllers
         public override ActionResult Index(ContentModel model)
         {
             var homePageModel = new HomePageModel(model.Content);
-            var episodes = Umbraco.ContentSingleAtXPath("//episodesFolder").Children;
-            foreach (var ep in episodes) 
+
+            var episodesFolder = Umbraco.ContentSingleAtXPath("//episodesFolder");
+            if (episodesFolder != null)
             {
-                homePageModel.AllEpisodes.Add((Episode)ep);
+                var episodes = episodesFolder.Children;
+                foreach (var ep in episodes)
+                {
+                    homePageModel.AllEpisodes.Add((Episode) ep);
+                }
+                homePageModel.LatestEpisode = homePageModel.AllEpisodes.OrderByDescending(x => x.PublishedDate).FirstOrDefault();
             }
-            homePageModel.LatestEpisode = homePageModel.AllEpisodes.OrderByDescending(x => x.PublishedDate).FirstOrDefault();
 
             return CurrentTemplate(homePageModel);
         }

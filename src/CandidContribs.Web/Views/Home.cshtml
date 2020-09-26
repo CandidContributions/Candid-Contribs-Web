@@ -4,15 +4,18 @@
     Layout = "_Master.cshtml";
 }
 
-@Html.Partial("_HomepageBanner", Model.LatestEpisode)
+@if (Model.LatestEpisode != null)
+{
+    @Html.Partial("_HomepageBanner", Model.LatestEpisode)
+}
 
 <div class="main-content main-content--padded">
 
-    <h2 class="intro-text cancon-hand">@Html.Raw(@Model.AboutUsTitle)</h2>
+    <h2 class="intro-text cancon-hand">@Model.AboutUsTitle</h2>
     <p class="intro-text">@Model.AboutUsDescription</p>
 
     <div class="align--center">
-        <p>@Model.AboutUsLinkText</p>
+        <p>@Html.Raw(Model.AboutUsLinkText)</p>
 
         <div>
             <img class="contribs-team" src="@Model.AboutUsImage.MediaUrl()" alt="candid contribs team" />
@@ -20,7 +23,7 @@
     </div>
 </div>
 
-<h2 class="section-header cancon-hand align--center">Upcoming events</h2>
+<h2 class="section-header cancon-hand align--center">Past events</h2>
 
 <a href="/codepatch">
     <div class="codepatch" id="codepatch">
