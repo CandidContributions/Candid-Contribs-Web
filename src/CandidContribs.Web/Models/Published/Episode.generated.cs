@@ -19,85 +19,71 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace Umbraco.Web.PublishedModels
 {
-	/// <summary>Home</summary>
-	[PublishedModel("home")]
-	public partial class Home : PublishedContentModel, IMetaTags
+	/// <summary>Episode</summary>
+	[PublishedModel("episode")]
+	public partial class Episode : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		public new const string ModelTypeAlias = "home";
+		public new const string ModelTypeAlias = "episode";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Home, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Episode, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public Home(IPublishedContent content)
+		public Episode(IPublishedContent content)
 			: base(content)
 		{ }
 
 		// properties
 
 		///<summary>
-		/// About Us Description
+		/// Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("aboutUsDescription")]
-		public string AboutUsDescription => this.Value<string>("aboutUsDescription");
+		[ImplementPropertyType("description")]
+		public string Description => this.Value<string>("description");
 
 		///<summary>
-		/// About Us Image
+		/// Link: This is fed automatically from API
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("aboutUsImage")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent AboutUsImage => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("aboutUsImage");
+		[ImplementPropertyType("link")]
+		public string Link => this.Value<string>("link");
 
 		///<summary>
-		/// About Us Link Text
+		/// PlaysCount
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("aboutUsLinkText")]
-		public global::System.Web.IHtmlString AboutUsLinkText => this.Value<global::System.Web.IHtmlString>("aboutUsLinkText");
+		[ImplementPropertyType("playsCount")]
+		public decimal PlaysCount => this.Value<decimal>("playsCount");
 
 		///<summary>
-		/// About Us Title
+		/// PublishedDate
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("aboutUsTitle")]
-		public string AboutUsTitle => this.Value<string>("aboutUsTitle");
+		[ImplementPropertyType("publishedDate")]
+		public global::System.DateTime PublishedDate => this.Value<global::System.DateTime>("publishedDate");
 
 		///<summary>
-		/// Description: meta and OG description,  has default value
+		/// Spreaker Id: This is fed automatically from API
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("metaDescription")]
-		public string MetaDescription => global::Umbraco.Web.PublishedModels.MetaTags.GetMetaDescription(this);
+		[ImplementPropertyType("spreakerId")]
+		public int SpreakerId => this.Value<int>("spreakerId");
 
 		///<summary>
-		/// Keywords: meta keywords, has default value
+		/// Title: This is fed automatically from API
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("metaKeywords")]
-		public string MetaKeywords => global::Umbraco.Web.PublishedModels.MetaTags.GetMetaKeywords(this);
-
-		///<summary>
-		/// Title: browser and OG title, defaults to node name
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("metaTitle")]
-		public string MetaTitle => global::Umbraco.Web.PublishedModels.MetaTags.GetMetaTitle(this);
-
-		///<summary>
-		/// Open Graph image: Leave blank to use the default image
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("openGraphImage")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent OpenGraphImage => global::Umbraco.Web.PublishedModels.MetaTags.GetOpenGraphImage(this);
+		[ImplementPropertyType("title")]
+		public string Title => this.Value<string>("title");
 	}
 }
