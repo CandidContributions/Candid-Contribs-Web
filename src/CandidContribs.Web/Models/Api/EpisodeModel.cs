@@ -20,17 +20,17 @@ namespace CandidContribs.Web.Models.Api
         public Int32 Id { get; set; }
 
         [JsonProperty("description")]
-        public String Descrption { get; set; }
+        public String Description { get; set; }
 
         [JsonProperty("published_at")]
-        public DateTime PublisedDate { get; set; }
+        public DateTime PublishedDate { get; set; }
 
         [JsonProperty("plays_count")]
         public int PlaysCount { get; set; }
 
+        [JsonProperty("downloads_count")]
+        public int DownloadsCount { get; set; }
 
-
-
-
+        public int GetListens() => PlaysCount + DownloadsCount;
     }
 }

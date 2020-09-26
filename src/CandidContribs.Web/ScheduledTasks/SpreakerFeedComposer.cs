@@ -1,10 +1,7 @@
 ﻿using CandidContribs.Web.Models.Api;
 using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using Umbraco.Core;
 using Umbraco.Core.Composing;
 using Umbraco.Core.Logging;
@@ -43,10 +40,9 @@ namespace CandidContribs.Web.ScheduledTasks
 
             using (var cref = _context.EnsureUmbracoContext())
             {
-
-
-                int delayBeforeWeStart = 60000; // 60000ms = 1min
-                int howOftenWeRepeat = 300000; //300000ms = 5mins
+                var minsToMilliSeconds = 60 * 1000;
+                int delayBeforeWeStart = Helpers.AppSettings.CandidContribs.SpreakerApiDelayStartMins * minsToMilliSeconds;
+                int howOftenWeRepeat = Helpers.AppSettings.CandidContribs.SpreakerApiRepeatMins * minsToMilliSeconds;
 
                 var task = new SpreakerFeed(_spreakerFeedRunner, delayBeforeWeStart, howOftenWeRepeat, _runtime, _logger, _contentService, _context);
 
@@ -79,65 +75,83 @@ namespace CandidContribs.Web.ScheduledTasks
 
         public override bool PerformRun()
         {
+            const string spreakerApiEpisodesUrlFormat = "https://api.spreaker.com/v2/shows/{0}/episodes";
+            const string spreakerApiEpisodeUrlFormat = "https://api.spreaker.com/v2/episodes/{0}";
 
-            _logger.Info<SpreakerFeed>("Running episode import");
-            List<EpisodeModel> episodes = new List<EpisodeModel>();
-            var path = ConfigurationManager.AppSettings["SpreakerURL"];
+            if (!Helpers.AppSettings.CandidContribs.SpreakerApiEnabled)
+            {
+                _logger.Info<SpreakerFeed>("Spreaker episode import disabled");
+                return false;
+            }
+
+            _logger.Info<SpreakerFeed>("Spreaker episode import started");
 
             using (var cref = _context.EnsureUmbracoContext())
             {
-
-                HttpResponseMessage response = client.GetAsync(path).Result;
-                if (response.IsSuccessStatusCode)
+                // get episodes folder to add episodes to
+                var cache = cref.UmbracoContext.Content;
+                var cmsEpisodesFolder = (EpisodesFolder) cache.GetByXPath("//episodesFolder").FirstOrDefault();
+                if (cmsEpisodesFolder == null)
                 {
-                    //get API response for all our episodes
-                    var episodesString = response.Content.ReadAsStringAsync().Result;
-                    var convertedEps = JsonConvert.DeserializeObject<APIResponse>(episodesString);
-                    episodes = convertedEps.Response.Items;
-
-                    //get episodes folder to add episodes to
-                    var cache = cref.UmbracoContext.Content;
-                    var currentEpisodes = (EpisodesFolder)cache.GetByXPath("//episodesFolder").FirstOrDefault();
-
-
-                    if (currentEpisodes != null)
-                    {
-                        foreach (var ep in episodes)
-                        {
-                            //hmmm not sure this is best way?
-                            var exists = currentEpisodes.SearchChildren(ep.Id.ToString()).Count() > 0;
-                            if (!exists)
-                            {
-                                //only make the specific episode API call if it isn't already in CMS.
-
-                                var episodePath = $"https://api.spreaker.com/v2/episodes/{ep.Id}";
-                                HttpResponseMessage episodeResponse = client.GetAsync(episodePath).Result; 
-                                if (episodeResponse.IsSuccessStatusCode)
-                                {
-                                    var episodeString = episodeResponse.Content.ReadAsStringAsync().Result;
-                                    var convertedEp = JsonConvert.DeserializeObject<APIResponse>(episodeString);
-
-                                    var newPage = _contentService.Create(ep.Title, currentEpisodes.Id, "episode", -1);
-                                    newPage.SetValue("title", convertedEp.Response.Episode.Title);
-                                    newPage.SetValue("link", convertedEp.Response.Episode.PlaybackUrl);
-                                    newPage.SetValue("spreakerId", convertedEp.Response.Episode.Id);
-                                    newPage.SetValue("description", convertedEp.Response.Episode.Descrption);
-                                    newPage.SetValue("publishedDate", convertedEp.Response.Episode.PublisedDate);
-                                    newPage.SetValue("playsCount", convertedEp.Response.Episode.PlaysCount);
-                                    _contentService.SaveAndPublish(newPage);
-
-                                    _logger.Info<SpreakerFeed>("New Episode added: {Title}", convertedEp.Response.Episode.Title);
-                                }
-                            }
-                        }
-                    }
-
+                    _logger.Error<SpreakerFeed>("Spreaker episode import failed: no EpisodesFolder found");
+                    return false;
                 }
 
+                var episodesApiUrl = string.Format(spreakerApiEpisodesUrlFormat, Helpers.AppSettings.CandidContribs.SpreakerApiShowId);
+                var response = client.GetAsync(episodesApiUrl).Result;
+                if (!response.IsSuccessStatusCode)
+                {
+                    _logger.Error<SpreakerFeed>("Spreaker episode import failed: response code {0}, url {1}", response.StatusCode, episodesApiUrl);
+                    return false;
+                }
+
+                // get API response for all episodes
+                var episodesString = response.Content.ReadAsStringAsync().Result;
+                var convertedEps = JsonConvert.DeserializeObject<APIResponse>(episodesString);
+
+                // get episodes in ascending date order before trying to add to CMS
+                var episodes = convertedEps.Response.Items.OrderBy(x => x.PublishedDate);
+
+                foreach (var episode in episodes)
+                {
+                    // is this the best way to find by API id?
+                    var cmsEpisode = cmsEpisodesFolder.SearchChildren(episode.Id.ToString()).FirstOrDefault();
+                    if (cmsEpisode != null)
+                    {
+                        // already exists so nothing to do
+                        continue;
+                    }
+
+                    var episodeDetailsUrl = string.Format(spreakerApiEpisodeUrlFormat, episode.Id);
+                    var episodeDetailsResponse = client.GetAsync(episodeDetailsUrl).Result;
+
+                    if (!episodeDetailsResponse.IsSuccessStatusCode)
+                    {
+                        _logger.Error<SpreakerFeed>("Spreaker episode import failed: response code {0}, url {1}",
+                            response.StatusCode, episodeDetailsUrl);
+                        continue;
+                    }
+
+                    var episodeString = episodeDetailsResponse.Content.ReadAsStringAsync().Result;
+                    var convertedEp = JsonConvert.DeserializeObject<APIResponse>(episodeString);
+                    AddNewEpisode(convertedEp.Response.Episode, cmsEpisodesFolder);
+                }
             }
+
             return true;
         }
 
+        private void AddNewEpisode(EpisodeModel spreakerEpisode, EpisodesFolder cmsEpisodesFolder)
+        {
+            var cmsEpisode = _contentService.Create(spreakerEpisode.Title, cmsEpisodesFolder.Id, Episode.ModelTypeAlias, -1);
+            cmsEpisode.SetValue("spreakerId", spreakerEpisode.Id);
+            cmsEpisode.SetValue("podcastTitle", spreakerEpisode.Title);
+            cmsEpisode.SetValue("podcastLink", spreakerEpisode.PlaybackUrl);
+            cmsEpisode.SetValue("showNotes", spreakerEpisode.Description);
+            cmsEpisode.SetValue("publishedDate", spreakerEpisode.PublishedDate);
+            cmsEpisode.SetValue("listensCount", spreakerEpisode.GetListens());
+            _contentService.SaveAndPublish(cmsEpisode);
+        }
 
         public override bool IsAsync => false;
     }

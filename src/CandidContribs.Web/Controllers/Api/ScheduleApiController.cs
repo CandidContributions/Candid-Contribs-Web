@@ -207,7 +207,7 @@ namespace CandidContribs.Web.Controllers.Api
         {
             var dataTypeService = Services.DataTypeService;
 
-            var editor = dataTypeService.GetDataType(ConfigurationManager.AppSettings["CandidContribs.ScheduleTagsKey"]);
+            var editor = dataTypeService.GetDataType(Helpers.AppSettings.CandidContribs.ScheduleTagsKey);
             if (editor == null) return new List<CheckBoxViewModel>();
 
             var valueList = (ValueListConfiguration) editor.Configuration;

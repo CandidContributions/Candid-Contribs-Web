@@ -45,45 +45,59 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Description
+		/// Home Page Intro: If blank, Description (max 200 chars) will be used
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("description")]
-		public string Description => this.Value<string>("description");
+		[ImplementPropertyType("homePageIntro")]
+		public string HomePageIntro => this.Value<string>("homePageIntro");
 
 		///<summary>
-		/// Link: This is fed automatically from API
+		/// Listens Count: Sum of plays and downloads
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("link")]
-		public string Link => this.Value<string>("link");
+		[ImplementPropertyType("listensCount")]
+		public int ListensCount => this.Value<int>("listensCount");
 
 		///<summary>
-		/// PlaysCount
+		/// Overwrite Title: Title to use in preference to podcast title (if needed)
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("playsCount")]
-		public decimal PlaysCount => this.Value<decimal>("playsCount");
+		[ImplementPropertyType("overwriteTitle")]
+		public string OverwriteTitle => this.Value<string>("overwriteTitle");
 
 		///<summary>
-		/// PublishedDate
+		/// Podcast Link: Link to episode .mp3
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("podcastLink")]
+		public string PodcastLink => this.Value<string>("podcastLink");
+
+		///<summary>
+		/// Podcast Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("podcastTitle")]
+		public string PodcastTitle => this.Value<string>("podcastTitle");
+
+		///<summary>
+		/// Published Date
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("publishedDate")]
 		public global::System.DateTime PublishedDate => this.Value<global::System.DateTime>("publishedDate");
 
 		///<summary>
-		/// Spreaker Id: This is fed automatically from API
+		/// Show Notes: This is fed automatically from API
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("showNotes")]
+		public string ShowNotes => this.Value<string>("showNotes");
+
+		///<summary>
+		/// Spreaker Id: Episode id, used for lookup when doing API
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("spreakerId")]
-		public int SpreakerId => this.Value<int>("spreakerId");
-
-		///<summary>
-		/// Title: This is fed automatically from API
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("title")]
-		public string Title => this.Value<string>("title");
+		public string SpreakerId => this.Value<string>("spreakerId");
 	}
 }

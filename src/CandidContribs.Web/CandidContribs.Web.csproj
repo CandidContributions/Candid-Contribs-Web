@@ -352,6 +352,7 @@
     <Compile Include="Controllers\Api\ScheduleApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Helpers\AppSettings.cs" />
     <Compile Include="Models\Api\APIResponse.cs" />
     <Compile Include="Models\Api\EpisodeResponse.cs" />
     <Compile Include="Models\Api\EpisodeModel.cs" />

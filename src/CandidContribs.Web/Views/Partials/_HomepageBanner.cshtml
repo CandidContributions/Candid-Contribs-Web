@@ -2,10 +2,37 @@
 
 <div class="home-banner">
     <div class="main-content">
-        <h1 class="cancon-hand">Most recent episode: @Model.Title</h1>
-        <h3 class="home-banner--subtitle">@Model.Description.Substring(0,200) ...</h3>
+        <h1 class="cancon-hand">
+            Most recent episode:
+            @if (!string.IsNullOrWhiteSpace(Model.OverwriteTitle))
+            {
+                @Model.OverwriteTitle
+            }
+            else
+            {
+                @Model.PodcastTitle
+            }
+        </h1>
+        <h3 class="home-banner--subtitle">
+            @if (!string.IsNullOrWhiteSpace(Model.HomePageIntro))
+            {
+                @Model.HomePageIntro
+            }
+            else
+            {
+                if (Model.ShowNotes.Length > 200)
+                {
+                    @Model.ShowNotes.Substring(0, 200)
+                    @Html.Raw("...")
+                }
+                else
+                {
+                    @Model.ShowNotes
+                }
+            }
+        </h3>
         <div class="btn">
-            <a class="btn--link" href="@Model.Link" target="_blank">
+            <a class="btn--link" href="@Model.PodcastLink" target="_blank">
                 <i class="material-icons">play_arrow</i> Play episode
             </a>
         </div>
