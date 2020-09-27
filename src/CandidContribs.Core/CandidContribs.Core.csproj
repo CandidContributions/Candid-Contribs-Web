@@ -245,7 +245,6 @@
     <Compile Include="Models\Api\DayScheduleEntry.cs" />
     <Compile Include="Models\Api\EpisodeModel.cs" />
     <Compile Include="Models\Api\EpisodeResponse.cs" />
-    <Compile Include="Models\Enum\ScheduleEntryTags.cs" />
     <Compile Include="Models\Pages\HomePageModel.cs" />
     <Compile Include="Models\Published\DayScheduleEntry.generated.cs" />
     <Compile Include="Models\Published\Episode.generated.cs" />
