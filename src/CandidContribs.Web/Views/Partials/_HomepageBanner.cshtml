@@ -4,9 +4,9 @@
     <div class="main-content">
         <h1 class="cancon-hand">
             Most recent episode:
-            @if (!string.IsNullOrWhiteSpace(Model.OverwriteTitle))
+            @if (!string.IsNullOrWhiteSpace(Model.DisplayTitle))
             {
-                @Model.OverwriteTitle
+                @Model.DisplayTitle
             }
             else
             {

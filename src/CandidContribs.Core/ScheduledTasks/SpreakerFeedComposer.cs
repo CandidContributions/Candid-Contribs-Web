@@ -137,6 +137,8 @@ namespace CandidContribs.Core.ScheduledTasks
                 }
             }
 
+            _logger.Info<SpreakerFeed>("Spreaker episode import finished");
+
             return true;
         }
 
@@ -149,6 +151,14 @@ namespace CandidContribs.Core.ScheduledTasks
             cmsEpisode.SetValue("showNotes", spreakerEpisode.Description);
             cmsEpisode.SetValue("publishedDate", spreakerEpisode.PublishedDate);
             cmsEpisode.SetValue("listensCount", spreakerEpisode.GetListens());
+
+            // try and set the correct title for displaying on web page
+            // format should be either Episode X: title, or SX EpY: Episode
+            if (spreakerEpisode.Title.Contains(":"))
+            {
+                cmsEpisode.SetValue("displayTitle", spreakerEpisode.Title.Split(':')[1].Trim());
+            }
+
             _contentService.SaveAndPublish(cmsEpisode);
         }
 

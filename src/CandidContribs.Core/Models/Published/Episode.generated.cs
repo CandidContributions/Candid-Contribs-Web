@@ -45,6 +45,13 @@ namespace CandidContribs.Core.Models.Published
 		// properties
 
 		///<summary>
+		/// Display Title: If blank, Podcast title will be used on the website
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("displayTitle")]
+		public string DisplayTitle => this.Value<string>("displayTitle");
+
+		///<summary>
 		/// Home Page Intro: If blank, Description (max 200 chars) will be used
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
@@ -57,13 +64,6 @@ namespace CandidContribs.Core.Models.Published
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("listensCount")]
 		public int ListensCount => this.Value<int>("listensCount");
-
-		///<summary>
-		/// Overwrite Title: Title to use in preference to podcast title (if needed)
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("overwriteTitle")]
-		public string OverwriteTitle => this.Value<string>("overwriteTitle");
 
 		///<summary>
 		/// Podcast Link: Link to episode .mp3
