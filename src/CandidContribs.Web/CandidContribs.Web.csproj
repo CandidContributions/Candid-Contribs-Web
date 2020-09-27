@@ -346,6 +346,7 @@
     <Content Include="images\tools\visualstudio_logo2.png" />
     <Content Include="images\tools\youtube_logo2.png" />
     <Content Include="images\tools\zoom.jpg" />
+    <Content Include="images\umbrackathon_mushroom_300x300.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
