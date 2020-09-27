@@ -8,7 +8,7 @@ using CandidContribs.Web.Models.Enum;
 using CandidContribs.Web.Models.Shared;
 using Umbraco.Core.PropertyEditors;
 using Umbraco.Core.Services;
-using Umbraco.Web.PublishedModels;
+using CandidContribs.Core.Models.Published;
 using Umbraco.Web.WebApi;
 using DayScheduleEntry = CandidContribs.Web.Models.Api.DayScheduleEntry;
 
@@ -238,7 +238,7 @@ namespace CandidContribs.Web.Controllers.Api
             AddDaySchedule(2, eventsPage.Part2StartDate, eventsPage.Part2Entries);
         }
 
-        private void AddDaySchedule(int part, DateTime startDate, IEnumerable<Umbraco.Web.PublishedModels.DayScheduleEntry> entries)
+        private void AddDaySchedule(int part, DateTime startDate, IEnumerable<CandidContribs.Core.Models.Published.DayScheduleEntry> entries)
         {
             var entriesToShow = entries
                 .Where(x => !x.Hidden)

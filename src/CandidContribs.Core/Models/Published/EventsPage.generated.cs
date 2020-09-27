@@ -17,7 +17,7 @@ using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 using Umbraco.ModelsBuilder.Embedded;
 
-namespace Umbraco.Web.PublishedModels
+namespace CandidContribs.Core.Models.Published
 {
 	/// <summary>Events page</summary>
 	[PublishedModel("eventsPage")]
@@ -56,7 +56,7 @@ namespace Umbraco.Web.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("part1Entries")]
-		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.DayScheduleEntry> Part1Entries => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.DayScheduleEntry>>("part1Entries");
+		public global::System.Collections.Generic.IEnumerable<global::CandidContribs.Core.Models.Published.DayScheduleEntry> Part1Entries => this.Value<global::System.Collections.Generic.IEnumerable<global::CandidContribs.Core.Models.Published.DayScheduleEntry>>("part1Entries");
 
 		///<summary>
 		/// Start date
@@ -70,7 +70,7 @@ namespace Umbraco.Web.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("part2Entries")]
-		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.DayScheduleEntry> Part2Entries => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.DayScheduleEntry>>("part2Entries");
+		public global::System.Collections.Generic.IEnumerable<global::CandidContribs.Core.Models.Published.DayScheduleEntry> Part2Entries => this.Value<global::System.Collections.Generic.IEnumerable<global::CandidContribs.Core.Models.Published.DayScheduleEntry>>("part2Entries");
 
 		///<summary>
 		/// Start date
@@ -98,27 +98,27 @@ namespace Umbraco.Web.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("metaDescription")]
-		public string MetaDescription => global::Umbraco.Web.PublishedModels.MetaTags.GetMetaDescription(this);
+		public string MetaDescription => global::CandidContribs.Core.Models.Published.MetaTags.GetMetaDescription(this);
 
 		///<summary>
 		/// Keywords: meta keywords, has default value
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("metaKeywords")]
-		public string MetaKeywords => global::Umbraco.Web.PublishedModels.MetaTags.GetMetaKeywords(this);
+		public string MetaKeywords => global::CandidContribs.Core.Models.Published.MetaTags.GetMetaKeywords(this);
 
 		///<summary>
 		/// Title: browser and OG title, defaults to node name
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("metaTitle")]
-		public string MetaTitle => global::Umbraco.Web.PublishedModels.MetaTags.GetMetaTitle(this);
+		public string MetaTitle => global::CandidContribs.Core.Models.Published.MetaTags.GetMetaTitle(this);
 
 		///<summary>
 		/// Open Graph image: Leave blank to use the default image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("openGraphImage")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent OpenGraphImage => global::Umbraco.Web.PublishedModels.MetaTags.GetOpenGraphImage(this);
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent OpenGraphImage => global::CandidContribs.Core.Models.Published.MetaTags.GetOpenGraphImage(this);
 	}
 }

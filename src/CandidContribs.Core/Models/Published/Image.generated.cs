@@ -17,80 +17,66 @@ using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 using Umbraco.ModelsBuilder.Embedded;
 
-namespace Umbraco.Web.PublishedModels
+namespace CandidContribs.Core.Models.Published
 {
-	/// <summary>Day Schedule Entry</summary>
-	[PublishedModel("dayScheduleEntry")]
-	public partial class DayScheduleEntry : PublishedElementModel
+	/// <summary>Image</summary>
+	[PublishedModel("Image")]
+	public partial class Image : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		public new const string ModelTypeAlias = "dayScheduleEntry";
+		public new const string ModelTypeAlias = "Image";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		public new const PublishedItemType ModelItemType = PublishedItemType.Media;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<DayScheduleEntry, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Image, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public DayScheduleEntry(IPublishedElement content)
+		public Image(IPublishedContent content)
 			: base(content)
 		{ }
 
 		// properties
 
 		///<summary>
-		/// Abstract
+		/// Size: in bytes
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("abstract")]
-		public global::System.Web.IHtmlString Abstract => this.Value<global::System.Web.IHtmlString>("abstract");
+		[ImplementPropertyType("umbracoBytes")]
+		public long UmbracoBytes => this.Value<long>("umbracoBytes");
 
 		///<summary>
-		/// Duration (mins)
+		/// Type
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("durationMins")]
-		public decimal DurationMins => this.Value<decimal>("durationMins");
+		[ImplementPropertyType("umbracoExtension")]
+		public string UmbracoExtension => this.Value<string>("umbracoExtension");
 
 		///<summary>
-		/// Hidden?: tick if you want to hide this entry
+		/// Upload image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("hidden")]
-		public bool Hidden => this.Value<bool>("hidden");
+		[ImplementPropertyType("umbracoFile")]
+		public global::Umbraco.Core.PropertyEditors.ValueConverters.ImageCropperValue UmbracoFile => this.Value<global::Umbraco.Core.PropertyEditors.ValueConverters.ImageCropperValue>("umbracoFile");
 
 		///<summary>
-		/// Speaker: if multiple speakers create a 'group' Person (as can only have one photo)
+		/// Height: in pixels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("speaker")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Speaker => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("speaker");
+		[ImplementPropertyType("umbracoHeight")]
+		public int UmbracoHeight => this.Value<int>("umbracoHeight");
 
 		///<summary>
-		/// Start time (UTC): 24h clock, e.g. 09:00 or 14:30
+		/// Width: in pixels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("startTimeUTC")]
-		public string StartTimeUtc => this.Value<string>("startTimeUTC");
-
-		///<summary>
-		/// Tags
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("tags")]
-		public global::System.Collections.Generic.IEnumerable<string> Tags => this.Value<global::System.Collections.Generic.IEnumerable<string>>("tags");
-
-		///<summary>
-		/// Title
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		[ImplementPropertyType("title")]
-		public string Title => this.Value<string>("title");
+		[ImplementPropertyType("umbracoWidth")]
+		public int UmbracoWidth => this.Value<int>("umbracoWidth");
 	}
 }

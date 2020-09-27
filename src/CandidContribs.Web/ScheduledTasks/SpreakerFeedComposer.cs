@@ -7,7 +7,7 @@ using Umbraco.Core.Composing;
 using Umbraco.Core.Logging;
 using Umbraco.Core.Services;
 using Umbraco.Web;
-using Umbraco.Web.PublishedModels;
+using CandidContribs.Core.Models.Published;
 using Umbraco.Web.Scheduling;
 
 

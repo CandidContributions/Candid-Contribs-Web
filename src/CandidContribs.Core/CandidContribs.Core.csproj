@@ -1,28 +1,17 @@
-﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\uSync.8.6.2\build\uSync.props" Condition="Exists('..\packages\uSync.8.6.2\build\uSync.props')" />
-  <Import Project="..\packages\UmbracoCms.8.5.3\build\UmbracoCms.props" Condition="Exists('..\packages\UmbracoCms.8.5.3\build\UmbracoCms.props')" />
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4536A01F-C94D-4E10-9DA3-1222E0D9F28F}</ProjectGuid>
-    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <ProjectGuid>{BC6CB3AA-E63E-4473-9846-38D7F7986784}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CandidContribs.Web</RootNamespace>
-    <AssemblyName>CandidContribs.Web</AssemblyName>
+    <RootNamespace>CandidContribs.Core</RootNamespace>
+    <AssemblyName>CandidContribs.Core</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
-    <UseGlobalApplicationHostFile />
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -30,23 +19,22 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClientDependency.Core, Version=1.9.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ClientDependency.1.9.8\lib\net45\ClientDependency.Core.dll</HintPath>
+    <Reference Include="ClientDependency.Core, Version=1.9.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClientDependency.1.9.9\lib\net45\ClientDependency.Core.dll</HintPath>
     </Reference>
     <Reference Include="ClientDependency.Core.Mvc, Version=1.9.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ClientDependency-Mvc5.1.9.3\lib\net45\ClientDependency.Core.Mvc.dll</HintPath>
@@ -65,9 +53,6 @@
     </Reference>
     <Reference Include="ImageProcessor, Version=2.7.0.100, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ImageProcessor.2.7.0.100\lib\net452\ImageProcessor.dll</HintPath>
-    </Reference>
-    <Reference Include="ImageProcessor.Web, Version=4.10.0.100, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ImageProcessor.Web.4.10.0.100\lib\net452\ImageProcessor.Web.dll</HintPath>
     </Reference>
     <Reference Include="LightInject, Version=5.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\LightInject.5.4.0\lib\net46\LightInject.dll</HintPath>
@@ -99,12 +84,8 @@
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.2.2\lib\net45\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
@@ -135,9 +116,6 @@
     </Reference>
     <Reference Include="NPoco, Version=3.9.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NPoco.3.9.4\lib\net45\NPoco.dll</HintPath>
-    </Reference>
-    <Reference Include="Our.Umbraco.RobotsTxtEditor, Version=8.0.7239.28573, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Our.Umbraco.RobotsTxtEditor.8.0.0\lib\net45\Our.Umbraco.RobotsTxtEditor.dll</HintPath>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
@@ -178,6 +156,10 @@
     <Reference Include="Superpower, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aec39280ded1b3a7, processorArchitecture=MSIL">
       <HintPath>..\packages\Superpower.2.0.0\lib\net45\Superpower.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Umbraco.SqlServerCE.4.0.0.1\lib\net472\System.Data.SqlServerCe.dll</HintPath>
@@ -190,7 +172,6 @@
     </Reference>
     <Reference Include="System.IO" />
     <Reference Include="System.Linq.Expressions" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -206,14 +187,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -240,12 +214,11 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.EnterpriseServices" />
     <Reference Include="Umbraco.Core, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.8.5.3\lib\net472\Umbraco.Core.dll</HintPath>
     </Reference>
@@ -261,217 +234,32 @@
     <Reference Include="Umbraco.Web.UI, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Web.8.5.3\lib\net472\Umbraco.Web.UI.dll</HintPath>
     </Reference>
-    <Reference Include="uSync8.BackOffice, Version=8.6.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uSync.8.6.2\lib\net472\uSync8.BackOffice.dll</HintPath>
-    </Reference>
-    <Reference Include="uSync8.Core, Version=8.6.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uSync.Core.8.6.2\lib\net472\uSync8.Core.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Plugins\RobotsTxtEditor\css\robotstxteditor.css" />
-    <Content Include="App_Plugins\RobotsTxtEditor\js\robotstxteditorController.js" />
-    <Content Include="App_Plugins\RobotsTxtEditor\js\robotsTxtEditorResource.js" />
-    <Content Include="App_Plugins\RobotsTxtEditor\lang\en-US.xml" />
-    <Content Include="App_Plugins\RobotsTxtEditor\views\robotstxteditor.html" />
-    <Content Include="App_Plugins\uSync8\backoffice\uSync8\dashboard.html" />
-    <Content Include="App_Plugins\uSync8\backoffice\uSync8\uSyncDashboardController.js" />
-    <Content Include="App_Plugins\uSync8\changeDialog.html" />
-    <Content Include="App_Plugins\uSync8\changeDialogController.js" />
-    <Content Include="App_Plugins\uSync8\components\uSyncProgressView.html" />
-    <Content Include="App_Plugins\uSync8\components\usyncProgressViewComponent.js" />
-    <Content Include="App_Plugins\uSync8\components\uSyncReportView.html" />
-    <Content Include="App_Plugins\uSync8\components\uSyncReportViewComponent.js" />
-    <Content Include="App_Plugins\uSync8\lang\en-US.xml" />
-    <Content Include="App_Plugins\uSync8\settings\default.html" />
-    <Content Include="App_Plugins\uSync8\settings\expansion.html" />
-    <Content Include="App_Plugins\uSync8\settings\expansionController.js" />
-    <Content Include="App_Plugins\uSync8\settings\settings.html" />
-    <Content Include="App_Plugins\uSync8\settings\settingsController.js" />
-    <Content Include="App_Plugins\uSync8\settings\uSyncController.js" />
-    <Content Include="App_Plugins\uSync8\usync.css" />
-    <Content Include="App_Plugins\uSync8\uSyncHub.js" />
-    <Content Include="App_Plugins\uSync8\uSyncService.js" />
-    <Content Include="App_Plugins\uSync8\usync_862.css" />
-    <Content Include="App_Plugins\uSync8\uSync_862.js" />
-    <Content Include="config\grid.editors.config.js" />
-    <Content Include="config\Lang\cs-CZ.user.xml" />
-    <Content Include="config\Lang\da-DK.user.xml" />
-    <Content Include="config\Lang\de-DE.user.xml" />
-    <Content Include="config\Lang\en-GB.user.xml" />
-    <Content Include="config\Lang\en-US.user.xml" />
-    <Content Include="config\Lang\es-ES.user.xml" />
-    <Content Include="config\Lang\fr-FR.user.xml" />
-    <Content Include="config\Lang\he-IL.user.xml" />
-    <Content Include="config\Lang\it-IT.user.xml" />
-    <Content Include="config\Lang\ja-JP.user.xml" />
-    <Content Include="config\Lang\ko-KR.user.xml" />
-    <Content Include="config\Lang\nb-NO.user.xml" />
-    <Content Include="config\Lang\nl-NL.user.xml" />
-    <Content Include="config\Lang\pl-PL.user.xml" />
-    <Content Include="config\Lang\pt-BR.user.xml" />
-    <Content Include="config\Lang\ru-RU.user.xml" />
-    <Content Include="config\Lang\sv-SE.user.xml" />
-    <Content Include="config\Lang\zh-CN.user.xml" />
-    <Content Include="config\logviewer.searches.config.js" />
-    <Content Include="content\css\site.css" />
-    <Content Include="content\css\site.min.css" />
-    <Content Include="content\js\css.js" />
-    <Content Include="content\js\site.js" />
-    <Content Include="favicon.ico" />
-    <Content Include="Global.asax" />
-    <Content Include="images\bgs\footer_banner.png" />
-    <Content Include="images\bgs\main_banner.png" />
-    <Content Include="images\ccbrand_1200x630.png" />
-    <Content Include="images\codepatch_banner_1920x456.png" />
-    <Content Include="images\codepatch_bg_1920x304.png" />
-    <Content Include="images\codepatch_carrot_300x300.png" />
-    <Content Include="images\codepatch_logo_600x300.png" />
-    <Content Include="images\high-five.png" />
-    <Content Include="images\logo.png" />
-    <Content Include="images\logo_white.png" />
-    <Content Include="images\people\carole_round.png" />
-    <Content Include="images\people\emma_round.png" />
-    <Content Include="images\people\laura_round.png" />
-    <Content Include="images\people\lotte_round.png" />
-    <Content Include="images\team.png" />
-    <Content Include="images\tools\Discord-Logo-Color.svg" />
-    <Content Include="images\tools\GitHub-Mark-120px-plus.png" />
-    <Content Include="images\tools\trello-mark-circle.png" />
-    <Content Include="images\tools\visualstudio_logo2.png" />
-    <Content Include="images\tools\youtube_logo2.png" />
-    <Content Include="images\tools\zoom.jpg" />
-    <Content Include="Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Controllers\Api\ScheduleApiController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Extensions\EnumExtensions.cs" />
-    <Compile Include="Helpers\AppSettings.cs" />
-    <Compile Include="Models\Api\APIResponse.cs" />
-    <Compile Include="Models\Api\EpisodeResponse.cs" />
-    <Compile Include="Models\Api\EpisodeModel.cs" />
-    <Compile Include="Models\Enum\ScheduleEntryTags.cs" />
-    <Compile Include="Models\Api\DaySchedule.cs" />
-    <Compile Include="Models\Api\DayScheduleEntry.cs" />
-    <Compile Include="Models\Pages\HomePageModel.cs" />
-    <Compile Include="Models\Shared\CheckBoxViewModel.cs" />
-    <Compile Include="Models\Shared\EventSignUpViewModel.cs" />
-    <Compile Include="Models\Shared\ImageTextViewModel.cs" />
+    <Compile Include="Models\Published\DayScheduleEntry.generated.cs" />
+    <Compile Include="Models\Published\Episode.generated.cs" />
+    <Compile Include="Models\Published\EpisodesFolder.generated.cs" />
+    <Compile Include="Models\Published\EventsPage.generated.cs" />
+    <Compile Include="Models\Published\File.generated.cs" />
+    <Compile Include="Models\Published\Folder.generated.cs" />
+    <Compile Include="Models\Published\Home.generated.cs" />
+    <Compile Include="Models\Published\Image.generated.cs" />
+    <Compile Include="Models\Published\LibraryRoot.generated.cs" />
+    <Compile Include="Models\Published\Member.generated.cs" />
+    <Compile Include="Models\Published\MetaTags.generated.cs" />
+    <Compile Include="Models\Published\PeopleFolder.generated.cs" />
+    <Compile Include="Models\Published\Person.generated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScheduledTasks\SpreakerFeedComposer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="config\imageprocessor\security.config" />
-    <Content Include="config\imageprocessor\processing.config" />
-    <Content Include="config\imageprocessor\cache.config" />
-    <Content Include="Media\Web.config" />
-    <Content Include="config\umbracoSettings.config" />
-    <Content Include="config\tinyMceConfig.config" />
-    <Content Include="config\serilog.user.config" />
-    <Content Include="config\serilog.config" />
-    <Content Include="config\HealthChecks.config" />
-    <Content Include="config\ClientDependency.config" />
-    <Content Include="config\BackOfficeTours\getting-started.json" />
-    <Content Include="content\css\site.min.css.map" />
-    <Content Include="content\js\css.js.map" />
-    <Content Include="content\js\site.js.map" />
-    <Content Include="App_Plugins\RobotsTxtEditor\package.manifest" />
-    <Content Include="content\fonts\lauramidweight-webfont.woff" />
-    <Content Include="content\fonts\lauramidweight-webfont.woff2" />
-    <Content Include="config\uSync8.config" />
-    <Content Include="App_Plugins\uSync8\package.manifest" />
-    <Content Include="App_Plugins\uSync8\addons.json" />
-    <Content Include="CandidContributions-CodeOfConduct.pdf" />
     <None Include="packages.config" />
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Media.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Macro.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Embed.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Base.cshtml" />
-    <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
-    <Content Include="Views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
-    <Content Include="Views\_Master.cshtml" />
-    <Content Include="Views\Home.cshtml" />
-    <Content Include="Views\Partials\_Header.cshtml" />
-    <Content Include="Views\Partials\_Footer.cshtml" />
-    <Content Include="Views\Partials\Forms\_Mailchimp_CodePatchSignUp.cshtml" />
-    <Content Include="Views\Partials\_HomepageBanner.cshtml" />
-    <Content Include="Views\Partials\_MetaTags.cshtml" />
-    <Content Include="Views\EventsPage.cshtml" />
-    <Content Include="Views\Partials\_EventsPageBanner.cshtml" />
-    <Content Include="Views\Partials\Components\_ImageText.cshtml" />
-    <Content Include="Views\Partials\Components\_Speakers.cshtml" />
-    <Content Include="Views\Partials\Components\_Schedule.cshtml" />
-    <Content Include="Views\Partials\Components\_Tools.cshtml" />
-    <Content Include="Views\Partials\Components\_EventSignUp.cshtml" />
-    <None Include="Web.ConnectionStrings.config" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CandidContribs.Core\CandidContribs.Core.csproj">
-      <Project>{bc6cb3aa-e63e-4473-9846-38d7f7986784}</Project>
-      <Name>CandidContribs.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <PropertyGroup>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-  </PropertyGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
-        <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51175</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51375/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-        </WebProjectProperties>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
-  <Target Name="BeforeBuild">
-    <!-- Create website Web.ConnectionStrings.config file from the template if it doesn't exist -->
-    <Copy SourceFiles="$(ProjectDir)..\templates\Web.ConnectionStrings.Template.config" DestinationFiles="$(ProjectDir)Web.ConnectionStrings.config" OverwriteReadOnlyFiles="true" SkipUnchangedFiles="false" Condition="!Exists('$(ProjectDir)Web.Connectionstrings.config')" />
-  </Target>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets" Condition="Exists('..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets'))" />
-    <Error Condition="!Exists('..\packages\UmbracoCms.8.5.3\build\UmbracoCms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.8.5.3\build\UmbracoCms.props'))" />
-    <Error Condition="!Exists('..\packages\UmbracoCms.8.5.3\build\UmbracoCms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.8.5.3\build\UmbracoCms.targets'))" />
-    <Error Condition="!Exists('..\packages\uSync.8.6.2\build\uSync.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\uSync.8.6.2\build\uSync.props'))" />
-    <Error Condition="!Exists('..\packages\uSync.8.6.2\build\uSync.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\uSync.8.6.2\build\uSync.targets'))" />
   </Target>
-  <Import Project="..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets" Condition="Exists('..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets')" />
-  <Import Project="..\packages\UmbracoCms.8.5.3\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.8.5.3\build\UmbracoCms.targets')" />
-  <Import Project="..\packages\uSync.8.6.2\build\uSync.targets" Condition="Exists('..\packages\uSync.8.6.2\build\uSync.targets')" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

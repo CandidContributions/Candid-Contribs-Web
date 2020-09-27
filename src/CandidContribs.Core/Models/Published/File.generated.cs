@@ -17,31 +17,52 @@ using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 using Umbraco.ModelsBuilder.Embedded;
 
-namespace Umbraco.Web.PublishedModels
+namespace CandidContribs.Core.Models.Published
 {
-	/// <summary>Library Root</summary>
-	[PublishedModel("libraryRoot")]
-	public partial class LibraryRoot : PublishedContentModel
+	/// <summary>File</summary>
+	[PublishedModel("File")]
+	public partial class File : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		public new const string ModelTypeAlias = "libraryRoot";
+		public new const string ModelTypeAlias = "File";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		public new const PublishedItemType ModelItemType = PublishedItemType.Media;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<LibraryRoot, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<File, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public LibraryRoot(IPublishedContent content)
+		public File(IPublishedContent content)
 			: base(content)
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Size: in bytes
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("umbracoBytes")]
+		public long UmbracoBytes => this.Value<long>("umbracoBytes");
+
+		///<summary>
+		/// Type
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("umbracoExtension")]
+		public string UmbracoExtension => this.Value<string>("umbracoExtension");
+
+		///<summary>
+		/// Upload file
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("umbracoFile")]
+		public string UmbracoFile => this.Value<string>("umbracoFile");
 	}
 }

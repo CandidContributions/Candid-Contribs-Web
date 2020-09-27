@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using Umbraco.Core;
 using Umbraco.Web;
 using Umbraco.Web.Models;
-using Umbraco.Web.PublishedModels;
+using CandidContribs.Core.Models.Published;
 
 namespace CandidContribs.Web.Controllers
 {
