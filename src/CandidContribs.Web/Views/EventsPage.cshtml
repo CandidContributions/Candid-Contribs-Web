@@ -4,9 +4,9 @@
     Layout = "_Master.cshtml";
 }
 
-<div class="events-page event-codepatch">
+<div class="events-page event-@Model.CssClass">
 
-    @Html.Partial("_EventsPageBanner")
+    @Html.Partial("_EventsPageBanner", Model)
 
     <nav class="container events-nav">
         <ul class="row">
@@ -15,11 +15,14 @@
                     <i class="material-icons">emoji_food_beverage</i> <span>About</span>
                 </a>
             </li>
-            <li>
-                <a href="#speakers">
-                    <i class="material-icons">people</i> <span>Speakers</span>
-                </a>
-            </li>
+            @if (Model.Speakers != null && Model.Speakers.Any())
+            {
+                <li>
+                    <a href="#speakers">
+                        <i class="material-icons">people</i> <span>Speakers</span>
+                    </a>
+                </li>
+            }
             <li>
                 <a href="#schedule">
                     <i class="material-icons">calendar_today</i> <span>Schedule</span>
@@ -37,10 +40,13 @@
             </li>
         </ul>
     </nav>
-    
+
     @Html.Partial("Components/_ImageText", new ImageTextViewModel { Text = Model.AboutContent })
 
-    @Html.Partial("Components/_Speakers", Model.Speakers)
+    @if (Model.Speakers != null && Model.Speakers.Any())
+    {
+        @Html.Partial("Components/_Speakers", Model.Speakers)
+    }
 
     @Html.Partial("Components/_Schedule")
 

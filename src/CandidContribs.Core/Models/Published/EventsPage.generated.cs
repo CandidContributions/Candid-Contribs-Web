@@ -45,11 +45,46 @@ namespace CandidContribs.Core.Models.Published
 		// properties
 
 		///<summary>
-		/// About content: appears alongside the image in 'about' section (image currently hard-coded)
+		/// About right content: appears alongside the image in 'about' section
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("aboutContent")]
 		public global::System.Web.IHtmlString AboutContent => this.Value<global::System.Web.IHtmlString>("aboutContent");
+
+		///<summary>
+		/// About left content
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("aboutLeftContent")]
+		public global::System.Web.IHtmlString AboutLeftContent => this.Value<global::System.Web.IHtmlString>("aboutLeftContent");
+
+		///<summary>
+		/// About left image: Select an image or leave blank (and specify About left content)
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("aboutLeftImage")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent AboutLeftImage => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("aboutLeftImage");
+
+		///<summary>
+		/// Css class: eg 'codepatch' or 'umbrackathon'
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("cssClass")]
+		public string CssClass => this.Value<string>("cssClass");
+
+		///<summary>
+		/// Header logo
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("headerLogo")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent HeaderLogo => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("headerLogo");
+
+		///<summary>
+		/// Header words: If a logo is specified, this will be used as the alt text of the logo. If no logo then this text will displayed in the header banner
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("headerWords")]
+		public string HeaderWords => this.Value<string>("headerWords");
 
 		///<summary>
 		/// Entries

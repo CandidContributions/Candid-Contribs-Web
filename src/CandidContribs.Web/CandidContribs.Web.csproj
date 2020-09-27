@@ -398,6 +398,7 @@
     <Content Include="Views\Partials\Components\_Schedule.cshtml" />
     <Content Include="Views\Partials\Components\_Tools.cshtml" />
     <Content Include="Views\Partials\Components\_EventSignUp.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime_DayMonthNoYear.cshtml" />
     <None Include="Web.ConnectionStrings.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

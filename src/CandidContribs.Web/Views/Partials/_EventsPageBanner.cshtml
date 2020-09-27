@@ -1,8 +1,16 @@
-﻿<div class="events-banner">
+﻿@model EventsPage
+<div class="events-banner">
     <div class="container">
         <div class="row">
             <div class="col-6 col-12-sm">
-                <img src="~/images/codepatch_logo_600x300.png" alt="codepatch" />
+                @if (Model.HeaderLogo != null)
+                {
+                    <img src="@Model.HeaderLogo.MediaUrl()" alt="@Model.HeaderWords" />
+                }
+                else
+                {
+                    <h1>@Model.HeaderWords</h1>
+                }
             </div>
 
             <div class="col-3 col-6-md col-12-xs events-banner--icon">
@@ -20,8 +28,14 @@
                 </div>
                 <div class="type-details">
                     <h3 class="type-details--label">When</h3>
-                    <p>Fri 29th May</p>
-                    <p>Sat 30th May</p>
+                    @if (Model.Part1StartDate != DateTime.MinValue)
+                    {
+                        <p>@Html.DisplayFor(x => x.Part1StartDate, "DateTime_DayMonthNoYear")</p>
+                    }
+                    @if (Model.Part2StartDate != DateTime.MinValue)
+                    {
+                        <p>@Html.DisplayFor(x => x.Part2StartDate, "DateTime_DayMonthNoYear")</p>
+                    }
                 </div>
             </div>
         </div>
