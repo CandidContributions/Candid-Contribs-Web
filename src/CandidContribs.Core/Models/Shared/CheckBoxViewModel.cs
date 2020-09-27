@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
-namespace CandidContribs.Web.Models.Shared
+namespace CandidContribs.Core.Models.Shared
 {
     public class CheckBoxViewModel
     {

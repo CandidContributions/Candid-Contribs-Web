@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Newtonsoft.Json;
 
-namespace CandidContribs.Web.Models.Api
+namespace CandidContribs.Core.Models.Api
 {
     public class EpisodeModel
     {

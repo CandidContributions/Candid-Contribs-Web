@@ -1,8 +1,8 @@
 ﻿using System.Web;
 
-namespace CandidContribs.Web.Models.Shared
+namespace CandidContribs.Core.Models.Shared
 {
-    public class ImageTextViewModel
+    public class EventSignUpViewModel
     {
         public IHtmlString Text { get; set; }
     }

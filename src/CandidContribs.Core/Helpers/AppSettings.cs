@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace CandidContribs.Web.Helpers
+namespace CandidContribs.Core.Helpers
 {
     public static class AppSettings
     {

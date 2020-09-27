@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CandidContribs.Web.Models.Enum
+namespace CandidContribs.Core.Models.Enum
 {
     public enum ScheduleEntryTags
     {

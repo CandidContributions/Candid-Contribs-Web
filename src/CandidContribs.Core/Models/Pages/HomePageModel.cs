@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Umbraco.Core.Models.PublishedContent;
+﻿using System.Collections.Generic;
 using CandidContribs.Core.Models.Published;
+using Umbraco.Core.Models.PublishedContent;
 
-namespace CandidContribs.Web.Models.Pages
+namespace CandidContribs.Core.Models.Pages
 {
     public class HomePageModel: Home
     {

@@ -1,18 +1,17 @@
-﻿using CandidContribs.Web.Models.Api;
-using Newtonsoft.Json;
-using System.Linq;
+﻿using System.Linq;
 using System.Net.Http;
+using CandidContribs.Core.Helpers;
+using CandidContribs.Core.Models.Api;
+using CandidContribs.Core.Models.Published;
+using Newtonsoft.Json;
 using Umbraco.Core;
 using Umbraco.Core.Composing;
 using Umbraco.Core.Logging;
 using Umbraco.Core.Services;
 using Umbraco.Web;
-using CandidContribs.Core.Models.Published;
 using Umbraco.Web.Scheduling;
 
-
-
-namespace CandidContribs.Web.ScheduledTasks
+namespace CandidContribs.Core.ScheduledTasks
 {
     public class SpreakerFeedComposer : ComponentComposer<SpreakerFeedComponent>
     {
@@ -41,8 +40,8 @@ namespace CandidContribs.Web.ScheduledTasks
             using (var cref = _context.EnsureUmbracoContext())
             {
                 var minsToMilliSeconds = 60 * 1000;
-                int delayBeforeWeStart = Helpers.AppSettings.CandidContribs.SpreakerApiDelayStartMins * minsToMilliSeconds;
-                int howOftenWeRepeat = Helpers.AppSettings.CandidContribs.SpreakerApiRepeatMins * minsToMilliSeconds;
+                int delayBeforeWeStart = AppSettings.CandidContribs.SpreakerApiDelayStartMins * minsToMilliSeconds;
+                int howOftenWeRepeat = AppSettings.CandidContribs.SpreakerApiRepeatMins * minsToMilliSeconds;
 
                 var task = new SpreakerFeed(_spreakerFeedRunner, delayBeforeWeStart, howOftenWeRepeat, _runtime, _logger, _contentService, _context);
 
@@ -78,7 +77,7 @@ namespace CandidContribs.Web.ScheduledTasks
             const string spreakerApiEpisodesUrlFormat = "https://api.spreaker.com/v2/shows/{0}/episodes";
             const string spreakerApiEpisodeUrlFormat = "https://api.spreaker.com/v2/episodes/{0}";
 
-            if (!Helpers.AppSettings.CandidContribs.SpreakerApiEnabled)
+            if (!AppSettings.CandidContribs.SpreakerApiEnabled)
             {
                 _logger.Info<SpreakerFeed>("Spreaker episode import disabled");
                 return false;
@@ -97,7 +96,7 @@ namespace CandidContribs.Web.ScheduledTasks
                     return false;
                 }
 
-                var episodesApiUrl = string.Format(spreakerApiEpisodesUrlFormat, Helpers.AppSettings.CandidContribs.SpreakerApiShowId);
+                var episodesApiUrl = string.Format(spreakerApiEpisodesUrlFormat, AppSettings.CandidContribs.SpreakerApiShowId);
                 var response = client.GetAsync(episodesApiUrl).Result;
                 if (!response.IsSuccessStatusCode)
                 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using Newtonsoft.Json;
 
-namespace CandidContribs.Web.Models.Api
+namespace CandidContribs.Core.Models.Api
 {
     public class DayScheduleEntry
     {

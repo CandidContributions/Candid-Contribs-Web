@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
-using CandidContribs.Web.Extensions;
-using CandidContribs.Web.Models.Api;
-using CandidContribs.Web.Models.Enum;
-using CandidContribs.Web.Models.Shared;
-using Umbraco.Core.PropertyEditors;
-using Umbraco.Core.Services;
+using CandidContribs.Core.Extensions;
+using CandidContribs.Core.Models.Api;
+using CandidContribs.Core.Models.Enum;
 using CandidContribs.Core.Models.Published;
+using CandidContribs.Core.Models.Shared;
+using Umbraco.Core.PropertyEditors;
 using Umbraco.Web.WebApi;
-using DayScheduleEntry = CandidContribs.Web.Models.Api.DayScheduleEntry;
+using DayScheduleEntry = CandidContribs.Core.Models.Api.DayScheduleEntry;
 
-namespace CandidContribs.Web.Controllers.Api
+namespace CandidContribs.Core.Controllers.Api
 {
     public class ScheduleApiController : UmbracoApiController
     {
@@ -207,7 +205,7 @@ namespace CandidContribs.Web.Controllers.Api
         {
             var dataTypeService = Services.DataTypeService;
 
-            var editor = dataTypeService.GetDataType(Helpers.AppSettings.CandidContribs.ScheduleTagsKey);
+            var editor = dataTypeService.GetDataType((string) Helpers.AppSettings.CandidContribs.ScheduleTagsKey);
             if (editor == null) return new List<CheckBoxViewModel>();
 
             var valueList = (ValueListConfiguration) editor.Configuration;
@@ -277,7 +275,7 @@ namespace CandidContribs.Web.Controllers.Api
             // set full start date/time and duration from scheduled entries
             var firstEvent = day.Entries.First();
             day.EventStart = new DateTime(firstEvent.Start.Year, firstEvent.Start.Month, firstEvent.Start.Day, firstEvent.Start.Hour, firstEvent.Start.Minute, 0, DateTimeKind.Utc);
-            day.DurationInHours = Convert.ToDecimal((day.Entries.Last().End - day.EventStart).TotalHours);
+            day.DurationInHours = Convert.ToDecimal((double) (day.Entries.Last().End - day.EventStart).TotalHours);
 
             _schedule.Add(day);
         }
