@@ -13,7 +13,8 @@ namespace CandidContribs.Core.Models.Pages
         public List<Episode> AllEpisodes { get; set; }
         public Episode LatestEpisode;
 
-    
+    public List<EventsPage> PastEvents { get; set; }
+    public List<EventsPage> UpcomingEvents { get; set; }
 
     }
 }

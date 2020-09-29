@@ -21,7 +21,7 @@ namespace CandidContribs.Core.Models.Published
 {
 	/// <summary>Events page</summary>
 	[PublishedModel("eventsPage")]
-	public partial class EventsPage : PublishedContentModel, IMetaTags
+	public partial class EventsPage : PublishedContentModel, IMetaTags, INavigation
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -52,7 +52,7 @@ namespace CandidContribs.Core.Models.Published
 		public global::System.Web.IHtmlString AboutContent => this.Value<global::System.Web.IHtmlString>("aboutContent");
 
 		///<summary>
-		/// About left content
+		/// About left content: only shows if no left image specified
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("aboutLeftContent")]
@@ -85,6 +85,13 @@ namespace CandidContribs.Core.Models.Published
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("headerWords")]
 		public string HeaderWords => this.Value<string>("headerWords");
+
+		///<summary>
+		/// Mailchimp group id: Leave this blank if you don't want to the sign up form to show. 2 = codepatch, 4 = umbrackathon...
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("mailchimpGroupId")]
+		public int MailchimpGroupId => this.Value<int>("mailchimpGroupId");
 
 		///<summary>
 		/// Entries
@@ -155,5 +162,19 @@ namespace CandidContribs.Core.Models.Published
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("openGraphImage")]
 		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent OpenGraphImage => global::CandidContribs.Core.Models.Published.MetaTags.GetOpenGraphImage(this);
+
+		///<summary>
+		/// Menu Icon: icon to use if page is set to appear in header menu
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("menuIcon")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent MenuIcon => global::CandidContribs.Core.Models.Published.Navigation.GetMenuIcon(this);
+
+		///<summary>
+		/// umbracoNaviHide: surely we all know that this means?!
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("umbracoNaviHide")]
+		public bool UmbracoNaviHide => global::CandidContribs.Core.Models.Published.Navigation.GetUmbracoNaviHide(this);
 	}
 }

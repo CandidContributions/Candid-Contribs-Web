@@ -22,16 +22,40 @@
     </div>
 </div>
 
-<h2 class="section-header cancon-hand align--center">Past events</h2>
-
-<a href="/codepatch">
-    <div class="codepatch" id="codepatch">
-        <div class="mobile-deets align--center">
-            <img src="/images/codepatch_logo_600x300.png" alt="codepatch logo" />
+@if (Model.UpcomingEvents.Any())
+{
+    <h2 class="section-header cancon-hand align--center">Upcoming events</h2>
+    foreach (var eventPage in Model.UpcomingEvents)
+    {
+        <div class="@eventPage.CssClass">
+            <div class="mobile-deets align--center">
+                <img src="@eventPage.HeaderLogo.MediaUrl()" alt="@eventPage.Name" />
+            </div>
         </div>
+        <div class="main-content align--center">
+            <h3><a href="@eventPage.Url">@eventPage.Name full details and sign up</a></h3>
+        </div>
+    }
+    <div class="main-content">
+        <p>&nbsp;</p>
     </div>
+}
 
-</a>
-<div class="codepatch-details main-content">
-    <p>&nbsp;</p>
-</div>
+@if (Model.PastEvents.Any())
+{
+    <h2 class="section-header cancon-hand align--center">Past events</h2>
+    foreach (var eventPage in Model.PastEvents)
+    {
+        <a href="@eventPage.Url">
+            <div>
+                <div class="mobile-deets align--center">
+                    <img src="@eventPage.HeaderLogo.MediaUrl()" alt="@eventPage.Name" />
+                </div>
+            </div>
+        </a>
+
+    }
+    <div class="main-content">
+        <p>&nbsp;</p>
+    </div>
+}

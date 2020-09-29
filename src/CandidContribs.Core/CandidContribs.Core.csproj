@@ -240,6 +240,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Helpers\AppSettings.cs" />
+    <Compile Include="Helpers\ViewHelpers.cs" />
     <Compile Include="Models\Api\APIResponse.cs" />
     <Compile Include="Models\Api\DaySchedule.cs" />
     <Compile Include="Models\Api\DayScheduleEntry.cs" />
@@ -257,10 +258,13 @@
     <Compile Include="Models\Published\LibraryRoot.generated.cs" />
     <Compile Include="Models\Published\Member.generated.cs" />
     <Compile Include="Models\Published\MetaTags.generated.cs" />
+    <Compile Include="Models\Published\Navigation.generated.cs" />
     <Compile Include="Models\Published\PeopleFolder.generated.cs" />
     <Compile Include="Models\Published\Person.generated.cs" />
+    <Compile Include="Models\Published\Settings.generated.cs" />
     <Compile Include="Models\Shared\CheckBoxViewModel.cs" />
     <Compile Include="Models\Shared\EventSignUpViewModel.cs" />
+    <Compile Include="Models\Shared\SideBySideTextViewModel.cs" />
     <Compile Include="Models\Shared\ImageTextViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScheduledTasks\SpreakerFeedComposer.cs" />

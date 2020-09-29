@@ -14,39 +14,40 @@ namespace CandidContribs.Core.Controllers.Api
     {
         private readonly List<DaySchedule> _schedule = new List<DaySchedule>();
 
-        public IEnumerable<CheckBoxViewModel> GetDays()
+        public IEnumerable<CheckBoxViewModel> GetDays(int id)
         {
-            SetUpSchedule();
+            SetUpSchedule(id);
             return _schedule.Select(
                 s => new CheckBoxViewModel {Text = s.EventStart.ToString("O"), Value = s.DayTitle, Checked = false});
         }
 
-        public IEnumerable<CheckBoxViewModel> GetActivities()
+        public IEnumerable<CheckBoxViewModel> GetActivities(int id)
         {
-            var dataTypeService = Services.DataTypeService;
+            // only want activities that have entries, not whole list
 
-            var editor = dataTypeService.GetDataType((string) Helpers.AppSettings.CandidContribs.ScheduleTagsKey);
-            if (editor == null) return new List<CheckBoxViewModel>();
+            SetUpSchedule(id);
 
-            var valueList = (ValueListConfiguration) editor.Configuration;
-            return valueList.Items.Select(x => new CheckBoxViewModel
-            {
-                Text = x.Value,
-                Value = x.Value,
-                Checked = false
-            });
+            return _schedule
+                .SelectMany(x => x.Entries)
+                .SelectMany(x => x.Tags)
+                .Distinct().Select(x => new CheckBoxViewModel
+                {
+                    Text = x,
+                    Value = x,
+                    Checked = false
+                })
+                .ToList();
         }
 
-        public IEnumerable<DaySchedule> GetSchedule()
+        public IEnumerable<DaySchedule> GetSchedule(int id)
         {
-            SetUpSchedule();
+            SetUpSchedule(id);
             return _schedule;
         }
 
-        private void SetUpSchedule()
+        private void SetUpSchedule(int id)
         {
-            // TODO - this is hardcoded to get the schedule for the first EventsPage in the tree
-            var eventsPage = (EventsPage)Umbraco.ContentSingleAtXPath("//eventsPage");
+            var eventsPage = (EventsPage)Umbraco.Content(id);
             if (eventsPage == null) return;
 
             AddDaySchedule(1, eventsPage.Part1StartDate, eventsPage.Part1Entries);
