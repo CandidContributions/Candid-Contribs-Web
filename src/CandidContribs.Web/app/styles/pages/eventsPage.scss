@@ -11,6 +11,19 @@
   }
 }
 
+.events-page.event-umbrackathon {
+  .has-background {
+    background-color: $donjuan;
+    color: $athens;
+  }
+
+  .has-background-gradient {
+    background-color: $bayleaf;
+    background-image: linear-gradient(to top right, darken($bayleaf, 30%), $bayleaf);
+    color: $athens;
+  }
+}
+
 .events-nav {
   clear: both;
 

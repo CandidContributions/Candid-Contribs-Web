@@ -1,4 +1,12 @@
-﻿<header>
+﻿@using CandidContribs.Core.Helpers
+@using Umbraco.Web.Models
+@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{
+    var settingsNode = Umbraco.GetRootSettingsNode();
+}
+
+<header>
     <div class="header-layout main-content">
         <div>
             <a href="/" class="link--icon">
@@ -9,15 +17,32 @@
         <div>
             <nav>
                 <ul>
-                    @*<li>
-                        <a href="/episodes">Episodes</a>
-                    </li>*@
-                    <li>
-                        <a href="/codepatch" class="link--icon">
-                            <img src="~/images/codepatch_carrot_300x300.png" alt="codepatch"/>
-                            <span>CodePatch</span>
-                        </a>
-                    </li>
+                    @foreach (var link in settingsNode.TopMenuItems)
+                    {
+                        switch (link.Type)
+                        {
+                            case LinkType.Content:
+                                if (Umbraco.Content(link.Udi) is INavigation linkPage)
+                                {
+                                    <li>
+                                        <a href="@link.Url" class="link--icon" target="@link.Target">
+                                            @if (linkPage.MenuIcon != null)
+                                            {
+                                                <img src="@linkPage.MenuIcon.MediaUrl()" alt="@link.Name"/>
+                                            }
+                                            <span>@link.Name</span>
+                                        </a>
+                                    </li>
+                                }
+                                break;
+
+                            case LinkType.External:
+                                <li>
+                                    <a href="@link.Url" target="@link.Target">@link.Name</a>
+                                </li>
+                                break;
+                        }
+                    }
                 </ul>
             </nav>
         </div>

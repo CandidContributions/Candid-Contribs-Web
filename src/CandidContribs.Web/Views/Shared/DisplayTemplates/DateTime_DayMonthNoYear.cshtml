@@ -1,0 +1,29 @@
+﻿@model DateTime?
+@if (!Model.HasValue)
+{
+    return;
+}
+@{
+    var suffix = "";
+    if (new[] { 11, 12, 13 }.Contains(Model.Value.Day))
+    {
+        suffix = "th";
+    }
+    else if (Model.Value.Day % 10 == 1)
+    {
+        suffix = "st";
+    }
+    else if (Model.Value.Day % 10 == 2)
+    {
+        suffix = "nd";
+    }
+    else if (Model.Value.Day % 10 == 3)
+    {
+        suffix = "rd";
+    }
+    else
+    {
+        suffix = "th";
+    }
+}
+@Model.Value.ToString("ddd dd")@suffix @Model.Value.ToString("MMM")
