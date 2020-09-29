@@ -53,12 +53,11 @@
       <span class="close-modal" onclick={() => hideModal()}>&times;</span>
       <div if={state.slotDialog}>
         <div class="modal-header">
-          <h2>Session details: { state.slotDialog.title }</h2>
+          <h2>{ state.slotDialog.title }</h2>
         </div>
         <div class="modal-body">
           <div class="modal-schedule--details">
             <div class="modal-schedule--details-abstract" if={ state.slotDialog.abstract }>
-              <h3>About</h3>
               <p id="abstract"></p>
             </div>
             <div class="modal-schedule--details-time">
@@ -123,8 +122,10 @@
         ]
       },
       onBeforeMount() {
+        const scheduleSection = document.querySelector('section#schedule');
+        var eventId = scheduleSection.dataset.eventId;
         //get day filters
-        fetch('/umbraco/api/ScheduleApi/GetDays')
+        fetch('/umbraco/api/ScheduleApi/GetDays/' + eventId)
           .then(dayResponse => dayResponse.json())
           .then(dayData => {
             this.update({
@@ -132,7 +133,7 @@
             })
           })
         //get activity filters
-        fetch('/umbraco/api/ScheduleApi/GetActivities')
+        fetch('/umbraco/api/ScheduleApi/GetActivities/' + eventId)
           .then(response => response.json())
           .then(actData => {
             this.update({
@@ -140,7 +141,7 @@
             })
           })
         //get schedule
-        fetch('/umbraco/api/ScheduleApi/GetSchedule')
+        fetch('/umbraco/api/ScheduleApi/GetSchedule/' + eventId)
           .then(response => response.json())
           .then(data => {
             this.update({

@@ -346,6 +346,7 @@
     <Content Include="images\tools\visualstudio_logo2.png" />
     <Content Include="images\tools\youtube_logo2.png" />
     <Content Include="images\tools\zoom.jpg" />
+    <Content Include="images\umbrackathon_mushroom_300x300.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -395,7 +396,10 @@
     <Content Include="Views\Partials\Components\_ImageText.cshtml" />
     <Content Include="Views\Partials\Components\_Speakers.cshtml" />
     <Content Include="Views\Partials\Components\_Schedule.cshtml" />
-    <Content Include="Views\Partials\Components\_Tools.cshtml" />
+    <Content Include="Views\Partials\Components\_Tools_codepatch.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime_DayMonthNoYear.cshtml" />
+    <Content Include="Views\Partials\Components\_SideBySideText.cshtml" />
+    <Content Include="Views\Partials\Components\_Tools_umbrackathon.cshtml" />
     <Content Include="Views\Partials\Components\_EventSignUp.cshtml" />
     <None Include="Web.ConnectionStrings.config" />
     <None Include="Web.Debug.config">

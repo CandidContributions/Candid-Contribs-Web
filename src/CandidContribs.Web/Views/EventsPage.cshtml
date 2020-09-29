@@ -4,48 +4,76 @@
     Layout = "_Master.cshtml";
 }
 
-<div class="events-page event-codepatch">
+    <div class="events-page event-@Model.CssClass">
 
-    @Html.Partial("_EventsPageBanner")
+        @Html.Partial("_EventsPageBanner", Model)
 
-    <nav class="container events-nav">
-        <ul class="row">
-            <li>
-                <a href="#about">
-                    <i class="material-icons">emoji_food_beverage</i> <span>About</span>
-                </a>
-            </li>
-            <li>
-                <a href="#speakers">
-                    <i class="material-icons">people</i> <span>Speakers</span>
-                </a>
-            </li>
-            <li>
-                <a href="#schedule">
-                    <i class="material-icons">calendar_today</i> <span>Schedule</span>
-                </a>
-            </li>
-            <li>
-                <a href="#tools">
-                    <i class="material-icons">emoji_objects</i> <span>Tools</span>
-                </a>
-            </li>
-            <li>
-                <a href="#signup">
-                    <i class="material-icons">check_box</i> <span>Sign up</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    
-    @Html.Partial("Components/_ImageText", new ImageTextViewModel { Text = Model.AboutContent })
+        <nav class="container events-nav">
+            <ul class="row">
+                <li>
+                    <a href="#about">
+                        <i class="material-icons">emoji_food_beverage</i> <span>About</span>
+                    </a>
+                </li>
+                @if (Model.Speakers != null && Model.Speakers.Any())
+                {
+                    <li>
+                        <a href="#speakers">
+                            <i class="material-icons">people</i> <span>Speakers</span>
+                        </a>
+                    </li>
+                }
+                @if (Model.Part1Entries != null && Model.Part1Entries.Any())
+                {
+                    <li>
+                        <a href="#schedule">
+                            <i class="material-icons">calendar_today</i> <span>Schedule</span>
+                        </a>
+                    </li>
+                }
+                <li>
+                    <a href="#tools">
+                        <i class="material-icons">emoji_objects</i> <span>Tools</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#signup">
+                        <i class="material-icons">check_box</i> <span>Sign up</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
-    @Html.Partial("Components/_Speakers", Model.Speakers)
+        @if (Model.AboutLeftImage != null)
+        {
+            @Html.Partial("Components/_ImageText", new ImageTextViewModel { Text = Model.AboutContent })
+        }
+        else
+        {
+            @Html.Partial("Components/_SideBySideText", new SideBySideTextViewModel
+            {
+                TextLeft = Model.AboutLeftContent,
+                TextRight = Model.AboutContent
+            })
+        }
+        
+        @if (Model.Speakers != null && Model.Speakers.Any())
+        {
+            @Html.Partial("Components/_Speakers", Model.Speakers)
+        }
 
-    @Html.Partial("Components/_Schedule")
+        @if (Model.Part1Entries != null && Model.Part1Entries.Any())
+        {
+            @Html.Partial("Components/_Schedule", Model.Id)
+        }
 
-    @Html.Partial("Components/_Tools")
+        @Html.Partial("Components/_Tools_" + Model.CssClass)
+        
+        @*always want them signing up for the current event!*@
+        @Html.Partial("Components/_EventSignUp", new EventSignUpViewModel
+        {
+            Text = Model.SignUpContent,
+            MailchimpGroupId = Model.MailchimpGroupId
+        })
 
-    @Html.Partial("Components/_EventSignUp", new EventSignUpViewModel() { Text = Model.SignUpContent })
-
-</div>
+    </div>
