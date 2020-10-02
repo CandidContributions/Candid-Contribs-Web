@@ -4,12 +4,12 @@ using System.Linq;
 using CandidContribs.Core.Models.Api;
 using CandidContribs.Core.Models.Published;
 using CandidContribs.Core.Models.Shared;
-using Umbraco.Core.PropertyEditors;
 using Umbraco.Web.WebApi;
 using DayScheduleEntry = CandidContribs.Core.Models.Api.DayScheduleEntry;
 
 namespace CandidContribs.Core.Controllers.Api
 {
+    ///umbraco/api/ScheduleApi/
     public class ScheduleApiController : UmbracoApiController
     {
         private readonly List<DaySchedule> _schedule = new List<DaySchedule>();

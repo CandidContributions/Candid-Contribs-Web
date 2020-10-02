@@ -72,6 +72,9 @@
     <Reference Include="Lucene.Net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
       <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
     </Reference>
+    <Reference Include="MailChimp.Net, Version=4.2.1.0, Culture=neutral, PublicKeyToken=37d26d538413c581, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailChimp.Net.V3.4.2.1\lib\net45\MailChimp.Net.dll</HintPath>
+    </Reference>
     <Reference Include="Markdown, Version=2.0.0.0, Culture=neutral, PublicKeyToken=1b320cc08ad5aa89, processorArchitecture=MSIL">
       <HintPath>..\packages\Markdown.2.2.1\lib\net451\Markdown.dll</HintPath>
     </Reference>
@@ -112,7 +115,7 @@
       <HintPath>..\packages\MiniProfiler.Shared.4.0.138\lib\net461\MiniProfiler.Shared.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NPoco, Version=3.9.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NPoco.3.9.4\lib\net45\NPoco.dll</HintPath>
@@ -236,6 +239,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Api\MailchimpApiController.cs" />
     <Compile Include="Controllers\Api\ScheduleApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
@@ -246,6 +250,7 @@
     <Compile Include="Models\Api\DayScheduleEntry.cs" />
     <Compile Include="Models\Api\EpisodeModel.cs" />
     <Compile Include="Models\Api\EpisodeResponse.cs" />
+    <Compile Include="Models\Forms\EventSignupForm.cs" />
     <Compile Include="Models\Pages\HomePageModel.cs" />
     <Compile Include="Models\Published\DayScheduleEntry.generated.cs" />
     <Compile Include="Models\Published\Episode.generated.cs" />
@@ -270,6 +275,7 @@
     <Compile Include="ScheduledTasks\SpreakerFeedComposer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

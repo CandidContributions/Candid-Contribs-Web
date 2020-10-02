@@ -40,8 +40,8 @@ namespace CandidContribs.Core.ScheduledTasks
             using (var cref = _context.EnsureUmbracoContext())
             {
                 var minsToMilliSeconds = 60 * 1000;
-                int delayBeforeWeStart = AppSettings.CandidContribs.SpreakerApiDelayStartMins * minsToMilliSeconds;
-                int howOftenWeRepeat = AppSettings.CandidContribs.SpreakerApiRepeatMins * minsToMilliSeconds;
+                int delayBeforeWeStart = AppSettings.CandidContribs.SpreakerApi.DelayStartMins * minsToMilliSeconds;
+                int howOftenWeRepeat = AppSettings.CandidContribs.SpreakerApi.RepeatMins * minsToMilliSeconds;
 
                 var task = new SpreakerFeed(_spreakerFeedRunner, delayBeforeWeStart, howOftenWeRepeat, _runtime, _logger, _contentService, _context);
 
@@ -77,7 +77,7 @@ namespace CandidContribs.Core.ScheduledTasks
             const string spreakerApiEpisodesUrlFormat = "https://api.spreaker.com/v2/shows/{0}/episodes";
             const string spreakerApiEpisodeUrlFormat = "https://api.spreaker.com/v2/episodes/{0}";
 
-            if (!AppSettings.CandidContribs.SpreakerApiEnabled)
+            if (!AppSettings.CandidContribs.SpreakerApi.Enabled)
             {
                 _logger.Info<SpreakerFeed>("Spreaker episode import disabled");
                 return false;
@@ -96,7 +96,7 @@ namespace CandidContribs.Core.ScheduledTasks
                     return false;
                 }
 
-                var episodesApiUrl = string.Format(spreakerApiEpisodesUrlFormat, AppSettings.CandidContribs.SpreakerApiShowId);
+                var episodesApiUrl = string.Format(spreakerApiEpisodesUrlFormat, AppSettings.CandidContribs.SpreakerApi.ShowId);
                 var response = client.GetAsync(episodesApiUrl).Result;
                 if (!response.IsSuccessStatusCode)
                 {

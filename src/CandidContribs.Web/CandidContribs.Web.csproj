@@ -388,7 +388,6 @@
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\Partials\_Header.cshtml" />
     <Content Include="Views\Partials\_Footer.cshtml" />
-    <Content Include="Views\Partials\Forms\_Mailchimp_CodePatchSignUp.cshtml" />
     <Content Include="Views\Partials\_HomepageBanner.cshtml" />
     <Content Include="Views\Partials\_MetaTags.cshtml" />
     <Content Include="Views\EventsPage.cshtml" />

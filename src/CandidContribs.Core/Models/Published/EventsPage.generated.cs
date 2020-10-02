@@ -87,11 +87,11 @@ namespace CandidContribs.Core.Models.Published
 		public string HeaderWords => this.Value<string>("headerWords");
 
 		///<summary>
-		/// Mailchimp group id: Leave this blank if you don't want to the sign up form to show. 2 = codepatch, 4 = umbrackathon...
+		/// Mailchimp group id: Leave this blank if you don't want to the sign up form to show. e.g. ab4234fdf
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
 		[ImplementPropertyType("mailchimpGroupId")]
-		public int MailchimpGroupId => this.Value<int>("mailchimpGroupId");
+		public string MailchimpGroupId => this.Value<string>("mailchimpGroupId");
 
 		///<summary>
 		/// Entries
