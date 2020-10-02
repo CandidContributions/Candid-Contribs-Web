@@ -6,6 +6,6 @@ namespace CandidContribs.Core.Models.Shared
     {
         public IHtmlString Text { get; set; }
 
-        public int? MailchimpGroupId { get; set; }
+        public string MailchimpGroupId { get; set; }
     }
 }

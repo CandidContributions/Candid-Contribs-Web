@@ -96,6 +96,19 @@ select {
 
 /* hover style just for information */
 label:hover:before {
-  border: 1px solid $bayleaf!important;
+  border: 1px solid $bayleaf !important;
   opacity: 0.4;
+}
+
+button {
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    font-family: $source;
+    font-weight: 300;
+}
+
+span.invalid {
+    padding: 3px 8px;
+    background: red;
+    font-weight: 400;
 }

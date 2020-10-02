@@ -1,4 +1,5 @@
-﻿@using CandidContribs.Core.Models.Shared
+﻿@using CandidContribs.Core.Models.Forms
+@using CandidContribs.Core.Models.Shared
 @inherits Umbraco.Web.Mvc.UmbracoViewPage<EventsPage>
 @{
     Layout = "_Master.cshtml";
@@ -56,7 +57,7 @@
                 TextRight = Model.AboutContent
             })
         }
-        
+
         @if (Model.Speakers != null && Model.Speakers.Any())
         {
             @Html.Partial("Components/_Speakers", Model.Speakers)
@@ -68,9 +69,8 @@
         }
 
         @Html.Partial("Components/_Tools_" + Model.CssClass)
-        
-        @*always want them signing up for the current event!*@
-        @Html.Partial("Components/_EventSignUp", new EventSignUpViewModel
+
+        @Html.Partial("Components/_EventSignUp", new EventSignupForm
         {
             Text = Model.SignUpContent,
             MailchimpGroupId = Model.MailchimpGroupId
