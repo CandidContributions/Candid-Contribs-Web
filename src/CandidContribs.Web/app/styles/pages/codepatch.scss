@@ -9,4 +9,8 @@
     background-image: linear-gradient(to top right, darken($bayleaf, 30%), $bayleaf);
     color: $athens;
   }
+
+  .events-banner {
+    background: url("../../images/codepatch_bg_1920x304.png") repeat top center;
+  }
 }

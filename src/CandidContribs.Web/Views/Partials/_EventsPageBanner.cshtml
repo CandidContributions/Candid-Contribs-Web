@@ -5,7 +5,14 @@
             <div class="col-6 col-12-sm">
                 @if (Model.HeaderLogo != null)
                 {
-                    <img src="@Model.HeaderLogo.MediaUrl()" alt="@Model.HeaderWords" />
+                    if (Model.HeaderLogoMobileOnly)
+                    {
+                        <img src="@Model.HeaderLogo.MediaUrl()" alt="@Model.HeaderWords" class="mobile-only" />
+                    }
+                    else
+                    {
+                        <img src="@Model.HeaderLogo.MediaUrl()" alt="@Model.HeaderWords" />
+                    }
                 }
                 else
                 {

@@ -21,19 +21,26 @@
 .events-banner {
   display: block;
   height: 304px;
-  background: url("../../images/codepatch_bg_1920x304.png") repeat top center;
 
   @media only screen and (max-width: $breakpoint-large) {
     height: auto;
   }
 
   @media only screen and (max-width: $breakpoint-med) {
-    background: none;
+    background: none !important;
   }
 
   img {
     //width: 70%;
     max-width: 100%
+  }
+
+  img.mobile-only {
+     display: none;
+
+     @media only screen and (max-width: $breakpoint-med) {
+        display: block;
+     }
   }
 
   &--icon {

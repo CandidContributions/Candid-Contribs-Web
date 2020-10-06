@@ -27,16 +27,16 @@
     <h2 class="section-header cancon-hand align--center">Upcoming events</h2>
     foreach (var eventPage in Model.UpcomingEvents)
     {
-        if (eventPage.HeaderLogo != null)
+        @*if (eventPage.HeaderLogo != null)
         {
             <div class="@eventPage.CssClass">
                 <div class="mobile-deets align--center">
                     <img src="@eventPage.HeaderLogo.MediaUrl()" alt="@eventPage.Name" />
                 </div>
             </div>
-        }
+        }*@
         <div class="main-content align--center">
-            <h3>The CanCon Umbrackathon</h3>
+            <a href="@eventPage.Url"><img src="~/images/625x251_umbracktoberfest.jpg" /></a>
             <p>A virtual Umbraco hackathon on Fri 16th and Sat 17th October - <a href="@eventPage.Url">full details and sign up</a></p>
         </div>
     }
