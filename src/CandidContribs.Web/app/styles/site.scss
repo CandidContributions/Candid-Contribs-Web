@@ -11,6 +11,7 @@
 @import "shared/modal.scss";
 
 @import "pages/home.scss";
+
 @import "pages/eventsPage.scss";
 
 @import "forms/shared.scss";
@@ -21,3 +22,7 @@
 @import "components/component.scss";
 @import "components/speakers.scss";
 @import "components/schedule.scss";
+
+// event specific code
+@import "pages/codepatch.scss";
+@import "pages/umbrackathon.scss";
