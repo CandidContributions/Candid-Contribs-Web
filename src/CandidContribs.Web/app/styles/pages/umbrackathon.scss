@@ -13,4 +13,65 @@
   .events-banner {
     background: url("../../images/1920x305_umbracktoberfest.jpg") repeat top center;
   }
+
+  .event-status-banner {
+    background-color: $umbrackathon-back;
+    padding: 10px 0;
+
+    .container {
+      padding: 0;
+    }
+
+    h2 {
+      margin-bottom: 0;
+    }
+
+    p {
+      font-size: $base-size*1.25;
+      a {
+        text-decoration: none;
+        border-bottom: 1px dashed;
+        font-weight: bold;
+        color: #333;
+      }
+      a:hover {
+        color: lighten(#333,30%);
+      }
+    }
+  }
+
+  .mushroom-field {
+    background-image: url("../../images/field-background.jpg");
+    background-repeat: repeat;
+    .mushroom {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      display: inline-block;
+      img {
+        position: absolute;
+        width: 100px;
+        top: 40px;
+        left: 20px;
+        z-index: 1;
+      }
+      img:first-child {
+        position: absolute;
+        width: 45px;
+        top: 89px;
+        left: 65px;
+        z-index: 2;
+        border-radius: 50%;
+        border: $umbrackathon-mushroom-red 1px solid;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .mushroom-field-bottom {
+    background-image: url("../../images/field-bottom.jpg");
+    background-repeat: repeat;   
+    height: 145px;
+  }
 }

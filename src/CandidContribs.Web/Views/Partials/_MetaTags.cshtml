@@ -1,32 +1,52 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<IMetaTags>
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Type" content="text/html; charset utf-8" />
 @{
-    var metaTitle = Model.Value<string>("metaTitle", fallback: Fallback.ToDefaultValue, defaultValue: Model.Name);
-    var metaDescription = Model.Value<string>("metaDescription", fallback: Fallback.ToDefaultValue, defaultValue: "A website covering news and events for the popular open-source podcast: Candid Contributions");
-    var metaKeywords = Model.Value<string>("metaKeywords", fallback: Fallback.ToDefaultValue, defaultValue: "opensource, podcast, development, dotnet, contributing");
+    // events status page gets meta info from parent
+    if (Model is IMetaTags)
+    {
+        @DisplayMetaTags((IMetaTags)Model)
+        <title>@(Model.Value<string>("MetaTitle", fallback: Fallback.ToDefaultValue, defaultValue: "Candid Contributions"))</title>
+    }
+    else if (Model.Parent is IMetaTags)
+    {
+        @DisplayMetaTags((IMetaTags)Model.Parent)
+        <title>@(Model.Parent.Value<string>("MetaTitle", fallback: Fallback.ToDefaultValue, defaultValue: "Candid Contributions"))</title>
+    }
+    else
+    {
+        <title>@(Model.Value<string>("MetaTitle", fallback: Fallback.ToDefaultValue, defaultValue: "Candid Contributions"))</title>
+    }
+}
+
+@helper DisplayMetaTags(IMetaTags metaTags)
+{
+    var metaTitle = metaTags.Value<string>("metaTitle", fallback: Fallback.ToDefaultValue, defaultValue: Model.Name);
+    var metaDescription = metaTags.Value<string>("metaDescription", fallback: Fallback.ToDefaultValue, defaultValue: "A website covering news and events for the popular open-source podcast: Candid Contributions");
+    var metaKeywords = metaTags.Value<string>("metaKeywords", fallback: Fallback.ToDefaultValue, defaultValue: "opensource, podcast, development, dotnet, contributing");
 
     var requestUrl = HttpContext.Current.Request.Url;
     var baseUrl = requestUrl.GetLeftPart(UriPartial.Authority);
     var imageAbsoluteUrl = baseUrl + "/images/ccbrand_1200x630.png";
-    if (Model.OpenGraphImage != null)
+    if (metaTags.OpenGraphImage != null)
     {
-        imageAbsoluteUrl = baseUrl + Model.OpenGraphImage.Url;
+        imageAbsoluteUrl = baseUrl + metaTags.OpenGraphImage.Url;
     }
+
+    <meta name="title" content="@metaTitle" />
+    <meta name="description" content="@metaDescription" />
+    <meta name="keywords" content="@metaKeywords" />
+
+    <!-- open graph -->
+    <meta property="og:title" content="@metaTitle">
+    <meta property="og:description" content="@metaDescription">
+    <meta property="og:image" content="@imageAbsoluteUrl">
+    <meta property="og:url" content="@requestUrl.AbsoluteUri">
+    <meta property="og:site_name" content="Candid Contributions Podcast">
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:alt" content="@metaTitle">
+    <meta name="twitter:site" content="@("@candidContribs")">
 }
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="Content-Type" content="text/html; charset utf-8" />
-<meta name="title" content="@metaTitle" />
-<meta name="description" content="@metaDescription" />
-<meta name="keywords" content="@metaKeywords" />
-
-<!-- open graph -->
-<meta property="og:title" content="@metaTitle">
-<meta property="og:description" content="@metaDescription">
-<meta property="og:image" content="@imageAbsoluteUrl">
-<meta property="og:url" content="@requestUrl.AbsoluteUri">
-<meta property="og:site_name" content="Candid Contributions Podcast">
-
-<!-- twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image:alt" content="@metaTitle">
-<meta name="twitter:site" content="@("@candidContribs")">

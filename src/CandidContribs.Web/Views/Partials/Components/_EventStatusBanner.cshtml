@@ -1,0 +1,10 @@
+﻿@model EventStatus
+@if (!Model.ShowPromo)
+{
+    return;
+}
+<section class="component event-status-banner">
+    <div class="container">
+        @Model.StatusPromo
+    </div>
+</section>

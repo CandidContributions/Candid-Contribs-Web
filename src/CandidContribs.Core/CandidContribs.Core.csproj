@@ -241,6 +241,7 @@
   <ItemGroup>
     <Compile Include="Controllers\Api\MailchimpApiController.cs" />
     <Compile Include="Controllers\Api\ScheduleApiController.cs" />
+    <Compile Include="Controllers\EventStatusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Helpers\AppSettings.cs" />
@@ -256,6 +257,7 @@
     <Compile Include="Models\Published\Episode.generated.cs" />
     <Compile Include="Models\Published\EpisodesFolder.generated.cs" />
     <Compile Include="Models\Published\EventsPage.generated.cs" />
+    <Compile Include="Models\Published\EventStatus.generated.cs" />
     <Compile Include="Models\Published\File.generated.cs" />
     <Compile Include="Models\Published\Folder.generated.cs" />
     <Compile Include="Models\Published\Home.generated.cs" />
