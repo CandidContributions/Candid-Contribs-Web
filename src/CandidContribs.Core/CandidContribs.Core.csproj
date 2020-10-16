@@ -239,6 +239,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Api\DiscordBotController.cs" />
     <Compile Include="Controllers\Api\MailchimpApiController.cs" />
     <Compile Include="Controllers\Api\ScheduleApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -248,11 +249,22 @@
     <Compile Include="Models\Api\APIResponse.cs" />
     <Compile Include="Models\Api\DaySchedule.cs" />
     <Compile Include="Models\Api\DayScheduleEntry.cs" />
+    <Compile Include="Models\Api\DiscordBot\BingoConfiguration.cs" />
+    <Compile Include="Models\Api\DiscordBot\TokenRequestFail.cs" />
     <Compile Include="Models\Api\EpisodeModel.cs" />
     <Compile Include="Models\Api\EpisodeResponse.cs" />
     <Compile Include="Models\Forms\EventSignupForm.cs" />
     <Compile Include="Models\Pages\HomePageModel.cs" />
+    <Compile Include="Models\Published\AlternateBingoPhrase.generated.cs" />
+    <Compile Include="Models\Published\AutoRoundSettings.generated.cs" />
+    <Compile Include="Models\Published\BingoFolder.generated.cs" />
+    <Compile Include="Models\Published\BingoPhrase.generated.cs" />
+    <Compile Include="Models\Published\BingoPhrasesFolder.generated.cs" />
+    <Compile Include="Models\Published\BingoSettings.generated.cs" />
+    <Compile Include="Models\Published\BingoWord.generated.cs" />
+    <Compile Include="Models\Published\BingoWordsFolder.generated.cs" />
     <Compile Include="Models\Published\DayScheduleEntry.generated.cs" />
+    <Compile Include="Models\Published\DiscortBotFolder.generated.cs" />
     <Compile Include="Models\Published\Episode.generated.cs" />
     <Compile Include="Models\Published\EpisodesFolder.generated.cs" />
     <Compile Include="Models\Published\EventsPage.generated.cs" />
