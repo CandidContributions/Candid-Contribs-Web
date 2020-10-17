@@ -80,6 +80,13 @@ namespace CandidContribs.Core.Models.Published
 		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent HeaderLogo => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("headerLogo");
 
 		///<summary>
+		/// Header logo mobile only
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
+		[ImplementPropertyType("headerLogoMobileOnly")]
+		public bool HeaderLogoMobileOnly => this.Value<bool>("headerLogoMobileOnly");
+
+		///<summary>
 		/// Header words: If a logo is specified, this will be used as the alt text of the logo. If no logo then this text will displayed in the header banner
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.3")]
