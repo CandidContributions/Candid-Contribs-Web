@@ -15,7 +15,7 @@ namespace CandidContribs.Core.Controllers
 
     public class EventStatusController : Umbraco.Web.Mvc.RenderMvcController
     {
-        public ActionResult Index(ContentModel model)
+        public override ActionResult Index(ContentModel model)
         {
             var appDataFolder = Server.MapPath("~/App_Data");
             var storageFolderPath = appDataFolder + "\\github\\umbrackathon";
@@ -27,7 +27,7 @@ namespace CandidContribs.Core.Controllers
 
             if (!Directory.Exists(storageFolderPath))
             {
-                return CurrentTemplate(model);
+                return CurrentTemplate(eventStatusModel);
             }
 
             foreach (var filename in Directory.GetFiles(storageFolderPath))
