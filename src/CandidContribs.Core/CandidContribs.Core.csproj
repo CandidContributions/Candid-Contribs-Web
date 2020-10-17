@@ -252,6 +252,7 @@
     <Compile Include="Models\Api\EpisodeModel.cs" />
     <Compile Include="Models\Api\EpisodeResponse.cs" />
     <Compile Include="Models\Forms\EventSignupForm.cs" />
+    <Compile Include="Models\Pages\EventStatusModel.cs" />
     <Compile Include="Models\Pages\HomePageModel.cs" />
     <Compile Include="Models\Published\DayScheduleEntry.generated.cs" />
     <Compile Include="Models\Published\Episode.generated.cs" />
@@ -271,9 +272,11 @@
     <Compile Include="Models\Published\Settings.generated.cs" />
     <Compile Include="Models\Shared\CheckBoxViewModel.cs" />
     <Compile Include="Models\Shared\EventSignUpViewModel.cs" />
+    <Compile Include="Models\Shared\GuestbookEntry.cs" />
     <Compile Include="Models\Shared\SideBySideTextViewModel.cs" />
     <Compile Include="Models\Shared\ImageTextViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScheduledTasks\GuestbookGitHubComposer.cs" />
     <Compile Include="ScheduledTasks\SpreakerFeedComposer.cs" />
   </ItemGroup>
   <ItemGroup>

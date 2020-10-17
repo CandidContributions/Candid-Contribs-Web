@@ -1,10 +1,12 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.EventStatus>
-@using NPoco.Expressions
-@using ContentModels = CandidContribs.Core.Models.Published;
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<CandidContribs.Core.Models.Pages.EventStatusModel>
 @{
     Layout = "_Master.cshtml";
 
     var eventsPage = (EventsPage)Model.Parent;
+}
+
+@section Head {
+    <meta http-equiv="refresh" content="60">
 }
 
 <div class="events-page event-@eventsPage.CssClass">
@@ -42,24 +44,14 @@
     </div>
     <div class="mushroom-field">
         <div class="container" style="clear: both;">
-            
-            @for (var i = 0; i < 14; i++)
+            @foreach (var contributor in Model.GuestbookEntries)
             {
-                if (i % 2 == 0)
-                {
+                <a href="https://github.com/@contributor.Username" target="_blank">
                     <div class="mushroom">
-                        <img src="https://avatars1.githubusercontent.com/lottepitcher">
-                        <img src="~/images/mushroom.png"/>
+                        <img src="https://avatars1.githubusercontent.com/@contributor.Username" title="@contributor.Username">
+                        <img src="~/images/mushroom.png" />
                     </div>
-                }
-                else
-                {
-                    <div class="mushroom">
-                        <img src="https://avatars1.githubusercontent.com/shanselman">
-                        <img src="~/images/mushroom.png"/>
-                    </div>
-
-                }
+                </a>
             }
             <p style="clear: both;">&nbsp;</p>
         </div>
