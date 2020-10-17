@@ -48,7 +48,7 @@
       width: 120px;
       height: 110px;
       display: inline-block;
-      img {
+      svg {
         position: absolute;
         width: 100px;
         height: 100px;
@@ -56,7 +56,7 @@
         left: 20px;
         z-index: 1;
       }
-      img:first-child {
+      img {
         position: absolute;
         width: 45px;
         height: 45px;
@@ -66,8 +66,8 @@
         border-radius: 50%;
         border: $umbrackathon-mushroom-red 1px solid;
       }
-      &:hover {
-        cursor: pointer;
+      svg .mushroom-cap {
+        fill: rgb(146,3,3);
       }
     }
   }

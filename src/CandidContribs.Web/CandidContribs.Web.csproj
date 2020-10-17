@@ -340,6 +340,7 @@
     <Content Include="images\logo.png" />
     <Content Include="images\logo_white.png" />
     <Content Include="images\mushroom.png" />
+    <Content Include="images\mushroom.svg" />
     <Content Include="images\people\carole_round.png" />
     <Content Include="images\people\emma_round.png" />
     <Content Include="images\people\laura_round.png" />
