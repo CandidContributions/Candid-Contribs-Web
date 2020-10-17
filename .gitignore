@@ -30,6 +30,8 @@ packages/
 **/[Bb]in/*
 !**/[Bb]in/*.lic
 
+**/App_Data/github/
+
 
 # =========================
 # Umbraco

@@ -3,12 +3,10 @@
 <html>
 <head>
     @Html.Partial("_MetaTags")
-
-    <title>@(Model.Value<string>("MetaTitle", fallback: Fallback.ToDefaultValue, defaultValue: "Candid Contributions"))</title>
-
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/eoy7uue.css">
-    <link rel="stylesheet" href="~/content/css/site.min.css?v3" />
+    <link rel="stylesheet" href="~/content/css/site.min.css?v4" />
+    @RenderSection("Head", required: false)
 </head>
 <body>
     <div class="main-container">
@@ -22,7 +20,7 @@
         @Html.Partial("_Footer")
     </div>
 
-    <script src="~/content/js/site.js?v3" asp-append-version="true"></script>
+    <script src="~/content/js/site.js?v4" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

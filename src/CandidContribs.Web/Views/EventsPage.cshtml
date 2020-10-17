@@ -44,6 +44,14 @@
                 </li>
             </ul>
         </nav>
+        
+        @{
+            var childStatus = Model.Children<EventStatus>().FirstOrDefault();
+            if (childStatus != null)
+            {
+                @Html.Partial("Components/_EventStatusBanner", childStatus)
+            }
+        }
 
         @if (Model.AboutLeftImage != null)
         {

@@ -334,9 +334,12 @@
     <Content Include="images\codepatch_bg_1920x304.png" />
     <Content Include="images\codepatch_carrot_300x300.png" />
     <Content Include="images\codepatch_logo_600x300.png" />
+    <Content Include="images\field-background.jpg" />
+    <Content Include="images\field-bottom.jpg" />
     <Content Include="images\high-five.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo_white.png" />
+    <Content Include="images\mushroom.png" />
     <Content Include="images\people\carole_round.png" />
     <Content Include="images\people\emma_round.png" />
     <Content Include="images\people\laura_round.png" />
@@ -348,6 +351,7 @@
     <Content Include="images\tools\visualstudio_logo2.png" />
     <Content Include="images\tools\youtube_logo2.png" />
     <Content Include="images\tools\zoom.jpg" />
+    <Content Include="images\umbracktoberfest_mobile.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -401,6 +405,8 @@
     <Content Include="Views\Partials\Components\_SideBySideText.cshtml" />
     <Content Include="Views\Partials\Components\_Tools_umbrackathon.cshtml" />
     <Content Include="Views\Partials\Components\_EventSignUp.cshtml" />
+    <Content Include="Views\EventStatus.cshtml" />
+    <Content Include="Views\Partials\Components\_EventStatusBanner.cshtml" />
     <None Include="Web.ConnectionStrings.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
