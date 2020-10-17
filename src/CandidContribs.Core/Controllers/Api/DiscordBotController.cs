@@ -46,7 +46,7 @@ namespace CandidContribs.Core.Controllers.Api
             }
 
             var discordBotFolder = Umbraco.ContentAtRoot()
-                .FirstOrDefault(n => n.IsDocumentType(DiscortBotFolder.ModelTypeAlias)) as DiscortBotFolder;
+                .FirstOrDefault(n => n.IsDocumentType(DiscordBotFolder.ModelTypeAlias)) as DiscordBotFolder;
             if (discordBotFolder?.Secret.IsNullOrWhiteSpace() != false)
             {
                 return BadRequest("Invalid server configuration");
@@ -72,7 +72,7 @@ namespace CandidContribs.Core.Controllers.Api
 
             //todo this should be moved into a service
             var discordBotFolder = Umbraco.ContentAtRoot()
-                .FirstOrDefault(n => n.IsDocumentType(DiscortBotFolder.ModelTypeAlias)) as DiscortBotFolder;
+                .FirstOrDefault(n => n.IsDocumentType(DiscordBotFolder.ModelTypeAlias)) as DiscordBotFolder;
             var bingoFolder = discordBotFolder.FirstChild<BingoFolder>();
             var configuration = new BingoConfiguration();
             configuration.Words = bingoFolder.FirstChild<BingoWordsFolder>()

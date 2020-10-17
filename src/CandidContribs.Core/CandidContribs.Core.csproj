@@ -264,7 +264,7 @@
     <Compile Include="Models\Published\BingoWord.generated.cs" />
     <Compile Include="Models\Published\BingoWordsFolder.generated.cs" />
     <Compile Include="Models\Published\DayScheduleEntry.generated.cs" />
-    <Compile Include="Models\Published\DiscortBotFolder.generated.cs" />
+    <Compile Include="Models\Published\DiscordBotFolder.generated.cs" />
     <Compile Include="Models\Published\Episode.generated.cs" />
     <Compile Include="Models\Published\EpisodesFolder.generated.cs" />
     <Compile Include="Models\Published\EventsPage.generated.cs" />
