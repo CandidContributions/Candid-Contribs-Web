@@ -1,5 +1,7 @@
 import '@riotjs/hot-reload'
-import {component} from 'riot'
+import { component } from 'riot'
 import Schedule from './components/schedule.riot'
 
-component(Schedule)(document.getElementById('schedule'), { })
+if (document.getElementById('schedule') != null) {
+    component(Schedule)(document.getElementById('schedule'), {});
+}
