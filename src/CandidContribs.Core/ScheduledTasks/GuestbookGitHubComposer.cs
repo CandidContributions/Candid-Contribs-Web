@@ -109,7 +109,7 @@ namespace CandidContribs.Core.ScheduledTasks
             foreach (var file in contents)
             {
                 var filename = (string)file["name"];
-                if ((string)file["type"] != "file" || filename == "readme.md")
+                if ((string)file["type"] != "file" || filename == "readme.md" || filename == "_template.md")
                 {
                     continue;
                 }
