@@ -79,7 +79,7 @@ namespace CandidContribs.Core.Services
 
             // get file contents and save locally - might have changed so already get contents
             var response = _httpClient.GetAsync(downloadUrl).Result;
-            using (var localFileStream = File.OpenWrite($"{_storageFolderPath}\\{filename}"))
+            using (var localFileStream = File.Create($"{_storageFolderPath}\\{filename}"))
             {
                 var contentStream = response.Content.ReadAsStreamAsync().Result;
                 contentStream.CopyTo(localFileStream);
