@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using CandidContribs.Core.Helpers;
+using CandidContribs.Core.Models.Api.GitHub;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Umbraco.Core.Logging;
 
 namespace CandidContribs.Core.Services
@@ -32,14 +34,9 @@ namespace CandidContribs.Core.Services
 
                 var folderContents = GetGitHubFolderContents(AppSettings.CandidContribs.GuestbookGitHubApi.GuestbookUrl);
 
-                foreach (var folderContent in folderContents)
+                foreach (var fileInfo in folderContents.Where(x => x.IsValidFile()))
                 {
-                    if ((string)folderContent["type"] != "file") continue;
-
-                    var filename = (string)folderContent["name"];
-                    if (filename == "readme.md" || filename == "0-template.md") continue;
-
-                    DownloadGitHubFile(filename, (string)folderContent["download_url"]);
+                    DownloadGitHubFile(fileInfo);
                 }
             }
         }
@@ -55,17 +52,17 @@ namespace CandidContribs.Core.Services
             }
         }
 
-        private JArray GetGitHubFolderContents(string contentsUrl)
+        private List<GitHubFileInfo> GetGitHubFolderContents(string contentsUrl)
         {
             var contentsJson = _httpClient.GetStringAsync(contentsUrl).Result;
-            return (JArray)JsonConvert.DeserializeObject(contentsJson);
+            return JsonConvert.DeserializeObject<List<GitHubFileInfo>>(contentsJson);
         }
 
-        private void DownloadGitHubFile(string filename, string downloadUrl)
+        private void DownloadGitHubFile(GitHubFileInfo fileInfo)
         {
             // user should have used the correct format of GitHubUsername.md
-            var githubUser = Path.GetFileNameWithoutExtension(filename);
-            var filePath = $"{_storageFolderPath}\\{filename}";
+            var githubUser = Path.GetFileNameWithoutExtension(fileInfo.Name);
+            var filePath = $"{_storageFolderPath}\\{fileInfo.Name}";
 
             // if file doesn't already exist then need to validate the username
             if (!File.Exists(filePath))
@@ -78,8 +75,8 @@ namespace CandidContribs.Core.Services
             }
 
             // get file contents and save locally - might have changed so already get contents
-            var response = _httpClient.GetAsync(downloadUrl).Result;
-            using (var localFileStream = File.Create($"{_storageFolderPath}\\{filename}"))
+            var response = _httpClient.GetAsync(fileInfo.DownloadUrl).Result;
+            using (var localFileStream = File.Create($"{_storageFolderPath}\\{fileInfo.Name}"))
             {
                 var contentStream = response.Content.ReadAsStreamAsync().Result;
                 contentStream.CopyTo(localFileStream);
