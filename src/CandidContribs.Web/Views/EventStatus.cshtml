@@ -49,7 +49,7 @@
             }
             @foreach (var contributor in Model.GuestbookEntries)
             {
-                var theme = "theme" + rnd.Next(1, 7);
+                var theme = "theme" + rnd.Next(1, 5);
                 <a href="https://github.com/@contributor.Username" target="_blank">
                     <div class="mushroom @theme">
                         <img src="https://avatars1.githubusercontent.com/@contributor.Username" title="@contributor.Username">
