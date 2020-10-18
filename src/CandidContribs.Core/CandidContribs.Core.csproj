@@ -239,6 +239,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Composers\ServicesComposer.cs" />
     <Compile Include="Controllers\Api\DiscordBotController.cs" />
     <Compile Include="Controllers\Api\MailchimpApiController.cs" />
     <Compile Include="Controllers\Api\ScheduleApiController.cs" />
@@ -290,6 +291,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScheduledTasks\GuestbookGitHubComposer.cs" />
     <Compile Include="ScheduledTasks\SpreakerFeedComposer.cs" />
+    <Compile Include="Services\GuestbookGitHubService.cs" />
+    <Compile Include="Services\IGuestbookGitHubService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
