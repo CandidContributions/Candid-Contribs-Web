@@ -17,8 +17,8 @@ namespace CandidContribs.Core.Helpers
             public static class GuestbookGitHubApi
             {
                 public static bool Enabled => bool.TryParse(ConfigurationManager.AppSettings["CandidContribs.GuestbookGitHubApi.Enabled"], out var val) && val;
-                public static string GuestbookUrl => ConfigurationManager.AppSettings["CandidContribs.GuestbookGitHubApi.GuestbookUrl"];
-                public static string UsersUrl => ConfigurationManager.AppSettings["CandidContribs.GuestbookGitHubApi.UsersUrl"];
+                public static string CurrentEvent => ConfigurationManager.AppSettings["CandidContribs.GuestbookGitHubApi.CurrentEvent"];
+                public static string GuestbookRepoFolder => ConfigurationManager.AppSettings["CandidContribs.GuestbookGitHubApi.GuestbookRepoFolder"];
                 public static int DelayStartMins => int.TryParse(ConfigurationManager.AppSettings["CandidContribs.GuestbookGitHubApi.DelayStartMins"], out var val) ? val : 1;
                 public static int RepeatMins => int.TryParse(ConfigurationManager.AppSettings["CandidContribs.GuestbookGitHubApi.RepeatMins"], out var val) ? val : 30;
                 public static string AccessToken => ConfigurationManager.AppSettings["CandidContribs.GuestbookGitHubApi.AccessToken"];

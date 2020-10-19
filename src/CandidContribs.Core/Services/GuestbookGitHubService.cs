@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using CandidContribs.Core.Helpers;
+using CandidContribs.Core.Models.Api;
 using CandidContribs.Core.Models.Api.GitHub;
 using Newtonsoft.Json;
 using Umbraco.Core.Logging;
@@ -22,23 +23,37 @@ namespace CandidContribs.Core.Services
             _logger = logger;
         }
 
-        public void DownloadGuestbookFiles()
+        public void DownloadGuestbookFiles(string eventName)
         {
             using (_httpClient = new HttpClient())
             {
                 _httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("Candid-Contributions-Website", "1"));
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Token", AppSettings.CandidContribs.GuestbookGitHubApi.AccessToken);
 
-                //hard-coded for 'umbrackathon' at the moment
-                SetStorageFolderPath("umbrackathon");
+                SetStorageFolderPath(eventName);
 
-                var folderContents = GetGitHubFolderContents(AppSettings.CandidContribs.GuestbookGitHubApi.GuestbookUrl);
+                var folderContents = GetGitHubFolderContents(AppSettings.CandidContribs.GuestbookGitHubApi.GuestbookRepoFolder);
 
                 foreach (var fileInfo in folderContents.Where(x => x.IsValidFile()))
                 {
                     DownloadGitHubFile(fileInfo);
                 }
             }
+        }
+
+        public void PersistAsJson(string eventName)
+        {
+            var appDataFolder = Umbraco.Core.IO.IOHelper.MapPath("~/App_Data");
+            _storageFolderPath = $"{appDataFolder}\\github\\{eventName}";
+
+            var guestbookEntries = new List<GuestbookEntry>();
+
+            if (Directory.Exists(_storageFolderPath))
+            {
+
+            }
+
+            File.WriteAllText($"{appDataFolder}\\github\\{eventName}.json", JsonConvert.SerializeObject(guestbookEntries));
         }
 
         private void SetStorageFolderPath(string eventName)
@@ -54,7 +69,7 @@ namespace CandidContribs.Core.Services
 
         private List<GitHubFileInfo> GetGitHubFolderContents(string contentsUrl)
         {
-            var contentsJson = _httpClient.GetStringAsync(contentsUrl).Result;
+            var contentsJson = _httpClient.GetStringAsync($"https://api.github.com/repos/{contentsUrl}").Result;
             return JsonConvert.DeserializeObject<List<GitHubFileInfo>>(contentsJson);
         }
 
@@ -87,7 +102,7 @@ namespace CandidContribs.Core.Services
         {
             try
             {
-                var userUrl = new Uri($"{AppSettings.CandidContribs.GuestbookGitHubApi.UsersUrl}{githubUser}");
+                var userUrl = new Uri($"https://api.github.com/users/{githubUser}");
                 var contentsJson = _httpClient.GetStringAsync(userUrl).Result;
                 return true;
             }

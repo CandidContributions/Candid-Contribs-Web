@@ -1,3 +1,10 @@
+@mixin set-mushroom-colour($repeat,$offset,$colour) {
+  a.mushroom:nth-child(#{$repeat}n+#{$offset}) {
+    svg .mushroom-cap { fill: #{$colour}; }
+    img { border-color: #{$colour}; }
+  }
+}
+
 .events-page.event-umbrackathon {
   .has-background {
     background-color: $donjuan;
@@ -43,51 +50,48 @@
   .mushroom-field {
     background-image: url("../../images/field-background.jpg");
     background-repeat: repeat;
-    .mushroom {
+
+    a.mushroom {
       position: relative;
       width: 120px;
       height: 110px;
-      display: inline-block;
+      display: inline-block;    
+      margin: 2px 9px 2px 15px;
+
       svg {
         position: absolute;
         width: 100px;
         height: 100px;
         top: 40px;
-        left: 20px;
+        left: 10px;
         z-index: 1;
+        .mushroom-cap { fill: $mushroom-red; }
       }
+
       img {
         position: absolute;
         width: 45px;
         height: 45px;
         top: 89px;
-        left: 65px;
+        left: 55px;
         z-index: 2;
         border-radius: 50%;
-        border: $umbrackathon-mushroom-red 1px solid;
+        border: $mushroom-red 1px solid;
       }
-      &.theme1 {
-        svg .mushroom-cap { fill: #920303; }
-        img { border-color: #920303; }
-      }
-      &.theme2 {
-        svg .mushroom-cap { fill: rgb(53, 68, 177); }
-        img { border-color: rgb(53, 68, 177); }
-      }
-      &.theme3 {
-        svg .mushroom-cap { fill: #EB6D20; }
-        img { border-color: #EB6D20; }
-      }
-      &.theme4 {
-        svg .mushroom-cap { fill: #920303; }
-        img { border-color: #920303; }
-      }
+
       &:hover {
         animation: shake 0.5s;
         animation-iteration-count: infinite;
       }
     }
+
+    @include set-mushroom-colour(5, 0, #4B0082);
+    @include set-mushroom-colour(5, 1, $mushroom-red);
+    @include set-mushroom-colour(5, 2, #3544b1);
+    @include set-mushroom-colour(5, 3, #c25500);
+    @include set-mushroom-colour(5, 4, #65a11e);
   }
+
   .mushroom-field-bottom {
     background-image: url("../../images/field-bottom.jpg");
     background-repeat: repeat;   

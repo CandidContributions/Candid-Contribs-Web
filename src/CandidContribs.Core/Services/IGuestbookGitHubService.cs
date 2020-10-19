@@ -3,6 +3,8 @@ namespace CandidContribs.Core.Services
 {
     public interface IGuestbookGitHubService
     {
-        void DownloadGuestbookFiles();
+        void DownloadGuestbookFiles(string eventName);
+
+        void PersistAsJson(string eventName);
     }
 }

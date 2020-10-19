@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using CandidContribs.Core.Models.Api;
 using CandidContribs.Core.Models.Published;
 using CandidContribs.Core.Models.Shared;
 using Umbraco.Core.Models.PublishedContent;

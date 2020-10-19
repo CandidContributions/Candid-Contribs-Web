@@ -68,9 +68,20 @@ namespace CandidContribs.Core.ScheduledTasks
                 return false;
             }
 
+            if (string.IsNullOrWhiteSpace(AppSettings.CandidContribs.GuestbookGitHubApi.CurrentEvent))
+            {
+                _logger.Info<GuestbookGitHub>("GuestbookGitHubApi import aborted: no current event set");
+                return false;
+            }
+
             _logger.Info<GuestbookGitHub>("GuestbookGitHubApi import started");
 
-            _guestbookGitHubService.DownloadGuestbookFiles();
+            if (!string.IsNullOrWhiteSpace(AppSettings.CandidContribs.GuestbookGitHubApi.AccessToken))
+            {
+                _guestbookGitHubService.DownloadGuestbookFiles(AppSettings.CandidContribs.GuestbookGitHubApi.CurrentEvent);
+            }
+
+            _guestbookGitHubService.PersistAsJson(AppSettings.CandidContribs.GuestbookGitHubApi.CurrentEvent);
 
             _logger.Info<GuestbookGitHub>("GuestbookGitHubApi import finished");
 

@@ -256,6 +256,7 @@
     <Compile Include="Models\Api\EpisodeModel.cs" />
     <Compile Include="Models\Api\EpisodeResponse.cs" />
     <Compile Include="Models\Api\GitHub\GitHubFileInfo.cs" />
+    <Compile Include="Models\Api\GuestbookContribution.cs" />
     <Compile Include="Models\Forms\EventSignupForm.cs" />
     <Compile Include="Models\Pages\EventStatusModel.cs" />
     <Compile Include="Models\Pages\HomePageModel.cs" />
@@ -286,7 +287,7 @@
     <Compile Include="Models\Published\Settings.generated.cs" />
     <Compile Include="Models\Shared\CheckBoxViewModel.cs" />
     <Compile Include="Models\Shared\EventSignUpViewModel.cs" />
-    <Compile Include="Models\Shared\GuestbookEntry.cs" />
+    <Compile Include="Models\Api\GuestbookEntry.cs" />
     <Compile Include="Models\Shared\SideBySideTextViewModel.cs" />
     <Compile Include="Models\Shared\ImageTextViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
