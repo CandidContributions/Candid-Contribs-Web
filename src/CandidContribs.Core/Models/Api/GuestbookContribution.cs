@@ -8,7 +8,8 @@ namespace CandidContribs.Core.Models.Api
         PullRequest,
         BlogPost,
         IssueTriage,
-        ForumPost
+        ForumPost,
+        Package
     }
     public class GuestbookContribution
     {

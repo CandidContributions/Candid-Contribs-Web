@@ -46,14 +46,37 @@ namespace CandidContribs.Core.Services
             var appDataFolder = Umbraco.Core.IO.IOHelper.MapPath("~/App_Data");
             _storageFolderPath = $"{appDataFolder}\\github\\{eventName}";
 
-            var guestbookEntries = new List<GuestbookEntry>();
+            var entries = new List<GuestbookEntry>();
 
             if (Directory.Exists(_storageFolderPath))
             {
-
+                var files = Directory.GetFiles(_storageFolderPath);
+                foreach (var filename in files)
+                {
+                    entries.Add(GetGuestbookEntryFromMarkdown(filename));
+                }
             }
 
-            File.WriteAllText($"{appDataFolder}\\github\\{eventName}.json", JsonConvert.SerializeObject(guestbookEntries));
+            File.WriteAllText($"{appDataFolder}\\github\\{eventName}.json", JsonConvert.SerializeObject(entries));
+        }
+
+        private GuestbookEntry GetGuestbookEntryFromMarkdown(string filePath)
+        {
+            var entry = new GuestbookEntry
+            {
+                GitHubUsername = Path.GetFileNameWithoutExtension(filePath)
+            };
+
+            var lines = File.ReadLines(filePath);
+            foreach (var line in lines.Where(x => !string.IsNullOrWhiteSpace(x) && x.Contains(":")))
+            {
+                var colon = line.IndexOf(':');
+                var prefix = line.Substring(0, colon).Trim();
+                var content = line.Substring(colon+1).Trim();
+                entry.SetProperty(prefix, content);
+            }
+
+            return entry;
         }
 
         private void SetStorageFolderPath(string eventName)

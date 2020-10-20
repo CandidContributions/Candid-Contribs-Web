@@ -242,8 +242,8 @@
     <Compile Include="Composers\ServicesComposer.cs" />
     <Compile Include="Controllers\Api\DiscordBotController.cs" />
     <Compile Include="Controllers\Api\MailchimpApiController.cs" />
+    <Compile Include="Controllers\Api\GuestbookApiController.cs" />
     <Compile Include="Controllers\Api\ScheduleApiController.cs" />
-    <Compile Include="Controllers\EventStatusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Helpers\AppSettings.cs" />

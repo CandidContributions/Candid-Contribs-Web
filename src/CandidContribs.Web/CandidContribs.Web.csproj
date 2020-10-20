@@ -408,6 +408,7 @@
     <Content Include="Views\Partials\Components\_EventSignUp.cshtml" />
     <Content Include="Views\EventStatus.cshtml" />
     <Content Include="Views\Partials\Components\_EventStatusBanner.cshtml" />
+    <Content Include="Views\BingoSettings.cshtml" />
     <None Include="Web.ConnectionStrings.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
