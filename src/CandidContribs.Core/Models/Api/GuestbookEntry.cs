@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace CandidContribs.Core.Models.Api
@@ -23,10 +24,17 @@ namespace CandidContribs.Core.Models.Api
         [JsonProperty("location")]
         public string Location { get; set; }
 
-        [JsonProperty("status")]
+        [JsonProperty("statusMessage")]
         public string Status { get; set; }
 
+        [JsonProperty("thankYouMessage")]
+        public string ThankYouMessage { get; set; }
+
+        [JsonProperty("contributions")]
         public List<GuestbookContribution> Contributions { get; set; } = new List<GuestbookContribution>();
+
+        [JsonProperty("hasContributions")]
+        public bool HasContributions => Contributions.Any();
 
         public void SetProperty(string prefix, string content)
         {

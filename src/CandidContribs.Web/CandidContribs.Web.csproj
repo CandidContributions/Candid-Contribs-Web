@@ -338,6 +338,8 @@
     <Content Include="images\field-bottom.jpg" />
     <Content Include="images\high-five.png" />
     <Content Include="images\logo.png" />
+    <Content Include="images\logos\GitHub-Mark-64px.png" />
+    <Content Include="images\logos\our-logo.svg" />
     <Content Include="images\logo_white.png" />
     <Content Include="images\mushroom.png" />
     <Content Include="images\mushroom.svg" />
@@ -346,6 +348,8 @@
     <Content Include="images\people\laura_round.png" />
     <Content Include="images\people\lotte_round.png" />
     <Content Include="images\team.png" />
+    <Content Include="images\test\adam-werner.jpg" />
+    <Content Include="images\test\LottePitcher.jpg" />
     <Content Include="images\tools\Discord-Logo-Color.svg" />
     <Content Include="images\tools\GitHub-Mark-120px-plus.png" />
     <Content Include="images\tools\trello-mark-circle.png" />

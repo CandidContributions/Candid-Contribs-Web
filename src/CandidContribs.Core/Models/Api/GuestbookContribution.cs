@@ -1,4 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
+using Umbraco.Core;
 
 namespace CandidContribs.Core.Models.Api
 {
@@ -18,5 +21,12 @@ namespace CandidContribs.Core.Models.Api
 
         [JsonProperty("url")]
         public string Url { get; set; }
+
+        [JsonProperty("typeName")]
+        public string TypeName => ContributionType.ToString();
+
+        [JsonProperty("text")]
+        public string Text { get; set; }
+
     }
 }

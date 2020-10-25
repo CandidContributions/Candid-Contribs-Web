@@ -9,6 +9,7 @@ using CandidContribs.Core.Models.Api;
 using CandidContribs.Core.Models.Api.GitHub;
 using Newtonsoft.Json;
 using Umbraco.Core.Logging;
+using Umbraco.Web.Mvc;
 
 namespace CandidContribs.Core.Services
 {
@@ -54,6 +55,46 @@ namespace CandidContribs.Core.Services
                 foreach (var filename in files)
                 {
                     entries.Add(GetGuestbookEntryFromMarkdown(filename));
+                }
+            }
+
+            // TODO move these strings into back office for the right event (we don't at this point know the event)!
+            string[] messages = new[]
+            {
+                "Thank you for being with us {0}!", 
+                "Wouldn't have been the same without you {0}!", 
+                "High five, {0}, you rock for being here!"
+            };
+
+            var messageToUse = 0;
+
+            foreach (var entry in entries)
+            {
+                if (entry.Contributions.Count == 1)
+                {
+                    entry.ThankYouMessage = "Excellent contribution {0}, H5YR!";
+                }
+                else if (entry.Contributions.Any())
+                {
+                    entry.ThankYouMessage = "Awesome contributions {0}, H5YR!";
+                }
+                else
+                {
+                    entry.ThankYouMessage = messages[messageToUse];
+                    messageToUse++;
+                    if (messageToUse >= messages.Length) messageToUse = 0;
+                }
+
+                var firstname = entry.DisplayName?.Split(' ')[0] ?? "contributor";
+                entry.ThankYouMessage = string.Format(entry.ThankYouMessage, firstname);
+
+                foreach (var contrib in entry.Contributions)
+                {
+                    if (string.IsNullOrWhiteSpace(contrib.Url) || !contrib.Url.ToLower().StartsWith("http"))
+                    {
+                        contrib.Text = contrib.Url;
+                        contrib.Url = null;
+                    }
                 }
             }
 

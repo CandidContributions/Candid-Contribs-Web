@@ -15,7 +15,7 @@ namespace CandidContribs.Core.Controllers.Api
         [HttpGet]
         public JArray GetEntries(string id)
         {
-            Thread.Sleep(2000); // hack to keep 'planting' message visible for a couple of seconds!!
+            Thread.Sleep(3000); // cheeky hack to keep the 'planting' message visible for a few seconds!!
 
             var appDataFolder = UmbracoContext.HttpContext.Server.MapPath("~/App_Data");
             var jsonPath = $"{appDataFolder}\\github\\{id}.json";
