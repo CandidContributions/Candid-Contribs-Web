@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using CandidContribs.Core.Helpers;
 using CandidContribs.Core.Models.Forms;
-using CandidContribs.Core.Models.Published;
 using MailChimp.Net;
 using MailChimp.Net.Models;
 using Umbraco.Core.Logging;

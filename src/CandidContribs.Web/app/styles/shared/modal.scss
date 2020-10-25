@@ -150,4 +150,152 @@
   @media only screen and (min-width: $breakpoint-xlarge) {
     width: 60%;
   }
+} 
+
+.modal-guestbook {
+  width: 90%;
+  padding: 10px;
+
+  h2, p {
+    margin: 10px 0;
+  }
+
+  h2 {
+    margin: 15px 20px 15px 0;
+    span:first-child {
+      font-size: 38px;
+      font-family: $laura;
+    }
+    span + span {
+      font-size: 28px;
+      display: block;
+      font-family: $laura;
+    }
+  }
+
+  &--details {
+    display: inline-block;
+    margin-bottom: 20px;
+
+    &-contributions {
+      padding-right: 20px;
+
+      h3 {
+        padding-top: 0 !important;
+        color: $offblack !important;
+        text-align: left !important;
+      }
+
+      ul {
+        padding-left: 0;
+      }
+
+      li {
+        padding: 5px 0;
+
+        span {
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+        }
+      
+        img {
+          height: 20px;
+          vertical-align: middle;
+          padding-left: 10px;
+        }
+
+        a {
+          color: $offblack !important;
+          text-decoration: none;
+          &:hover {
+            border-bottom: 1px dashed $offblack;
+          }
+        }
+      }
+    }
+
+    &-links {
+      background-color: $bayleaf;
+      color: $white;
+      border-radius: 5px;
+      padding: 10px;
+      min-width: 200px;
+
+      img { 
+        height: 42px;
+        vertical-align: middle;
+        padding-right: 10px;
+      }
+
+      a {
+        color: #FFF;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &--person {
+    display: block;
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px dashed $bayleaf;
+
+    img {
+      height: 120px;
+      border-radius: 50%;
+    }
+
+    &-status {
+      margin-left: 20px;
+      p {
+        line-height: 1.5;
+      }
+    }
+  }
+
+  @media only screen and (min-width: $breakpoint-med) {
+    padding: 20px;
+
+    h2 {
+      span + span {
+        display: inline-block;
+        padding-left: 35px;
+      }
+    }
+
+    &--details {  
+      &-links {
+        border-radius: 10px;
+        padding: 20px;
+      }
+    }
+
+    &--person {
+      display: flex;
+      align-items: center;
+      text-align: left;
+    }
+  }
+
+  @media only screen and (min-width: $breakpoint-large) {
+    width: 80%;
+
+    h2 {
+      margin: 10px 0;
+    }
+
+    &--details {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  @media only screen and (min-width: $breakpoint-xlarge) {
+    width: 60%;
+  }
 }

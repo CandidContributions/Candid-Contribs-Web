@@ -50,10 +50,15 @@
     <h2 class="section-header cancon-hand align--center">Past events</h2>
     foreach (var eventPage in Model.PastEvents)
     {
+        var styling = "width:200px;margin-bottom:20px;";
+        if (eventPage.CssClass == "umbrackathon")
+        {
+            styling = "width:400px;margin-bottom:20px;";
+        }
         <a href="@eventPage.Url">
             <div>
                 <div class="mobile-deets align--center">
-                    <img src="@eventPage.HeaderLogo.MediaUrl()" alt="@eventPage.Name" style="width: 200px;" />
+                    <img src="@eventPage.HeaderLogo.MediaUrl()" alt="@eventPage.Name" style="@styling" />
                 </div>
             </div>
         </a>

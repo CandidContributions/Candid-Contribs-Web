@@ -1,3 +1,10 @@
+@mixin set-mushroom-colour($repeat,$offset,$colour) {
+  a.mushroom:nth-child(#{$repeat}n+#{$offset}) {
+    svg .mushroom-cap { fill: #{$colour}; }
+    img { border-color: #{$colour}; }
+  }
+}
+
 .events-page.event-umbrackathon {
   .has-background {
     background-color: $donjuan;
@@ -43,37 +50,98 @@
   .mushroom-field {
     background-image: url("../../images/field-background.jpg");
     background-repeat: repeat;
-    .mushroom {
+    padding-bottom: 100px;
+
+    h3 {
+      padding-top: 125px; 
+      color: white;
+      text-align: center;
+      font-size: 1.75rem;
+
+      span {
+        animation-name: blink;
+        animation-duration: 1.4s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: both;
+        font-size: 1.3em;
+      }
+      span:nth-child(2) {
+          /* Starts the animation of the third dot with a delay of .2s, otherwise all dots would animate at the same time */
+          animation-delay: .2s;
+      }     
+      span:nth-child(3) {
+          /* Starts the animation of the third dot with a delay of .4s, otherwise all dots would animate at the same time */
+          animation-delay: .4s;
+      }
+    }
+
+    a.mushroom {
       position: relative;
       width: 120px;
       height: 110px;
-      display: inline-block;
-      img {
+      display: inline-block;    
+      margin: 2px 9px 2px 15px;
+
+      svg {
         position: absolute;
         width: 100px;
         height: 100px;
         top: 40px;
-        left: 20px;
+        left: 10px;
         z-index: 1;
+        .mushroom-cap { fill: $mushroom-red; }
       }
-      img:first-child {
+
+      img {
         position: absolute;
         width: 45px;
         height: 45px;
         top: 89px;
-        left: 65px;
+        left: 55px;
         z-index: 2;
         border-radius: 50%;
-        border: $umbrackathon-mushroom-red 1px solid;
+        border: $mushroom-red 1px solid;
       }
+
       &:hover {
-        cursor: pointer;
+        animation: shake 0.5s;
+        animation-iteration-count: infinite;
       }
     }
+
+    @include set-mushroom-colour(5, 0, #4B0082);
+    @include set-mushroom-colour(5, 1, $mushroom-red);
+    @include set-mushroom-colour(5, 2, #3544b1);
+    @include set-mushroom-colour(5, 3, #c25500);
+    @include set-mushroom-colour(5, 4, #65a11e);
   }
-  .mushroom-field-bottom {
-    background-image: url("../../images/field-bottom.jpg");
-    background-repeat: repeat;   
-    height: 145px;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@keyframes blink {
+  /* At the start of the animation the dot has an opacity of .2 */
+  0% {
+    opacity: .2;
+  }
+  /* At 20% the dot is fully visible and then fades out slowly */
+  20% {
+    opacity: 1;
+  }
+  /* Until it reaches an opacity of .2 and the animation can start again */
+  100% {
+    opacity: .2;
   }
 }

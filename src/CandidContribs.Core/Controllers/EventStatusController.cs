@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Mvc;
 using CandidContribs.Core.Helpers;
+using CandidContribs.Core.Models.Api;
 using CandidContribs.Core.Models.Pages;
 using CandidContribs.Core.Models.Shared;
 using Umbraco.Web.Models;
@@ -35,7 +36,7 @@ namespace CandidContribs.Core.Controllers
                 var githubUser = Path.GetFileNameWithoutExtension(filename);
                 eventStatusModel.GuestbookEntries.Add(new GuestbookEntry
                 {
-                    Username = githubUser
+                    GitHubUsername = githubUser
                 });
             }
 

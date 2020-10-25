@@ -47,6 +47,7 @@ namespace CandidContribs.Core.Controllers
                 }
             }
 
+            homePageModel.PastEvents = homePageModel.PastEvents.OrderByDescending(x => x.Part1StartDate).ToList();
             return CurrentTemplate(homePageModel);
         }
     }

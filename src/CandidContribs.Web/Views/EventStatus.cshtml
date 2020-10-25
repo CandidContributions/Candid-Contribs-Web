@@ -1,12 +1,8 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<CandidContribs.Core.Models.Pages.EventStatusModel>
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<EventStatus>
 @{
     Layout = "_Master.cshtml";
 
     var eventsPage = (EventsPage)Model.Parent;
-}
-
-@section Head {
-    <meta http-equiv="refresh" content="60">
 }
 
 <div class="events-page event-@eventsPage.CssClass">
@@ -42,19 +38,12 @@
             @Model.Introduction
         </div>
     </div>
-    <div class="mushroom-field">
-        <div class="container" style="clear: both;">
-            @foreach (var contributor in Model.GuestbookEntries)
-            {
-                <a href="https://github.com/@contributor.Username" target="_blank">
-                    <div class="mushroom">
-                        <img src="https://avatars1.githubusercontent.com/@contributor.Username" title="@contributor.Username">
-                        <img src="~/images/mushroom.png" />
-                    </div>
-                </a>
-            }
-            <p style="clear: both;">&nbsp;</p>
-        </div>
-        <div class="mushroom-field-bottom">&nbsp;</div>
+    <div class="mushroom-field" id="mushroom-field" data-event-name="@eventsPage.CssClass">
+        <h3 id="planting">
+            planting <span>.</span><span>.</span><span>.</span>
+        </h3>
+        <h3 id="replanting" style="display: none;">
+            replanting <span>.</span><span>.</span><span>.</span>
+        </h3>
     </div>
 </div>
