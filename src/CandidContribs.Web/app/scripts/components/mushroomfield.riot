@@ -132,16 +132,7 @@
         guestbookEntries: []
       },
       onBeforeMount() {
-        const fieldSection = document.querySelector('#mushroom-field');
-        var eventName = fieldSection.dataset.eventName;
-        fetch('/umbraco/api/GuestbookApi/GetEntries/' + eventName)
-          .then(response => response.json())
-          .then(data => {
-            this.update({
-              guestbookEntries: data
-            });
-            document.querySelector('#planting').style.display = "none";
-          })
+        plant(this);
       },
       onMounted() {
         // When the user clicks anywhere outside of the modal, close it
@@ -169,5 +160,28 @@
         modal.style.display = "none";
       }
     }
+
+    function plant(guestbook) {
+      const fieldSection = document.querySelector('#mushroom-field');
+      var eventName = fieldSection.dataset.eventName;
+      fetch('/umbraco/api/GuestbookApi/GetEntries/' + eventName)
+        .then(response => response.json())
+        .then(data => {
+          guestbook.update({
+            guestbookEntries: data
+          });
+          document.querySelector('#planting').style.display = "none";
+          document.querySelector('#replanting').style.display = "none";
+          document.querySelector('#mushroom-field div.container').style.display = "block";
+          setTimeout(function(){ replant(guestbook); }, 300000); 
+        });
+    }
+
+    function replant(guestbook) {
+        document.querySelector('#replanting').style.display = "block";
+        document.querySelector('#mushroom-field div.container').style.display = "none";
+        plant(guestbook);
+    }
+
   </script>
 </mushroomfield>
