@@ -8,7 +8,7 @@ We have kept this repo public as we [documented the issues](https://github.com/C
 
 ## Database Restore
 
-*Sorry, we do not have a publicly avaiable version of our v8 database.*
+*Sorry, we do not have a publicly available version of our v8 database.*
 
 ## Build in Visual Studio
 
@@ -25,7 +25,3 @@ To build Front-End (webpack / scss)
 * CMD > `npm install`
 * To watch files run `npm run watch`
 * To build files run `npm run build`
-
-## View Website
-
-View the website in your browser. You can log into the back office using <i>coming soon</i>
