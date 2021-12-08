@@ -1,4 +1,4 @@
-# Candid Contributions Website - (OLD v8 WEBSITE)
+# Candid Contributions (OLD v8) Website
 
 ![GitHub](https://img.shields.io/github/license/candidcontributions/Candid-Contribs-Web)
 
