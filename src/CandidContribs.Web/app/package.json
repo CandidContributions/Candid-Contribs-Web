@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "moment": "^2.25.3",
-    "moment-timezone": "^0.5.31",
+    "moment-timezone": "^0.5.35",
     "riot": "^4.12.4"
   }
 }
