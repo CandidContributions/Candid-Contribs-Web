@@ -28,7 +28,7 @@
     "postcss-preset-env": "^6.7.0",
     "sass-loader": "^8.0.2",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "moment": "^2.25.3",
